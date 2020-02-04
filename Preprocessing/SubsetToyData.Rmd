@@ -1,0 +1,109 @@
+---
+title: "Subsetting to form toy dataset"
+author: "Nils Eling"
+editor_options:
+  chunk_output_type: inline
+---
+
+In this script, we will subset images and the SingleCellExperiment object to inly contain a small number of cells and a small number of channels.
+
+# Read in data
+
+```{r load-data}
+library(SingleCellExperiment)
+library(SingleCellMapper)
+sce <- readRDS("~/switchdrive/Institution/SingleCellMapper/Data/raw_data/sce.rds")
+```
+
+# Read in Images
+
+Next, we will read in the images for subsetting.
+
+```{r read-images}
+A02_tiff <- readImage("~/switchdrive/Institution/SingleCellMapper/Data/raw_data/images/A02_imc.tiff")
+D01_tiff <- readImage("~/switchdrive/Institution/SingleCellMapper/Data/raw_data/images/D01_imc.tiff")
+F01_tiff <- readImage("~/switchdrive/Institution/SingleCellMapper/Data/raw_data/images/F01_imc.tiff")
+
+A02_mask <- readImage("~/switchdrive/Institution/SingleCellMapper/Data/raw_data/images/A02_mask.tiff", as.is=TRUE)
+D01_mask <- readImage("~/switchdrive/Institution/SingleCellMapper/Data/raw_data/images/D01_mask.tiff", as.is=TRUE)
+F01_mask <- readImage("~/switchdrive/Institution/SingleCellMapper/Data/raw_data/images/F01_mask.tiff", as.is=TRUE)
+```
+
+# Subsetting the images
+
+For convenience, we will subset the images to 50 time 50 pixels and 5 channels.
+
+```{r image-subsetting}
+x_dim <- 100
+y_dim <- 100
+z_dim <- 5
+A02_tiff_subsetted <- A02_tiff[1:x_dim,1:y_dim,1:z_dim]
+D01_tiff_subsetted <- D01_tiff[1:x_dim,1:y_dim,1:z_dim]
+F01_tiff_subsetted <- F01_tiff[1:x_dim,1:y_dim,1:z_dim]
+
+A02_mask_subsetted <- A02_mask[1:x_dim,1:y_dim]
+D01_mask_subsetted <- D01_mask[1:x_dim,1:y_dim]
+F01_mask_subsetted <- F01_mask[1:x_dim,1:y_dim]
+```
+
+# Subsetting the SingleCellExperiment object
+
+We now have to match the SingleCellExperiment object to the selected cells.
+
+```{r subsetting-sce}
+A02_cells <- names(table(A02_mask_subsetted*(2^16-1)))[-1]
+D01_cells <- names(table(D01_mask_subsetted*(2^16-1)))[-1]
+F01_cells <- names(table(F01_mask_subsetted*(2^16-1)))[-1]
+sce_subsetted <- cbind(sce[,sce$ImageNb == 1 & sce$CellNb %in% A02_cells],
+                       sce[,sce$ImageNb == 2 & sce$CellNb %in% D01_cells],
+                       sce[,sce$ImageNb == 3 & sce$CellNb %in% F01_cells])
+
+sce_subsetted <- sce_subsetted[1:5,]
+```
+
+# Save Objects for package
+
+The EBImage and tiff package does not support 32-bit encodings for images.
+However, after compensation, the pixels contain floats rather than integers.
+We have to use the ijtiff package to write out the images.
+
+```{r save-objects, message=FALSE}
+write_tif(A02_tiff_subsetted@.Data, 
+          path = "/Users/nils/switchdrive/Institution/SingleCellMapper/Data/for_package/images/A02_imc.tiff",
+          bits_per_sample = 32L, overwrite = TRUE)
+write_tif(D01_tiff_subsetted@.Data, 
+          path = "/Users/nils/switchdrive/Institution/SingleCellMapper/Data/for_package/images/D01_imc.tiff",
+          bits_per_sample = 32L, overwrite = TRUE)
+write_tif(F01_tiff_subsetted@.Data, 
+          path = "/Users/nils/switchdrive/Institution/SingleCellMapper/Data/for_package/images/F01_imc.tiff",
+          bits_per_sample = 32L, overwrite = TRUE)
+
+write_tif(A02_mask_subsetted@.Data, 
+          path = "/Users/nils/switchdrive/Institution/SingleCellMapper/Data/for_package/images/A02_mask.tiff",
+          bits_per_sample = 16L, overwrite = TRUE)
+write_tif(D01_mask_subsetted@.Data, 
+          path = "/Users/nils/switchdrive/Institution/SingleCellMapper/Data/for_package/images/D01_mask.tiff",
+          bits_per_sample = 16L, overwrite = TRUE)
+write_tif(F01_mask_subsetted@.Data, 
+          path = "/Users/nils/switchdrive/Institution/SingleCellMapper/Data/for_package/images/F01_mask.tiff",
+          bits_per_sample = 16L, overwrite = TRUE)
+```
+
+# Create example image lists
+
+```{r example-image-lists}
+masks <- ImageList(A02 = A02_mask_subsetted, D01 = D01_mask_subsetted, F01 = F01_mask_subsetted)
+elementMetadata(masks) <- DataFrame(ImageNb = 1:3)
+
+images <- ImageList(A02 = A02_tiff_subsetted, D01 = D01_tiff_subsetted, F01 = F01_tiff_subsetted)
+channelNames(images) <- rownames(sce_subsetted)
+elementMetadata(images) <- DataFrame(ImageNb = 1:3)
+```
+
+# Save SCE, mask ImageList and images ImageList
+
+```{r}
+save(sce_subsetted, file = "/Users/nils/switchdrive/Institution/SingleCellMapper/Data/for_package/data/pancreasSCE.RData")
+save(masks, file = "/Users/nils/switchdrive/Institution/SingleCellMapper/Data/for_package/data/pancreasMasks.RData")
+save(images, file = "/Users/nils/switchdrive/Institution/SingleCellMapper/Data/for_package/data/pancreasImages.RData")
+```
