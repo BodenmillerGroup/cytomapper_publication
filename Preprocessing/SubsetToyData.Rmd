@@ -59,7 +59,13 @@ sce_subsetted <- cbind(sce[,sce$ImageNb == 1 & sce$CellNb %in% A02_cells],
                        sce[,sce$ImageNb == 3 & sce$CellNb %in% F01_cells])
 
 pancreasSCE <- sce_subsetted[1:5,]
+pancreasSCE$CellType <- sample(c("celltype_A", "celltype_B", "celltype_C"), 
+                               ncol(pancreasSCE), replace = TRUE)
 ```
+
+# Adding toy cell-types and masks
+
+
 
 # Save Objects for package
 
