@@ -1,0 +1,160 @@
+---
+title: "LoadIMCdata"
+author: "Nicolas Damond"
+date: "20/03/2020"
+output: html_document
+---
+
+# Script ot import and format Imaging Mass Cytometry data with SingleCellMapper
+
+IMC data from the paper 
+Damond et al. A Map of Human Type 1 Diabetes Progression by Imaging Mass Cytometry. Cell Metab. 2019 Mar 5;29(3):755-768
+https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6821395/ 
+
+```{r load-packages, message=FALSE}
+library(data.table)
+library(SingleCellExperiment)
+library(SingleCellMapper)
+library(S4Vectors)
+```
+
+# Set the working directory
+```{r set-wd}
+setwd("~/Git/SingleCellMapper_publication/")
+```
+
+# Download the dataset
+The data is available from Mendeley Data: http://dx.doi.org/10.17632/cydmwsfztj.1
+
+The data format is being updated (7z to zip) and image subset.
+Temporarily, the new dataset can be accessed from this link: https://data.mendeley.com/datasets/cydmwsfztj/draft?a=e02ab17c-c014-4338-b379-101424e1c64d
+```{r download-dataset, warning=FALSE}
+# download.file("https://data.mendeley.com/api/datasets/cydmwsfztj/draft/files/59e8da72-5bfe-4289-b95b-28348a6e1222",
+#               destfile="CellTypes.zip")
+# 
+# path="https://data.mendeley.com/api/datasets/cydmwsfztj/draft/files/59e8da72-5bfe-4289-b95b-28348a6e1222"
+# 
+# test <- unzip("https://data.mendeley.com/api/datasets/cydmwsfztj/draft/files/59e8da72-5bfe-4289-b95b-28348a6e1222")
+# 
+# dat <- read.csv("/home/nicolasd/Data/CM2017/cpoutput/All/All_Cells.csv")
+```
+
+# Will have to change the links to Mendeley Data
+```{r read-in-data}
+cells <- DataFrame(fread("/home/nicolasd/Data/CM2017/cpoutput/All/All_Cells.csv", stringsAsFactors = FALSE))
+celltypes <- fread("/home/nicolasd/Data/CM2017/Routput/CellTypes.csv", stringsAsFactors = FALSE)
+image <- fread("/home/nicolasd/Data/CM2017/cpoutput/All/All_Image.csv", stringsAsFactors = FALSE)
+panel <- fread("/home/nicolasd/Data/CM2017/Routput/Panel.csv", stringsAsFactors = FALSE)
+channel.mass <- fread("/home/nicolasd/Data/CM2017/Routput/ChannelMass.csv", header = FALSE)
+```
+
+
+# Load cell-specific, image-specific and feature metadata
+## List of cell features measured by CellProfiler
+```{r cell-specific-data}
+# unique(sub("_c[0-9]*$", "", colnames(cells)))
+```
+
+## Load relevant cell-specific metadata
+```{r cell-metadata}
+cell.metadata <- DataFrame(ImageNumber = cells$ImageNumber,
+                           CellNumber = cells$ObjectNumber,
+                           Pos_X = cells$Location_Center_X,
+                           Pos_Y = cells$Location_Center_Y,
+                           ParentIslet = cells$Parent_Islets,
+                           ClosestIslet = cells$Parent_ExpandedIslets,
+                           Area = cells$AreaShape_Area,
+                           NbNeighbours = cells$Neighbors_NumberOfNeighbors_3)
+```
+
+## List of image features measured by CellProfiler
+
+```{r image-specific-metadata}
+# colnames(image)
+```
+
+## Load relevant image-specific metadata
+```{r image-metadata}
+image.metadata <- DataFrame(ImageNumber = image$ImageNumber,
+                            ImageFullName = image$FileName_CleanStack,
+                            Width = image$Width_CleanStack,
+                            Height = image$Height_CleanStack)
+```
+
+# Merge cell and image metadata
+```{r}
+# Merge the datasets
+cell.metadata <- merge(cell.metadata, image.metadata, by="ImageNumber")
+
+# Define image names
+cell.metadata$ImageName <- sub("_a0_full_clean.tiff", "", cell.metadata$ImageFullName)
+```
+
+# Add rownames
+```{r cell-rownames}
+rownames(cell.metadata) <- paste(cell.metadata$ImageName, cell.metadata$CellNumber, sep = ".")
+```
+
+# Feature-specific metadata
+
+Make sure that the frame number is the same in the image stack and in the dataset
+
+```{r reorder-panel}
+panel <- DataFrame(panel[panel$full == 1,])
+panel <- panel[match(channel.mass$V1, panel$MetalTag),]
+```
+
+# Add short protein names as rownames in the panel
+```{r panel-rownames}
+rownames(panel) <- panel$shortname
+```
+
+# Load single cell measurements
+
+## Single cell intensity measurements
+
+Here, we select the mean intensity
+
+```{r select-counts}
+counts <- cells[, grepl("Intensity_MeanIntensity_CleanStack", colnames(cells))]
+```
+
+## Reorder the counts channels (based on channel number)
+```{r reorder-counts}
+channelNumber <- as.numeric(sub("^.*_c", "", colnames(counts)))
+counts <- counts[, order(channelNumber, decreasing = FALSE)]
+
+```
+
+# Create the SingleCellExperiment object
+## Create SCE
+```{r create-SCE}
+sce <- SingleCellExperiment(assays = list(counts = t(as.matrix(counts))))
+```
+
+## Add transformed counts
+
+exprs = asinh-transformed
+```{r}
+assay(sce, "exprs") <- asinh(counts(sce)/1)
+```
+
+## Set rownames
+```{r create-SCE}
+rownames(sce) <- rownames(panel)
+colnames(sce) <- rownames(cell.metadata)
+```
+
+### Store metadata
+```{r store-metadata}
+colData(sce) <- cell.metadata
+rowData(sce) <- panel
+sce
+```
+
+# Save SCE
+
+```{r save-SCE}
+saveRDS(sce, "~/switchdrive/Institution/SingleCellMapper/Data/raw_data/sce.rds")
+```
+
