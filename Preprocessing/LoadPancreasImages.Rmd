@@ -1,0 +1,102 @@
+---
+title: "LoadPancreasImages"
+author: "Nicolas Damond"
+date: "20/03/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_knit$set(root.dir = "./IMC")
+```
+
+```{r load-packages, message=FALSE}
+library(SingleCellMapper)
+```
+
+# Download the images and load them as an ImageList object
+Here, a subset of 100 images from the pancreas IMC dataset is downloaded.
+
+! The updated Mendeley dataset is not published yet, can be temporarily accessed from https://data.mendeley.com/datasets/cydmwsfztj/draft?a=e02ab17c-c014-4338-b379-101424e1c64d 
+```{r load-images}
+# Download the zipped folder image and unzip it
+# url.images <- ("...")
+# download.file(url.images, destfile = "images.zip")
+# unzip("images.zip")
+# remove.file("images.zip")
+
+# (Temporary code to unzip the images, will be removed when the Mendeley dataset is public)
+fn.images <- ("/home/nicolasd/Data/CM2017/mendeley/ImageSubset.zip")
+unzip(fn.images)
+
+# Load the images as an ImageList object
+images <- loadImages("./", pattern='_full_clean.tiff')
+images
+```
+
+# Download the cell masks and load them as an ImageList object
+```{r load-masks}
+# Download the zipped folder image and unzip it
+# url.masks <- ("...")
+# download.file(url.masks, destfile = "masks.zip")
+# unzip("masks.zip")
+# remove.file("masks.zip")
+
+# (Temporary code to unzip the masks, will be removed when the Mendeley dataset is public)
+fn.masks <- ("/home/nicolasd/Data/CM2017/mendeley/Masks.zip")
+unzip(fn.masks)
+
+# Load the images as an ImageList object
+masks <- loadImages("./", pattern='_full_mask.tiff')
+masks
+```
+
+# Load panel data
+The panel contains antibody-related metadata.
+The channel-mass file is used to match panel information and image stack slices.
+```{r load-panel}
+# Import panel
+# url.panel <- ("...")
+# download.file(url.panel, destfile = "panel.csv")
+# panel <- read.csv(panel.csv)
+
+# Import channel-mass file
+# url.panel <- ("...")
+# download.file(url.panel, destfile = "panel.csv")
+# panel <- read.csv(panel.csv)
+
+# Temporary code
+panel <- read.csv("/home/nicolasd/Data/CM2017/mendeley/Panel.csv")
+channel.mass <- read.csv("/home/nicolasd/Data/CM2017/mendeley/ChannelMass.csv", header=F)
+```
+
+## Scale masks
+The masks are 16-bit images and need to be re-scaled.
+```{r scale-masks}
+masks <- endoapply(masks, function(x) x*(2^16-1))
+```
+
+## Add image names for images and masks
+This information is stored in the metadata columns of the ImageList objects
+and is used by SingleCellMapper to match single cell data, images and mask
+```{r add-image-names}
+mcols(images)$ImageName <- gsub("_a0_full_clean", "", names(images))
+mcols(masks)$ImageName <- gsub("_a0_full_mask", "", names(masks))
+```
+
+# Add protein short names as channel names
+```{r add-channel-names}
+# Match panel and stack slice information
+panel <- panel[panel$full == 1,]
+panel <- panel[match(channel.mass[,1], panel$MetalTag),]
+
+# Add channel names to the  image stacks ImageList object
+channelNames(images) <- panel$shortname
+```
+
+# Save the ImageList objects
+```{r save}
+# save(images)
+# save(masks)
+```
+
