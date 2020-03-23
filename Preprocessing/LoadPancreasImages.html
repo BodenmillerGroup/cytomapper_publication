@@ -11,7 +11,7 @@
 
 <meta name="author" content="Nicolas Damond" />
 
-<meta name="date" content="2020-03-21" />
+<meta name="date" content="2020-03-23" />
 
 <title>LoadPancreasImages</title>
 
@@ -365,7 +365,7 @@ summary {
 
 <h1 class="title toc-ignore">LoadPancreasImages</h1>
 <h4 class="author">Nicolas Damond</h4>
-<h4 class="date">2020-03-21</h4>
+<h4 class="date">2020-03-23</h4>
 
 </div>
 
@@ -393,7 +393,7 @@ fn.images &lt;- (&quot;/home/nicolasd/Data/CM2017/mendeley/ImageSubset.zip&quot;
 unzip(fn.images)
 
 # Load the images as an ImageList object
-images &lt;- loadImages(&quot;./&quot;, pattern='_full_clean.tiff')
+images &lt;- loadImages(&quot;./&quot;, pattern=&quot;_full_clean.tiff&quot;)
 images</code></pre>
 <pre><code>## ImageList containing 100 image(s)
 ## names(100): E02_a0_full_clean E03_a0_full_clean E04_a0_full_clean E05_a0_full_clean E06_a0_full_clean E07_a0_full_clean E08_a0_full_clean E09_a0_full_clean E10_a0_full_clean E11_a0_full_clean E12_a0_full_clean E13_a0_full_clean E14_a0_full_clean E15_a0_full_clean E16_a0_full_clean E17_a0_full_clean E18_a0_full_clean E19_a0_full_clean E20_a0_full_clean E21_a0_full_clean E22_a0_full_clean E23_a0_full_clean E24_a0_full_clean E25_a0_full_clean E26_a0_full_clean E27_a0_full_clean E28_a0_full_clean E29_a0_full_clean E30_a0_full_clean E31_a0_full_clean E32_a0_full_clean E33_a0_full_clean E34_a0_full_clean G01_a0_full_clean G02_a0_full_clean G03_a0_full_clean G04_a0_full_clean G05_a0_full_clean G06_a0_full_clean G07_a0_full_clean G08_a0_full_clean G09_a0_full_clean G10_a0_full_clean G11_a0_full_clean G12_a0_full_clean G13_a0_full_clean G14_a0_full_clean G15_a0_full_clean G16_a0_full_clean G17_a0_full_clean G18_a0_full_clean G19_a0_full_clean G20_a0_full_clean G21_a0_full_clean G22_a0_full_clean G23_a0_full_clean G24_a0_full_clean G25_a0_full_clean G26_a0_full_clean G27_a0_full_clean G28_a0_full_clean G29_a0_full_clean G30_a0_full_clean G31_a0_full_clean G32_a0_full_clean G33_a0_full_clean J01_a0_full_clean J02_a0_full_clean J03_a0_full_clean J04_a0_full_clean J05_a0_full_clean J06_a0_full_clean J07_a0_full_clean J08_a0_full_clean J09_a0_full_clean J10_a0_full_clean J11_a0_full_clean J12_a0_full_clean J13_a0_full_clean J14_a0_full_clean J15_a0_full_clean J16_a0_full_clean J17_a0_full_clean J18_a0_full_clean J19_a0_full_clean J20_a0_full_clean J21_a0_full_clean J22_a0_full_clean J23_a0_full_clean J24_a0_full_clean J25_a0_full_clean J26_a0_full_clean J27_a0_full_clean J28_a0_full_clean J29_a0_full_clean J30_a0_full_clean J31_a0_full_clean J32_a0_full_clean J33_a0_full_clean J34_a0_full_clean 
@@ -412,11 +412,84 @@ fn.masks &lt;- (&quot;/home/nicolasd/Data/CM2017/mendeley/Masks.zip&quot;)
 unzip(fn.masks)
 
 # Load the images as an ImageList object
-masks &lt;- loadImages(&quot;./&quot;, pattern='_full_mask.tiff')
+masks &lt;- loadImages(&quot;./&quot;, pattern=&quot;_full_mask.tiff&quot;)
 masks</code></pre>
 <pre><code>## ImageList containing 845 image(s)
 ## names(845): A01_a0_full_mask A02_a0_full_mask A03_a0_full_mask A04_a0_full_mask A05_a0_full_mask A06_a0_full_mask A07_a0_full_mask A08_a0_full_mask A09_a0_full_mask A10_a0_full_mask A11_a0_full_mask A12_a0_full_mask A13_a0_full_mask A14_a0_full_mask A15_a0_full_mask A16_a0_full_mask A17_a0_full_mask A18_a0_full_mask A19_a0_full_mask A20_a0_full_mask A21_a0_full_mask A22_a0_full_mask A23_a0_full_mask A24_a0_full_mask A25_a0_full_mask A27_a0_full_mask A30_a0_full_mask A31_a0_full_mask A32_a0_full_mask A34_a0_full_mask A35_a0_full_mask A36_a0_full_mask A37_a0_full_mask A38_a0_full_mask A39_a0_full_mask A40_a0_full_mask B01_a0_full_mask B02_a0_full_mask B03_a0_full_mask B04_a0_full_mask B05_a0_full_mask B06_a0_full_mask B07_a0_full_mask B08_a0_full_mask B09_a0_full_mask B10_a0_full_mask B11_a0_full_mask B12_a0_full_mask B13_a0_full_mask B14_a0_full_mask B15_a0_full_mask B16_a0_full_mask B17_a0_full_mask B18_a0_full_mask B19_a0_full_mask B20_a0_full_mask B21_a0_full_mask B22_a0_full_mask B23_a0_full_mask B24_a0_full_mask B25_a0_full_mask B27_a0_full_mask B28_a0_full_mask B29_a0_full_mask B30_a0_full_mask B31_a0_full_mask B32_a0_full_mask C01_a0_full_mask C02_a0_full_mask C03_a0_full_mask C04_a0_full_mask C05_a0_full_mask C06_a0_full_mask C07_a0_full_mask C08_a0_full_mask C09_a0_full_mask C10_a0_full_mask C11_a0_full_mask C12_a0_full_mask C13_a0_full_mask C14_a0_full_mask C15_a0_full_mask C16_a0_full_mask C17_a0_full_mask C18_a0_full_mask C19_a0_full_mask C20_a0_full_mask C21_a0_full_mask C22_a0_full_mask C23_a0_full_mask C24_a0_full_mask C25_a0_full_mask C26_a0_full_mask C27_a0_full_mask C28_a0_full_mask C29_a0_full_mask C30_a0_full_mask C31_a0_full_mask C32_a0_full_mask C33_a0_full_mask C34_a0_full_mask D01_a0_full_mask D02_a0_full_mask D03_a0_full_mask D04_a0_full_mask D05_a0_full_mask D06_a0_full_mask D07_a0_full_mask D08_a0_full_mask D09_a0_full_mask D10_a0_full_mask D11_a0_full_mask D12_a0_full_mask D13_a0_full_mask D14_a0_full_mask D15_a0_full_mask D16_a0_full_mask D17_a0_full_mask D18_a0_full_mask D19_a0_full_mask D20_a0_full_mask D21_a0_full_mask D22_a0_full_mask D23_a0_full_mask D24_a0_full_mask D25_a0_full_mask D26_a0_full_mask D27_a0_full_mask D28_a0_full_mask D29_a0_full_mask D30_a0_full_mask D31_a0_full_mask D32_a0_full_mask D33_a0_full_mask D34_a0_full_mask D35_a0_full_mask D36_a0_full_mask E02_a0_full_mask E03_a0_full_mask E04_a0_full_mask E05_a0_full_mask E06_a0_full_mask E07_a0_full_mask E08_a0_full_mask E09_a0_full_mask E10_a0_full_mask E11_a0_full_mask E12_a0_full_mask E13_a0_full_mask E14_a0_full_mask E15_a0_full_mask E16_a0_full_mask E17_a0_full_mask E18_a0_full_mask E19_a0_full_mask E20_a0_full_mask E21_a0_full_mask E22_a0_full_mask E23_a0_full_mask E24_a0_full_mask E25_a0_full_mask E26_a0_full_mask E27_a0_full_mask E28_a0_full_mask E29_a0_full_mask E30_a0_full_mask E31_a0_full_mask E32_a0_full_mask E33_a0_full_mask E34_a0_full_mask E35_a0_full_mask E36_a0_full_mask E37_a0_full_mask E38_a0_full_mask E39_a0_full_mask E40_a0_full_mask E41_a0_full_mask E42_a0_full_mask F01_a0_full_mask F02_a0_full_mask F03_a0_full_mask F04_a0_full_mask F05_a0_full_mask F06_a0_full_mask F07_a0_full_mask F08_a0_full_mask F09_a0_full_mask F10_a0_full_mask F11_a0_full_mask F12_a0_full_mask F13_a0_full_mask F14_a0_full_mask F15_a0_full_mask F16_a0_full_mask F17_a0_full_mask F18_a0_full_mask F19_a0_full_mask F20_a0_full_mask F21_a0_full_mask F22_a0_full_mask F23_a0_full_mask F24_a0_full_mask F25_a0_full_mask F26_a0_full_mask G01_a0_full_mask G02_a0_full_mask G03_a0_full_mask G04_a0_full_mask G05_a0_full_mask G06_a0_full_mask G07_a0_full_mask G08_a0_full_mask G09_a0_full_mask G10_a0_full_mask G11_a0_full_mask G12_a0_full_mask G13_a0_full_mask G14_a0_full_mask G15_a0_full_mask G16_a0_full_mask G17_a0_full_mask G18_a0_full_mask G19_a0_full_mask G20_a0_full_mask G21_a0_full_mask G22_a0_full_mask G23_a0_full_mask G24_a0_full_mask G25_a0_full_mask G26_a0_full_mask G27_a0_full_mask G28_a0_full_mask G29_a0_full_mask G30_a0_full_mask G31_a0_full_mask G32_a0_full_mask G33_a0_full_mask G34_a0_full_mask G35_a0_full_mask G36_a0_full_mask H01_a0_full_mask H02_a0_full_mask H03_a0_full_mask H04_a0_full_mask H05_a0_full_mask H06_a0_full_mask H07_a0_full_mask H08_a0_full_mask H09_a0_full_mask H10_a0_full_mask H11_a0_full_mask H12_a0_full_mask H13_a0_full_mask H14_a0_full_mask H15_a0_full_mask H16_a0_full_mask H17_a0_full_mask H18_a0_full_mask H19_a0_full_mask H20_a0_full_mask H21_a0_full_mask H22_a0_full_mask H23_a0_full_mask H24_a0_full_mask H25_a0_full_mask H26_a0_full_mask H27_a0_full_mask H28_a0_full_mask H29_a0_full_mask H30_a0_full_mask H31_a0_full_mask H32_a0_full_mask H33_a0_full_mask H34_a0_full_mask H35_a0_full_mask H36_a0_full_mask H37_a0_full_mask H38_a0_full_mask H39_a0_full_mask H40_a0_full_mask H41_a0_full_mask H42_a0_full_mask H43_a0_full_mask H44_a0_full_mask H45_a0_full_mask J01_a0_full_mask J02_a0_full_mask J03_a0_full_mask J04_a0_full_mask J05_a0_full_mask J06_a0_full_mask J07_a0_full_mask J08_a0_full_mask J09_a0_full_mask J10_a0_full_mask J11_a0_full_mask J12_a0_full_mask J13_a0_full_mask J14_a0_full_mask J15_a0_full_mask J16_a0_full_mask J17_a0_full_mask J18_a0_full_mask J19_a0_full_mask J20_a0_full_mask J21_a0_full_mask J22_a0_full_mask J23_a0_full_mask J24_a0_full_mask J25_a0_full_mask J26_a0_full_mask J27_a0_full_mask J28_a0_full_mask J29_a0_full_mask J30_a0_full_mask J31_a0_full_mask J32_a0_full_mask J33_a0_full_mask J34_a0_full_mask J35_a0_full_mask J36_a0_full_mask K01_a0_full_mask K02_a0_full_mask K03_a0_full_mask K04_a0_full_mask K05_a0_full_mask K06_a0_full_mask K07_a0_full_mask K08_a0_full_mask K09_a0_full_mask K10_a0_full_mask K11_a0_full_mask K12_a0_full_mask K13_a0_full_mask K14_a0_full_mask K15_a0_full_mask K16_a0_full_mask K17_a0_full_mask K18_a0_full_mask K19_a0_full_mask K20_a0_full_mask K21_a0_full_mask K22_a0_full_mask K23_a0_full_mask K24_a0_full_mask K25_a0_full_mask K26_a0_full_mask K27_a0_full_mask K28_a0_full_mask K29_a0_full_mask K30_a0_full_mask K31_a0_full_mask K32_a0_full_mask K33_a0_full_mask K34_a0_full_mask K35_a0_full_mask K36_a0_full_mask L01_a0_full_mask L02_a0_full_mask L03_a0_full_mask L04_a0_full_mask L05_a0_full_mask L06_a0_full_mask L07_a0_full_mask L08_a0_full_mask L09_a0_full_mask L10_a0_full_mask L11_a0_full_mask L12_a0_full_mask L13_a0_full_mask L14_a0_full_mask L15_a0_full_mask L16_a0_full_mask L17_a0_full_mask L18_a0_full_mask L19_a0_full_mask L20_a0_full_mask L21_a0_full_mask L22_a0_full_mask L23_a0_full_mask L24_a0_full_mask L25_a0_full_mask L26_a0_full_mask L27_a0_full_mask L28_a0_full_mask L29_a0_full_mask L30_a0_full_mask L31_a0_full_mask L32_a0_full_mask L33_a0_full_mask L34_a0_full_mask L35_a0_full_mask L36_a0_full_mask M01_a0_full_mask M02_a0_full_mask M03_a0_full_mask M04_a0_full_mask M05_a0_full_mask M06_a0_full_mask M07_a0_full_mask M08_a0_full_mask M09_a0_full_mask M10_a0_full_mask M11_a0_full_mask M12_a0_full_mask M13_a0_full_mask M14_a0_full_mask M15_a0_full_mask M16_a0_full_mask M17_a0_full_mask M18_a0_full_mask M19_a0_full_mask M20_a0_full_mask M21_a0_full_mask M22_a0_full_mask M23_a0_full_mask M24_a0_full_mask M25_a0_full_mask M26_a0_full_mask M27_a0_full_mask M28_a0_full_mask M29_a0_full_mask M30_a0_full_mask M31_a0_full_mask M32_a0_full_mask M33_a0_full_mask M34_a0_full_mask M35_a0_full_mask M36_a0_full_mask N25_a0_full_mask N26_a0_full_mask N27_a0_full_mask N28_a0_full_mask N29_a0_full_mask N30_a0_full_mask N31_a0_full_mask N32_a0_full_mask N33_a0_full_mask N34_a0_full_mask N35_a0_full_mask N36_a0_full_mask N37_a0_full_mask N38_a0_full_mask N39_a0_full_mask N40_a0_full_mask N41_a0_full_mask N42_a0_full_mask N43_a0_full_mask N44_a0_full_mask N45_a0_full_mask N46_a0_full_mask N47_a0_full_mask N48_a0_full_mask N49_a0_full_mask N50_a0_full_mask N51_a0_full_mask N52_a0_full_mask N53_a0_full_mask N54_a0_full_mask N55_a0_full_mask N56_a0_full_mask N57_a0_full_mask N58_a0_full_mask N59_a0_full_mask N60_a0_full_mask O01_a0_full_mask O02_a0_full_mask O03_a0_full_mask O04_a0_full_mask O05_a0_full_mask O06_a0_full_mask O07_a0_full_mask O08_a0_full_mask O09_a0_full_mask O10_a0_full_mask O11_a0_full_mask O12_a0_full_mask O13_a0_full_mask O14_a0_full_mask O15_a0_full_mask O16_a0_full_mask O17_a0_full_mask O18_a0_full_mask O19_a0_full_mask O20_a0_full_mask O21_a0_full_mask O22_a0_full_mask O23_a0_full_mask O24_a0_full_mask O25_a0_full_mask O26_a0_full_mask O27_a0_full_mask O28_a0_full_mask O29_a0_full_mask O30_a0_full_mask O31_a0_full_mask O32_a0_full_mask O33_a0_full_mask O34_a0_full_mask O35_a0_full_mask O36_a0_full_mask P05_a0_full_mask P07_a0_full_mask P09_a0_full_mask P15_a0_full_mask P17_a0_full_mask P18_a0_full_mask P21_a0_full_mask P23_a0_full_mask P25_a0_full_mask P28_a0_full_mask P30_a0_full_mask P31_a0_full_mask P32_a0_full_mask P33_a0_full_mask P34_a0_full_mask P35_a0_full_mask P36_a0_full_mask P37_a0_full_mask P38_a0_full_mask P39_a0_full_mask P40_a0_full_mask P41_a0_full_mask P42_a0_full_mask P43_a0_full_mask P44_a0_full_mask P45_a0_full_mask P46_a0_full_mask P47_a0_full_mask P48_a0_full_mask P49_a0_full_mask Q01_a0_full_mask Q02_a0_full_mask Q03_a0_full_mask Q04_a0_full_mask Q05_a0_full_mask Q06_a0_full_mask Q07_a0_full_mask Q08_a0_full_mask Q09_a0_full_mask Q10_a0_full_mask Q11_a0_full_mask Q12_a0_full_mask Q13_a0_full_mask Q14_a0_full_mask Q15_a0_full_mask Q16_a0_full_mask Q17_a0_full_mask Q18_a0_full_mask Q19_a0_full_mask Q20_a0_full_mask Q21_a0_full_mask Q22_a0_full_mask Q23_a0_full_mask Q24_a0_full_mask Q25_a0_full_mask Q26_a0_full_mask Q27_a0_full_mask Q28_a0_full_mask Q29_a0_full_mask Q31_a0_full_mask Q32_a0_full_mask Q33_a0_full_mask Q34_a0_full_mask Q35_a0_full_mask Q36_a0_full_mask R01_a0_full_mask R02_a0_full_mask R03_a0_full_mask R04_a0_full_mask R05_a0_full_mask R06_a0_full_mask R07_a0_full_mask R08_a0_full_mask R09_a0_full_mask R10_a0_full_mask R11_a0_full_mask R12_a0_full_mask R13_a0_full_mask R14_a0_full_mask R15_a0_full_mask R16_a0_full_mask R17_a0_full_mask R18_a0_full_mask R19_a0_full_mask R20_a0_full_mask R21_a0_full_mask R22_a0_full_mask R23_a0_full_mask R24_a0_full_mask R25_a0_full_mask R26_a0_full_mask R27_a0_full_mask R28_a0_full_mask R29_a0_full_mask R30_a0_full_mask R31_a0_full_mask R32_a0_full_mask R33_a0_full_mask R34_a0_full_mask R35_a0_full_mask R36_a0_full_mask S01_a0_full_mask S02_a0_full_mask S03_a0_full_mask S04_a0_full_mask S05_a0_full_mask S06_a0_full_mask S07_a0_full_mask S08_a0_full_mask S09_a0_full_mask S10_a0_full_mask S11_a0_full_mask S12_a0_full_mask S13_a0_full_mask S14_a0_full_mask S15_a0_full_mask S16_a0_full_mask S17_a0_full_mask S18_a0_full_mask S19_a0_full_mask S20_a0_full_mask S21_a0_full_mask S22_a0_full_mask S23_a0_full_mask S25_a0_full_mask S26_a0_full_mask S27_a0_full_mask S28_a0_full_mask S29_a0_full_mask S30_a0_full_mask S31_a0_full_mask S32_a0_full_mask S33_a0_full_mask S34_a0_full_mask S35_a0_full_mask S36_a0_full_mask T05_a0_full_mask T06_a0_full_mask T08_a0_full_mask T09_a0_full_mask T10_a0_full_mask T11_a0_full_mask T12_a0_full_mask T13_a0_full_mask T14_a0_full_mask T15_a0_full_mask T16_a0_full_mask T17_a0_full_mask T18_a0_full_mask T19_a0_full_mask T20_a0_full_mask T21_a0_full_mask T22_a0_full_mask T23_a0_full_mask T24_a0_full_mask T25_a0_full_mask T26_a0_full_mask T27_a0_full_mask T28_a0_full_mask T29_a0_full_mask T30_a0_full_mask T31_a0_full_mask T32_a0_full_mask T33_a0_full_mask T34_a0_full_mask T35_a0_full_mask T36_a0_full_mask T37_a0_full_mask T38_a0_full_mask T39_a0_full_mask T40_a0_full_mask U02_a0_full_mask U03_a0_full_mask U04_a0_full_mask U10_a0_full_mask U11_a0_full_mask U12_a0_full_mask U13_a0_full_mask U14_a0_full_mask U15_a0_full_mask U16_a0_full_mask U22_a0_full_mask U27_a0_full_mask U28_a0_full_mask U29_a0_full_mask U30_a0_full_mask U32_a0_full_mask U33_a0_full_mask U34_a0_full_mask U35_a0_full_mask U36_a0_full_mask U37_a0_full_mask U38_a0_full_mask U39_a0_full_mask U40_a0_full_mask U41_a0_full_mask U42_a0_full_mask U43_a0_full_mask U44_a0_full_mask U45_a0_full_mask U46_a0_full_mask U47_a0_full_mask U48_a0_full_mask U50_a0_full_mask U51_a0_full_mask U52_a0_full_mask V01_a0_full_mask V02_a0_full_mask V03_a0_full_mask V04_a0_full_mask V05_a0_full_mask V06_a0_full_mask V07_a0_full_mask V08_a0_full_mask V09_a0_full_mask V10_a0_full_mask V11_a0_full_mask V12_a0_full_mask V13_a0_full_mask V14_a0_full_mask V15_a0_full_mask V16_a0_full_mask V17_a0_full_mask V18_a0_full_mask V19_a0_full_mask V20_a0_full_mask V21_a0_full_mask V22_a0_full_mask V23_a0_full_mask V24_a0_full_mask V25_a0_full_mask V26_a0_full_mask V27_a0_full_mask V28_a0_full_mask V29_a0_full_mask V30_a0_full_mask V31_a0_full_mask V32_a0_full_mask V33_a0_full_mask V34_a0_full_mask V35_a0_full_mask V36_a0_full_mask W01_a0_full_mask W02_a0_full_mask W03_a0_full_mask W04_a0_full_mask W05_a0_full_mask W06_a0_full_mask W07_a0_full_mask W08_a0_full_mask W09_a0_full_mask W10_a0_full_mask W11_a0_full_mask W12_a0_full_mask W13_a0_full_mask W14_a0_full_mask W15_a0_full_mask W16_a0_full_mask W17_a0_full_mask W18_a0_full_mask W19_a0_full_mask W20_a0_full_mask W21_a0_full_mask W22_a0_full_mask W23_a0_full_mask W24_a0_full_mask W25_a0_full_mask W26_a0_full_mask W27_a0_full_mask W28_a0_full_mask W29_a0_full_mask W31_a0_full_mask W32_a0_full_mask W33_a0_full_mask W34_a0_full_mask W35_a0_full_mask W36_a0_full_mask W37_a0_full_mask W38_a0_full_mask W39_a0_full_mask X01_a0_full_mask X02_a0_full_mask X03_a0_full_mask X04_a0_full_mask X05_a0_full_mask X06_a0_full_mask X07_a0_full_mask X08_a0_full_mask X09_a0_full_mask X10_a0_full_mask X11_a0_full_mask X12_a0_full_mask X13_a0_full_mask X14_a0_full_mask X15_a0_full_mask X16_a0_full_mask X17_a0_full_mask X18_a0_full_mask X19_a0_full_mask X20_a0_full_mask X21_a0_full_mask X22_a0_full_mask X23_a0_full_mask X24_a0_full_mask X26_a0_full_mask X27_a0_full_mask X28_a0_full_mask X29_a0_full_mask X30_a0_full_mask X31_a0_full_mask X32_a0_full_mask X34_a0_full_mask X35_a0_full_mask X36_a0_full_mask Y01_a0_full_mask Y02_a0_full_mask Y03_a0_full_mask Y04_a0_full_mask Y05_a0_full_mask Y06_a0_full_mask Y07_a0_full_mask Y08_a0_full_mask Y09_a0_full_mask Y10_a0_full_mask Y11_a0_full_mask Y12_a0_full_mask Y14_a0_full_mask Y15_a0_full_mask Y16_a0_full_mask Y17_a0_full_mask Y18_a0_full_mask Y19_a0_full_mask Y20_a0_full_mask Y21_a0_full_mask Y22_a0_full_mask Y23_a0_full_mask Y24_a0_full_mask Y25_a0_full_mask Y26_a0_full_mask Y27_a0_full_mask Y28_a0_full_mask Y29_a0_full_mask Y30_a0_full_mask Y31_a0_full_mask 
 ## Each image contains 1 channel</code></pre>
+</div>
+<div id="remove-tiff-files-from-the-root-directory" class="section level1">
+<h1>Remove tiff files from the root directory</h1>
+<pre class="r"><code># Remove image stacks
+images.del &lt;- list.files(&quot;./&quot;, pattern=&quot;_full_clean.tiff&quot;)
+file.remove(images.del)</code></pre>
+<pre><code>##   [1] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+##  [16] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+##  [31] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+##  [46] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+##  [61] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+##  [76] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+##  [91] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE</code></pre>
+<pre class="r"><code># Remove masks
+masks.del &lt;- list.files(&quot;./&quot;, pattern=&quot;_full_mask.tiff&quot;)
+file.remove(masks.del)</code></pre>
+<pre><code>##   [1] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+##  [16] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+##  [31] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+##  [46] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+##  [61] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+##  [76] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+##  [91] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [106] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [121] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [136] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [151] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [166] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [181] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [196] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [211] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [226] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [241] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [256] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [271] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [286] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [301] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [316] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [331] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [346] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [361] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [376] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [391] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [406] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [421] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [436] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [451] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [466] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [481] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [496] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [511] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [526] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [541] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [556] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [571] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [586] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [601] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [616] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [631] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [646] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [661] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [676] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [691] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [706] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [721] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [736] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [751] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [766] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [781] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [796] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [811] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [826] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+## [841] TRUE TRUE TRUE TRUE TRUE</code></pre>
 </div>
 <div id="load-panel-data" class="section level1">
 <h1>Load panel data</h1>
@@ -461,8 +534,8 @@ channelNames(images) &lt;- panel$shortname</code></pre>
 </div>
 <div id="save-the-imagelist-objects" class="section level1">
 <h1>Save the ImageList objects</h1>
-<pre class="r"><code># save(images)
-# save(masks)</code></pre>
+<pre class="r"><code>saveRDS(images, &quot;pancreas_images.rds&quot;)
+saveRDS(masks, &quot;pancreas_masks.rds&quot;)</code></pre>
 </div>
 
 

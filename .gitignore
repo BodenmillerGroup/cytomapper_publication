@@ -1,1 +1,4 @@
 .DS_Store
+Preprocessing/IMC/pancreas_sce.rds
+Preprocessing/IMC/pancreas_images.rds
+Preprocessing/IMC/pancreas_masks.rds

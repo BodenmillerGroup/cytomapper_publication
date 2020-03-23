@@ -11,7 +11,7 @@
 
 <meta name="author" content="Nicolas Damond" />
 
-<meta name="date" content="2020-03-21" />
+<meta name="date" content="2020-03-23" />
 
 <title>LoadPancreasData</title>
 
@@ -365,7 +365,7 @@ summary {
 
 <h1 class="title toc-ignore">LoadPancreasData</h1>
 <h4 class="author">Nicolas Damond</h4>
-<h4 class="date">2020-03-21</h4>
+<h4 class="date">2020-03-23</h4>
 
 </div>
 
@@ -388,7 +388,7 @@ library(SingleCellMapper)</code></pre>
 # url.cells &lt;- (&quot;...&quot;)
 # download.file(url.cells, destfile = &quot;CellSubset.zip&quot;)
 # unzip(&quot;CellSubset.zip&quot;)
-# remove.file(&quot;CellSubset.zip&quot;)
+# file.remove(&quot;CellSubset.zip&quot;)
 
 # (Temporary code to unzip the data, will be removed when the Mendeley dataset is public)
 fn.cells &lt;- (&quot;/home/nicolasd/Data/CM2017/mendeley/CellSubset.zip&quot;)
@@ -403,7 +403,7 @@ cells &lt;- read.csv(&quot;CellSubset.csv&quot;, stringsAsFactors = FALSE)</code
 # url.image &lt;- (&quot;...&quot;)
 # download.file(url.image, destfile = &quot;Image.zip&quot;)
 # unzip(&quot;Image.zip&quot;)
-# remove.file(&quot;Image.zip&quot;)
+# file.remove(&quot;Image.zip&quot;)
 
 # (Temporary code to unzip the data, will be removed when the Mendeley dataset is public)
 fn.images &lt;- (&quot;/home/nicolasd/Data/CM2017/mendeley/Image.zip&quot;)
@@ -418,7 +418,7 @@ image &lt;- read.csv(&quot;All_Image.csv&quot;, stringsAsFactors = FALSE)</code>
 # url.celltypes &lt;- (&quot;...&quot;)
 # download.file(url.celltypes, destfile = &quot;CellTypes.zip&quot;)
 # unzip(&quot;CellTypes.zip&quot;)
-# remove.file(&quot;CellTypes.zip&quot;)
+# file.remove(&quot;CellTypes.zip&quot;)
 
 # (Temporary code to unzip the data, will be removed when the Mendeley dataset is public)
 fn.celltypes &lt;- (&quot;/home/nicolasd/Data/CM2017/mendeley/CellTypes.zip&quot;)
@@ -426,6 +426,21 @@ unzip(fn.celltypes)
 
 # Read-in the data
 celltypes &lt;- read.csv(&quot;CellTypes.csv&quot;, stringsAsFactors = FALSE)</code></pre>
+</div>
+<div id="read-in-donor-information" class="section level1">
+<h1>Read-in donor information</h1>
+<pre class="r"><code># Download the zipped folder image and unzip it
+# url.donors &lt;- (&quot;...&quot;)
+# download.file(url.donors, destfile = &quot;Donors.zip&quot;)
+# unzip(&quot;Donors.zip&quot;)
+# file.remove(&quot;Donors.zip&quot;)
+
+# (Temporary code to unzip the data, will be removed when the Mendeley dataset is public)
+fn.donors &lt;- (&quot;/home/nicolasd/Data/CM2017/mendeley/Donors.zip&quot;)
+unzip(fn.donors)
+
+# Read-in the data
+donors &lt;- read.csv(&quot;Donors.csv&quot;, stringsAsFactors = FALSE)</code></pre>
 </div>
 <div id="load-relevant-cell-specific-metadata" class="section level1">
 <h1>Load relevant cell-specific metadata</h1>
@@ -442,8 +457,9 @@ celltypes &lt;- read.csv(&quot;CellTypes.csv&quot;, stringsAsFactors = FALSE)</c
 <h1>Load relevant image-specific metadata</h1>
 <pre class="r"><code>image.metadata &lt;- DataFrame(ImageNumber = image$ImageNumber,
                             ImageFullName = image$FileName_CleanStack,
-                            Width = image$Width_CleanStack,
-                            Height = image$Height_CleanStack)</code></pre>
+                            slide = image$Metadata_Slide,
+                            width = image$Width_CleanStack,
+                            height = image$Height_CleanStack)</code></pre>
 </div>
 <div id="merge-cell-and-image-metadata" class="section level1">
 <h1>Merge cell and image metadata</h1>
@@ -463,6 +479,10 @@ cell.metadata$id &lt;- paste(cell.metadata$ImageName, cell.metadata$CellNumber, 
 cell.metadata &lt;- merge(cell.metadata,
                        celltypes[, c(&quot;id&quot;, &quot;CellCat&quot;, &quot;CellType&quot;)],
                        by=&quot;id&quot;)</code></pre>
+</div>
+<div id="import-donor-metadata" class="section level1">
+<h1>Import donor metadata</h1>
+<pre class="r"><code>cell.metadata &lt;- merge(cell.metadata, donors, by=&quot;slide&quot;)</code></pre>
 </div>
 <div id="add-rownames-to-cell-metadata" class="section level1">
 <h1>Add rownames to cell metadata</h1>
@@ -530,7 +550,7 @@ sce</code></pre>
 ## rownames(38): H3 SMA ... Ir191 Ir193
 ## rowData names(15): TubeNb MetalTag ... miCAT2 miCAT
 ## colnames(252059): E02_1 E02_10 ... J34_998 J34_999
-## colData names(15): id ImageNumber ... CellCat CellType
+## colData names(26): slide id ... Ethnicity BMI
 ## reducedDimNames(0):
 ## spikeNames(0):
 ## altExpNames(0):</code></pre>
@@ -538,6 +558,11 @@ sce</code></pre>
 <div id="save-sce" class="section level1">
 <h1>Save SCE</h1>
 <pre class="r"><code>saveRDS(sce, &quot;pancreas_sce.rds&quot;)</code></pre>
+</div>
+<div id="delete-unneeded-csv-files-from-the-root-directory" class="section level1">
+<h1>Delete unneeded CSV files from the root directory</h1>
+<pre class="r"><code>file.remove(&quot;CellSubset.csv&quot;, &quot;All_Image.csv&quot;, &quot;CellTypes.csv&quot;, &quot;Donors.csv&quot;)</code></pre>
+<pre><code>## [1] TRUE TRUE TRUE TRUE</code></pre>
 </div>
 
 

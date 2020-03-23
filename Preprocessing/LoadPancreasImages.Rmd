@@ -35,7 +35,7 @@ fn.images <- ("/home/nicolasd/Data/CM2017/mendeley/ImageSubset.zip")
 unzip(fn.images)
 
 # Load the images as an ImageList object
-images <- loadImages("./", pattern='_full_clean.tiff')
+images <- loadImages("./", pattern="_full_clean.tiff")
 images
 ```
 
@@ -52,8 +52,19 @@ fn.masks <- ("/home/nicolasd/Data/CM2017/mendeley/Masks.zip")
 unzip(fn.masks)
 
 # Load the images as an ImageList object
-masks <- loadImages("./", pattern='_full_mask.tiff')
+masks <- loadImages("./", pattern="_full_mask.tiff")
 masks
+```
+
+# Remove tiff files from the root directory
+```{r clean-up, message=F}
+# Remove image stacks
+images.del <- list.files("./", pattern="_full_clean.tiff")
+file.remove(images.del)
+
+# Remove masks
+masks.del <- list.files("./", pattern="_full_mask.tiff")
+file.remove(masks.del)
 ```
 
 # Load panel data
@@ -106,7 +117,7 @@ channelNames(images) <- panel$shortname
 
 # Save the ImageList objects
 ```{r save}
-# save(images)
-# save(masks)
+saveRDS(images, "pancreas_images.rds")
+saveRDS(masks, "pancreas_masks.rds")
 ```
 
