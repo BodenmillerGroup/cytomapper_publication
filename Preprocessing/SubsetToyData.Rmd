@@ -11,7 +11,7 @@ In this script, we will subset images and the SingleCellExperiment object to onl
 
 ```{r load-data}
 library(SingleCellExperiment)
-library(SingleCellMapper)
+library(IMCMapper)
 sce <- readRDS("~/switchdrive/Institution/SingleCellMapper/Data/raw_data/sce.rds")
 ```
 
@@ -73,51 +73,51 @@ We have to use the ijtiff package to write out the images.
 ```{r save-objects, message=FALSE}
 library(ijtiff)
 write_tif(imageData(transpose(A02_tiff_subsetted)), 
-          path = "/Users/nils/Github/SingleCellMapper/inst/extdata/A02_imc.tiff",
+          path = "/Users/nils/Github/IMCMapper/inst/extdata/A02_imc.tiff",
           bits_per_sample = 32L, overwrite = TRUE)
-system("mv /Users/nils/Github/SingleCellMapper/inst/extdata/A02_imc.tif /Users/nils/Github/SingleCellMapper/inst/extdata/A02_imc.tiff")
+system("mv /Users/nils/Github/IMCMapper/inst/extdata/A02_imc.tif /Users/nils/Github/IMCMapper/inst/extdata/A02_imc.tiff")
 write_tif(imageData(transpose(D01_tiff_subsetted)), 
-          path = "/Users/nils/Github/SingleCellMapper/inst/extdata/D01_imc.tiff",
+          path = "/Users/nils/Github/IMCMapper/inst/extdata/D01_imc.tiff",
           bits_per_sample = 32L, overwrite = TRUE)
-system("mv /Users/nils/Github/SingleCellMapper/inst/extdata/D01_imc.tif /Users/nils/Github/SingleCellMapper/inst/extdata/D01_imc.tiff")
+system("mv /Users/nils/Github/IMCMapper/inst/extdata/D01_imc.tif /Users/nils/Github/IMCMapper/inst/extdata/D01_imc.tiff")
 write_tif(imageData(transpose(F01_tiff_subsetted)), 
-          path = "/Users/nils/Github/SingleCellMapper/inst/extdata/F01_imc.tiff",
+          path = "/Users/nils/Github/IMCMapper/inst/extdata/F01_imc.tiff",
           bits_per_sample = 32L, overwrite = TRUE)
-system("mv /Users/nils/Github/SingleCellMapper/inst/extdata/F01_imc.tif /Users/nils/Github/SingleCellMapper/inst/extdata/F01_imc.tiff")
+system("mv /Users/nils/Github/IMCMapper/inst/extdata/F01_imc.tif /Users/nils/Github/IMCMapper/inst/extdata/F01_imc.tiff")
 
 write_tif(imageData(transpose(A02_mask_subsetted)), 
-          path = "/Users/nils/Github/SingleCellMapper/inst/extdata/A02_mask.tiff",
+          path = "/Users/nils/Github/IMCMapper/inst/extdata/A02_mask.tiff",
           bits_per_sample = 16L, overwrite = TRUE)
-system("mv /Users/nils/Github/SingleCellMapper/inst/extdata/A02_mask.tif /Users/nils/Github/SingleCellMapper/inst/extdata/A02_mask.tiff")
+system("mv /Users/nils/Github/IMCMapper/inst/extdata/A02_mask.tif /Users/nils/Github/IMCMapper/inst/extdata/A02_mask.tiff")
 write_tif(imageData(transpose(D01_mask_subsetted)), 
-          path = "/Users/nils/Github/SingleCellMapper/inst/extdata/D01_mask.tiff",
+          path = "/Users/nils/Github/IMCMapper/inst/extdata/D01_mask.tiff",
           bits_per_sample = 16L, overwrite = TRUE)
-system("mv /Users/nils/Github/SingleCellMapper/inst/extdata/D01_mask.tif /Users/nils/Github/SingleCellMapper/inst/extdata/D01_mask.tiff")
+system("mv /Users/nils/Github/IMCMapper/inst/extdata/D01_mask.tif /Users/nils/Github/IMCMapper/inst/extdata/D01_mask.tiff")
 write_tif(imageData(transpose(F01_mask_subsetted)), 
-          path = "/Users/nils/Github/SingleCellMapper/inst/extdata/F01_mask.tiff",
+          path = "/Users/nils/Github/IMCMapper/inst/extdata/F01_mask.tiff",
           bits_per_sample = 16L, overwrite = TRUE)
-system("mv /Users/nils/Github/SingleCellMapper/inst/extdata/F01_mask.tif /Users/nils/Github/SingleCellMapper/inst/extdata/F01_mask.tiff")
+system("mv /Users/nils/Github/IMCMapper/inst/extdata/F01_mask.tif /Users/nils/Github/IMCMapper/inst/extdata/F01_mask.tiff")
 ```
 
 # Create example image lists
 
 ```{r example-image-lists}
-pancreasMasks <- ImageList(A02_mask = A02_mask_subsetted, 
+pancreasMasks <- IMCImageList(A02_mask = A02_mask_subsetted, 
                            D01_mask = D01_mask_subsetted, 
                            F01_mask = F01_mask_subsetted)
 elementMetadata(pancreasMasks) <- DataFrame(ImageNb = 1:3)
 
-pancreasImages <- ImageList(A02_imc = A02_tiff_subsetted, 
+pancreasImages <- IMCImageList(A02_imc = A02_tiff_subsetted, 
                             D01_imc = D01_tiff_subsetted, 
                             F01_imc = F01_tiff_subsetted)
 channelNames(pancreasImages) <- rownames(pancreasSCE)
 elementMetadata(pancreasImages) <- DataFrame(ImageNb = 1:3)
 ```
 
-# Save SCE, mask ImageList and images ImageList
+# Save SCE, mask IMCImageList and images IMCImageList
 
 ```{r}
-save(pancreasSCE, file = "/Users/nils/Github/SingleCellMapper/data/pancreasSCE.RData")
-save(pancreasMasks, file = "/Users/nils/Github/SingleCellMapper/data/pancreasMasks.RData")
-save(pancreasImages, file = "/Users/nils/Github/SingleCellMapper/data/pancreasImages.RData")
+save(pancreasSCE, file = "/Users/nils/Github/IMCMapper/data/pancreasSCE.RData")
+save(pancreasMasks, file = "/Users/nils/Github/IMCMapper/data/pancreasMasks.RData")
+save(pancreasImages, file = "/Users/nils/Github/IMCMapper/data/pancreasImages.RData")
 ```
