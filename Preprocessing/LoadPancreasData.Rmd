@@ -18,7 +18,7 @@ knitr::opts_knit$set(root.dir = "./IMC")
 ```{r load-packages, message=FALSE}
 library(S4Vectors)
 library(SingleCellExperiment)
-library(SingleCellMapper)
+library(cytomapper)
 ```
 
 # Read-in single-cell data

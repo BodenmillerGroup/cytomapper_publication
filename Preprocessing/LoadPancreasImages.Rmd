@@ -16,7 +16,7 @@ knitr::opts_knit$set(root.dir = "./IMC")
 - Dataset: [accessible from Mendeley Data](http://dx.doi.org/10.17632/cydmwsfztj.2)
 
 ```{r load-packages, message=FALSE}
-library(SingleCellMapper)
+library(cytomapper)
 ```
 
 # Download the images and load them as an ImageList object
