@@ -1,2 +1,2 @@
-# SingleCellMapper_publication
-Scripts for testing and validating the SingleCellMapper package 
+# cytomapper_publication
+Scripts for testing and validating the cytomapper package.
