@@ -62,6 +62,7 @@ pancreasSCE <- sce_subsetted[1:5,]
 set.seed(12345)
 pancreasSCE$CellType <- sample(c("celltype_A", "celltype_B", "celltype_C"), 
                                ncol(pancreasSCE), replace = TRUE)
+pancreasSCE$Pattern <- pancreasSCE$Pos_X < 50
 ```
 
 # Save Objects for package
