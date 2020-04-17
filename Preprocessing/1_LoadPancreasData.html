@@ -11,9 +11,9 @@
 
 <meta name="author" content="Nicolas Damond" />
 
-<meta name="date" content="2020-03-23" />
+<meta name="date" content="2020-04-17" />
 
-<title>LoadPancreasImages</title>
+<title>LoadPancreasData</title>
 
 <script>/*! jQuery v1.11.3 | (c) 2005, 2015 jQuery Foundation, Inc. | jquery.org/license */
 !function(a,b){"object"==typeof module&&"object"==typeof module.exports?module.exports=a.document?b(a,!0):function(a){if(!a.document)throw new Error("jQuery requires a window with a document");return b(a)}:b(a)}("undefined"!=typeof window?window:this,function(a,b){var c=[],d=c.slice,e=c.concat,f=c.push,g=c.indexOf,h={},i=h.toString,j=h.hasOwnProperty,k={},l="1.11.3",m=function(a,b){return new m.fn.init(a,b)},n=/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g,o=/^-ms-/,p=/-([\da-z])/gi,q=function(a,b){return b.toUpperCase()};m.fn=m.prototype={jquery:l,constructor:m,selector:"",length:0,toArray:function(){return d.call(this)},get:function(a){return null!=a?0>a?this[a+this.length]:this[a]:d.call(this)},pushStack:function(a){var b=m.merge(this.constructor(),a);return b.prevObject=this,b.context=this.context,b},each:function(a,b){return m.each(this,a,b)},map:function(a){return this.pushStack(m.map(this,function(b,c){return a.call(b,c,b)}))},slice:function(){return this.pushStack(d.apply(this,arguments))},first:function(){return this.eq(0)},last:function(){return this.eq(-1)},eq:function(a){var b=this.length,c=+a+(0>a?b:0);return this.pushStack(c>=0&&b>c?[this[c]]:[])},end:function(){return this.prevObject||this.constructor(null)},push:f,sort:c.sort,splice:c.splice},m.extend=m.fn.extend=function(){var a,b,c,d,e,f,g=arguments[0]||{},h=1,i=arguments.length,j=!1;for("boolean"==typeof g&&(j=g,g=arguments[h]||{},h++),"object"==typeof g||m.isFunction(g)||(g={}),h===i&&(g=this,h--);i>h;h++)if(null!=(e=arguments[h]))for(d in e)a=g[d],c=e[d],g!==c&&(j&&c&&(m.isPlainObject(c)||(b=m.isArray(c)))?(b?(b=!1,f=a&&m.isArray(a)?a:[]):f=a&&m.isPlainObject(a)?a:{},g[d]=m.extend(j,f,c)):void 0!==c&&(g[d]=c));return g},m.extend({expando:"jQuery"+(l+Math.random()).replace(/\D/g,""),isReady:!0,error:function(a){throw new Error(a)},noop:function(){},isFunction:function(a){return"function"===m.type(a)},isArray:Array.isArray||function(a){return"array"===m.type(a)},isWindow:function(a){return null!=a&&a==a.window},isNumeric:function(a){return!m.isArray(a)&&a-parseFloat(a)+1>=0},isEmptyObject:function(a){var b;for(b in a)return!1;return!0},isPlainObject:function(a){var b;if(!a||"object"!==m.type(a)||a.nodeType||m.isWindow(a))return!1;try{if(a.constructor&&!j.call(a,"constructor")&&!j.call(a.constructor.prototype,"isPrototypeOf"))return!1}catch(c){return!1}if(k.ownLast)for(b in a)return j.call(a,b);for(b in a);return void 0===b||j.call(a,b)},type:function(a){return null==a?a+"":"object"==typeof a||"function"==typeof a?h[i.call(a)]||"object":typeof a},globalEval:function(b){b&&m.trim(b)&&(a.execScript||function(b){a.eval.call(a,b)})(b)},camelCase:function(a){return a.replace(o,"ms-").replace(p,q)},nodeName:function(a,b){return a.nodeName&&a.nodeName.toLowerCase()===b.toLowerCase()},each:function(a,b,c){var d,e=0,f=a.length,g=r(a);if(c){if(g){for(;f>e;e++)if(d=b.apply(a[e],c),d===!1)break}else for(e in a)if(d=b.apply(a[e],c),d===!1)break}else if(g){for(;f>e;e++)if(d=b.call(a[e],e,a[e]),d===!1)break}else for(e in a)if(d=b.call(a[e],e,a[e]),d===!1)break;return a},trim:function(a){return null==a?"":(a+"").replace(n,"")},makeArray:function(a,b){var c=b||[];return null!=a&&(r(Object(a))?m.merge(c,"string"==typeof a?[a]:a):f.call(c,a)),c},inArray:function(a,b,c){var d;if(b){if(g)return g.call(b,a,c);for(d=b.length,c=c?0>c?Math.max(0,d+c):c:0;d>c;c++)if(c in b&&b[c]===a)return c}return-1},merge:function(a,b){var c=+b.length,d=0,e=a.length;while(c>d)a[e++]=b[d++];if(c!==c)while(void 0!==b[d])a[e++]=b[d++];return a.length=e,a},grep:function(a,b,c){for(var d,e=[],f=0,g=a.length,h=!c;g>f;f++)d=!b(a[f],f),d!==h&&e.push(a[f]);return e},map:function(a,b,c){var d,f=0,g=a.length,h=r(a),i=[];if(h)for(;g>f;f++)d=b(a[f],f,c),null!=d&&i.push(d);else for(f in a)d=b(a[f],f,c),null!=d&&i.push(d);return e.apply([],i)},guid:1,proxy:function(a,b){var c,e,f;return"string"==typeof b&&(f=a[b],b=a,a=f),m.isFunction(a)?(c=d.call(arguments,2),e=function(){return a.apply(b||this,c.concat(d.call(arguments)))},e.guid=a.guid=a.guid||m.guid++,e):void 0},now:function(){return+new Date},support:k}),m.each("Boolean Number String Function Array Date RegExp Object Error".split(" "),function(a,b){h["[object "+b+"]"]=b.toLowerCase()});function r(a){var b="length"in a&&a.length,c=m.type(a);return"function"===c||m.isWindow(a)?!1:1===a.nodeType&&b?!0:"array"===c||0===b||"number"==typeof b&&b>0&&b-1 in a}var s=function(a){var b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u="sizzle"+1*new Date,v=a.document,w=0,x=0,y=ha(),z=ha(),A=ha(),B=function(a,b){return a===b&&(l=!0),0},C=1<<31,D={}.hasOwnProperty,E=[],F=E.pop,G=E.push,H=E.push,I=E.slice,J=function(a,b){for(var c=0,d=a.length;d>c;c++)if(a[c]===b)return c;return-1},K="checked|selected|async|autofocus|autoplay|controls|defer|disabled|hidden|ismap|loop|multiple|open|readonly|required|scoped",L="[\\x20\\t\\r\\n\\f]",M="(?:\\\\.|[\\w-]|[^\\x00-\\xa0])+",N=M.replace("w","w#"),O="\\["+L+"*("+M+")(?:"+L+"*([*^$|!~]?=)"+L+"*(?:'((?:\\\\.|[^\\\\'])*)'|\"((?:\\\\.|[^\\\\\"])*)\"|("+N+"))|)"+L+"*\\]",P=":("+M+")(?:\\((('((?:\\\\.|[^\\\\'])*)'|\"((?:\\\\.|[^\\\\\"])*)\")|((?:\\\\.|[^\\\\()[\\]]|"+O+")*)|.*)\\)|)",Q=new RegExp(L+"+","g"),R=new RegExp("^"+L+"+|((?:^|[^\\\\])(?:\\\\.)*)"+L+"+$","g"),S=new RegExp("^"+L+"*,"+L+"*"),T=new RegExp("^"+L+"*([>+~]|"+L+")"+L+"*"),U=new RegExp("="+L+"*([^\\]'\"]*?)"+L+"*\\]","g"),V=new RegExp(P),W=new RegExp("^"+N+"$"),X={ID:new RegExp("^#("+M+")"),CLASS:new RegExp("^\\.("+M+")"),TAG:new RegExp("^("+M.replace("w","w*")+")"),ATTR:new RegExp("^"+O),PSEUDO:new RegExp("^"+P),CHILD:new RegExp("^:(only|first|last|nth|nth-last)-(child|of-type)(?:\\("+L+"*(even|odd|(([+-]|)(\\d*)n|)"+L+"*(?:([+-]|)"+L+"*(\\d+)|))"+L+"*\\)|)","i"),bool:new RegExp("^(?:"+K+")$","i"),needsContext:new RegExp("^"+L+"*[>+~]|:(even|odd|eq|gt|lt|nth|first|last)(?:\\("+L+"*((?:-\\d)?\\d*)"+L+"*\\)|)(?=[^-]|$)","i")},Y=/^(?:input|select|textarea|button)$/i,Z=/^h\d$/i,$=/^[^{]+\{\s*\[native \w/,_=/^(?:#([\w-]+)|(\w+)|\.([\w-]+))$/,aa=/[+~]/,ba=/'|\\/g,ca=new RegExp("\\\\([\\da-f]{1,6}"+L+"?|("+L+")|.)","ig"),da=function(a,b,c){var d="0x"+b-65536;return d!==d||c?b:0>d?String.fromCharCode(d+65536):String.fromCharCode(d>>10|55296,1023&d|56320)},ea=function(){m()};try{H.apply(E=I.call(v.childNodes),v.childNodes),E[v.childNodes.length].nodeType}catch(fa){H={apply:E.length?function(a,b){G.apply(a,I.call(b))}:function(a,b){var c=a.length,d=0;while(a[c++]=b[d++]);a.length=c-1}}}function ga(a,b,d,e){var f,h,j,k,l,o,r,s,w,x;if((b?b.ownerDocument||b:v)!==n&&m(b),b=b||n,d=d||[],k=b.nodeType,"string"!=typeof a||!a||1!==k&&9!==k&&11!==k)return d;if(!e&&p){if(11!==k&&(f=_.exec(a)))if(j=f[1]){if(9===k){if(h=b.getElementById(j),!h||!h.parentNode)return d;if(h.id===j)return d.push(h),d}else if(b.ownerDocument&&(h=b.ownerDocument.getElementById(j))&&t(b,h)&&h.id===j)return d.push(h),d}else{if(f[2])return H.apply(d,b.getElementsByTagName(a)),d;if((j=f[3])&&c.getElementsByClassName)return H.apply(d,b.getElementsByClassName(j)),d}if(c.qsa&&(!q||!q.test(a))){if(s=r=u,w=b,x=1!==k&&a,1===k&&"object"!==b.nodeName.toLowerCase()){o=g(a),(r=b.getAttribute("id"))?s=r.replace(ba,"\\$&"):b.setAttribute("id",s),s="[id='"+s+"'] ",l=o.length;while(l--)o[l]=s+ra(o[l]);w=aa.test(a)&&pa(b.parentNode)||b,x=o.join(",")}if(x)try{return H.apply(d,w.querySelectorAll(x)),d}catch(y){}finally{r||b.removeAttribute("id")}}}return i(a.replace(R,"$1"),b,d,e)}function ha(){var a=[];function b(c,e){return a.push(c+" ")>d.cacheLength&&delete b[a.shift()],b[c+" "]=e}return b}function ia(a){return a[u]=!0,a}function ja(a){var b=n.createElement("div");try{return!!a(b)}catch(c){return!1}finally{b.parentNode&&b.parentNode.removeChild(b),b=null}}function ka(a,b){var c=a.split("|"),e=a.length;while(e--)d.attrHandle[c[e]]=b}function la(a,b){var c=b&&a,d=c&&1===a.nodeType&&1===b.nodeType&&(~b.sourceIndex||C)-(~a.sourceIndex||C);if(d)return d;if(c)while(c=c.nextSibling)if(c===b)return-1;return a?1:-1}function ma(a){return function(b){var c=b.nodeName.toLowerCase();return"input"===c&&b.type===a}}function na(a){return function(b){var c=b.nodeName.toLowerCase();return("input"===c||"button"===c)&&b.type===a}}function oa(a){return ia(function(b){return b=+b,ia(function(c,d){var e,f=a([],c.length,b),g=f.length;while(g--)c[e=f[g]]&&(c[e]=!(d[e]=c[e]))})})}function pa(a){return a&&"undefined"!=typeof a.getElementsByTagName&&a}c=ga.support={},f=ga.isXML=function(a){var b=a&&(a.ownerDocument||a).documentElement;return b?"HTML"!==b.nodeName:!1},m=ga.setDocument=function(a){var b,e,g=a?a.ownerDocument||a:v;return g!==n&&9===g.nodeType&&g.documentElement?(n=g,o=g.documentElement,e=g.defaultView,e&&e!==e.top&&(e.addEventListener?e.addEventListener("unload",ea,!1):e.attachEvent&&e.attachEvent("onunload",ea)),p=!f(g),c.attributes=ja(function(a){return a.className="i",!a.getAttribute("className")}),c.getElementsByTagName=ja(function(a){return a.appendChild(g.createComment("")),!a.getElementsByTagName("*").length}),c.getElementsByClassName=$.test(g.getElementsByClassName),c.getById=ja(function(a){return o.appendChild(a).id=u,!g.getElementsByName||!g.getElementsByName(u).length}),c.getById?(d.find.ID=function(a,b){if("undefined"!=typeof b.getElementById&&p){var c=b.getElementById(a);return c&&c.parentNode?[c]:[]}},d.filter.ID=function(a){var b=a.replace(ca,da);return function(a){return a.getAttribute("id")===b}}):(delete d.find.ID,d.filter.ID=function(a){var b=a.replace(ca,da);return function(a){var c="undefined"!=typeof a.getAttributeNode&&a.getAttributeNode("id");return c&&c.value===b}}),d.find.TAG=c.getElementsByTagName?function(a,b){return"undefined"!=typeof b.getElementsByTagName?b.getElementsByTagName(a):c.qsa?b.querySelectorAll(a):void 0}:function(a,b){var c,d=[],e=0,f=b.getElementsByTagName(a);if("*"===a){while(c=f[e++])1===c.nodeType&&d.push(c);return d}return f},d.find.CLASS=c.getElementsByClassName&&function(a,b){return p?b.getElementsByClassName(a):void 0},r=[],q=[],(c.qsa=$.test(g.querySelectorAll))&&(ja(function(a){o.appendChild(a).innerHTML="<a id='"+u+"'></a><select id='"+u+"-\f]' msallowcapture=''><option selected=''></option></select>",a.querySelectorAll("[msallowcapture^='']").length&&q.push("[*^$]="+L+"*(?:''|\"\")"),a.querySelectorAll("[selected]").length||q.push("\\["+L+"*(?:value|"+K+")"),a.querySelectorAll("[id~="+u+"-]").length||q.push("~="),a.querySelectorAll(":checked").length||q.push(":checked"),a.querySelectorAll("a#"+u+"+*").length||q.push(".#.+[+~]")}),ja(function(a){var b=g.createElement("input");b.setAttribute("type","hidden"),a.appendChild(b).setAttribute("name","D"),a.querySelectorAll("[name=d]").length&&q.push("name"+L+"*[*^$|!~]?="),a.querySelectorAll(":enabled").length||q.push(":enabled",":disabled"),a.querySelectorAll("*,:x"),q.push(",.*:")})),(c.matchesSelector=$.test(s=o.matches||o.webkitMatchesSelector||o.mozMatchesSelector||o.oMatchesSelector||o.msMatchesSelector))&&ja(function(a){c.disconnectedMatch=s.call(a,"div"),s.call(a,"[s!='']:x"),r.push("!=",P)}),q=q.length&&new RegExp(q.join("|")),r=r.length&&new RegExp(r.join("|")),b=$.test(o.compareDocumentPosition),t=b||$.test(o.contains)?function(a,b){var c=9===a.nodeType?a.documentElement:a,d=b&&b.parentNode;return a===d||!(!d||1!==d.nodeType||!(c.contains?c.contains(d):a.compareDocumentPosition&&16&a.compareDocumentPosition(d)))}:function(a,b){if(b)while(b=b.parentNode)if(b===a)return!0;return!1},B=b?function(a,b){if(a===b)return l=!0,0;var d=!a.compareDocumentPosition-!b.compareDocumentPosition;return d?d:(d=(a.ownerDocument||a)===(b.ownerDocument||b)?a.compareDocumentPosition(b):1,1&d||!c.sortDetached&&b.compareDocumentPosition(a)===d?a===g||a.ownerDocument===v&&t(v,a)?-1:b===g||b.ownerDocument===v&&t(v,b)?1:k?J(k,a)-J(k,b):0:4&d?-1:1)}:function(a,b){if(a===b)return l=!0,0;var c,d=0,e=a.parentNode,f=b.parentNode,h=[a],i=[b];if(!e||!f)return a===g?-1:b===g?1:e?-1:f?1:k?J(k,a)-J(k,b):0;if(e===f)return la(a,b);c=a;while(c=c.parentNode)h.unshift(c);c=b;while(c=c.parentNode)i.unshift(c);while(h[d]===i[d])d++;return d?la(h[d],i[d]):h[d]===v?-1:i[d]===v?1:0},g):n},ga.matches=function(a,b){return ga(a,null,null,b)},ga.matchesSelector=function(a,b){if((a.ownerDocument||a)!==n&&m(a),b=b.replace(U,"='$1']"),!(!c.matchesSelector||!p||r&&r.test(b)||q&&q.test(b)))try{var d=s.call(a,b);if(d||c.disconnectedMatch||a.document&&11!==a.document.nodeType)return d}catch(e){}return ga(b,n,null,[a]).length>0},ga.contains=function(a,b){return(a.ownerDocument||a)!==n&&m(a),t(a,b)},ga.attr=function(a,b){(a.ownerDocument||a)!==n&&m(a);var e=d.attrHandle[b.toLowerCase()],f=e&&D.call(d.attrHandle,b.toLowerCase())?e(a,b,!p):void 0;return void 0!==f?f:c.attributes||!p?a.getAttribute(b):(f=a.getAttributeNode(b))&&f.specified?f.value:null},ga.error=function(a){throw new Error("Syntax error, unrecognized expression: "+a)},ga.uniqueSort=function(a){var b,d=[],e=0,f=0;if(l=!c.detectDuplicates,k=!c.sortStable&&a.slice(0),a.sort(B),l){while(b=a[f++])b===a[f]&&(e=d.push(f));while(e--)a.splice(d[e],1)}return k=null,a},e=ga.getText=function(a){var b,c="",d=0,f=a.nodeType;if(f){if(1===f||9===f||11===f){if("string"==typeof a.textContent)return a.textContent;for(a=a.firstChild;a;a=a.nextSibling)c+=e(a)}else if(3===f||4===f)return a.nodeValue}else while(b=a[d++])c+=e(b);return c},d=ga.selectors={cacheLength:50,createPseudo:ia,match:X,attrHandle:{},find:{},relative:{">":{dir:"parentNode",first:!0}," ":{dir:"parentNode"},"+":{dir:"previousSibling",first:!0},"~":{dir:"previousSibling"}},preFilter:{ATTR:function(a){return a[1]=a[1].replace(ca,da),a[3]=(a[3]||a[4]||a[5]||"").replace(ca,da),"~="===a[2]&&(a[3]=" "+a[3]+" "),a.slice(0,4)},CHILD:function(a){return a[1]=a[1].toLowerCase(),"nth"===a[1].slice(0,3)?(a[3]||ga.error(a[0]),a[4]=+(a[4]?a[5]+(a[6]||1):2*("even"===a[3]||"odd"===a[3])),a[5]=+(a[7]+a[8]||"odd"===a[3])):a[3]&&ga.error(a[0]),a},PSEUDO:function(a){var b,c=!a[6]&&a[2];return X.CHILD.test(a[0])?null:(a[3]?a[2]=a[4]||a[5]||"":c&&V.test(c)&&(b=g(c,!0))&&(b=c.indexOf(")",c.length-b)-c.length)&&(a[0]=a[0].slice(0,b),a[2]=c.slice(0,b)),a.slice(0,3))}},filter:{TAG:function(a){var b=a.replace(ca,da).toLowerCase();return"*"===a?function(){return!0}:function(a){return a.nodeName&&a.nodeName.toLowerCase()===b}},CLASS:function(a){var b=y[a+" "];return b||(b=new RegExp("(^|"+L+")"+a+"("+L+"|$)"))&&y(a,function(a){return b.test("string"==typeof a.className&&a.className||"undefined"!=typeof a.getAttribute&&a.getAttribute("class")||"")})},ATTR:function(a,b,c){return function(d){var e=ga.attr(d,a);return null==e?"!="===b:b?(e+="","="===b?e===c:"!="===b?e!==c:"^="===b?c&&0===e.indexOf(c):"*="===b?c&&e.indexOf(c)>-1:"$="===b?c&&e.slice(-c.length)===c:"~="===b?(" "+e.replace(Q," ")+" ").indexOf(c)>-1:"|="===b?e===c||e.slice(0,c.length+1)===c+"-":!1):!0}},CHILD:function(a,b,c,d,e){var f="nth"!==a.slice(0,3),g="last"!==a.slice(-4),h="of-type"===b;return 1===d&&0===e?function(a){return!!a.parentNode}:function(b,c,i){var j,k,l,m,n,o,p=f!==g?"nextSibling":"previousSibling",q=b.parentNode,r=h&&b.nodeName.toLowerCase(),s=!i&&!h;if(q){if(f){while(p){l=b;while(l=l[p])if(h?l.nodeName.toLowerCase()===r:1===l.nodeType)return!1;o=p="only"===a&&!o&&"nextSibling"}return!0}if(o=[g?q.firstChild:q.lastChild],g&&s){k=q[u]||(q[u]={}),j=k[a]||[],n=j[0]===w&&j[1],m=j[0]===w&&j[2],l=n&&q.childNodes[n];while(l=++n&&l&&l[p]||(m=n=0)||o.pop())if(1===l.nodeType&&++m&&l===b){k[a]=[w,n,m];break}}else if(s&&(j=(b[u]||(b[u]={}))[a])&&j[0]===w)m=j[1];else while(l=++n&&l&&l[p]||(m=n=0)||o.pop())if((h?l.nodeName.toLowerCase()===r:1===l.nodeType)&&++m&&(s&&((l[u]||(l[u]={}))[a]=[w,m]),l===b))break;return m-=e,m===d||m%d===0&&m/d>=0}}},PSEUDO:function(a,b){var c,e=d.pseudos[a]||d.setFilters[a.toLowerCase()]||ga.error("unsupported pseudo: "+a);return e[u]?e(b):e.length>1?(c=[a,a,"",b],d.setFilters.hasOwnProperty(a.toLowerCase())?ia(function(a,c){var d,f=e(a,b),g=f.length;while(g--)d=J(a,f[g]),a[d]=!(c[d]=f[g])}):function(a){return e(a,0,c)}):e}},pseudos:{not:ia(function(a){var b=[],c=[],d=h(a.replace(R,"$1"));return d[u]?ia(function(a,b,c,e){var f,g=d(a,null,e,[]),h=a.length;while(h--)(f=g[h])&&(a[h]=!(b[h]=f))}):function(a,e,f){return b[0]=a,d(b,null,f,c),b[0]=null,!c.pop()}}),has:ia(function(a){return function(b){return ga(a,b).length>0}}),contains:ia(function(a){return a=a.replace(ca,da),function(b){return(b.textContent||b.innerText||e(b)).indexOf(a)>-1}}),lang:ia(function(a){return W.test(a||"")||ga.error("unsupported lang: "+a),a=a.replace(ca,da).toLowerCase(),function(b){var c;do if(c=p?b.lang:b.getAttribute("xml:lang")||b.getAttribute("lang"))return c=c.toLowerCase(),c===a||0===c.indexOf(a+"-");while((b=b.parentNode)&&1===b.nodeType);return!1}}),target:function(b){var c=a.location&&a.location.hash;return c&&c.slice(1)===b.id},root:function(a){return a===o},focus:function(a){return a===n.activeElement&&(!n.hasFocus||n.hasFocus())&&!!(a.type||a.href||~a.tabIndex)},enabled:function(a){return a.disabled===!1},disabled:function(a){return a.disabled===!0},checked:function(a){var b=a.nodeName.toLowerCase();return"input"===b&&!!a.checked||"option"===b&&!!a.selected},selected:function(a){return a.parentNode&&a.parentNode.selectedIndex,a.selected===!0},empty:function(a){for(a=a.firstChild;a;a=a.nextSibling)if(a.nodeType<6)return!1;return!0},parent:function(a){return!d.pseudos.empty(a)},header:function(a){return Z.test(a.nodeName)},input:function(a){return Y.test(a.nodeName)},button:function(a){var b=a.nodeName.toLowerCase();return"input"===b&&"button"===a.type||"button"===b},text:function(a){var b;return"input"===a.nodeName.toLowerCase()&&"text"===a.type&&(null==(b=a.getAttribute("type"))||"text"===b.toLowerCase())},first:oa(function(){return[0]}),last:oa(function(a,b){return[b-1]}),eq:oa(function(a,b,c){return[0>c?c+b:c]}),even:oa(function(a,b){for(var c=0;b>c;c+=2)a.push(c);return a}),odd:oa(function(a,b){for(var c=1;b>c;c+=2)a.push(c);return a}),lt:oa(function(a,b,c){for(var d=0>c?c+b:c;--d>=0;)a.push(d);return a}),gt:oa(function(a,b,c){for(var d=0>c?c+b:c;++d<b;)a.push(d);return a})}},d.pseudos.nth=d.pseudos.eq;for(b in{radio:!0,checkbox:!0,file:!0,password:!0,image:!0})d.pseudos[b]=ma(b);for(b in{submit:!0,reset:!0})d.pseudos[b]=na(b);function qa(){}qa.prototype=d.filters=d.pseudos,d.setFilters=new qa,g=ga.tokenize=function(a,b){var c,e,f,g,h,i,j,k=z[a+" "];if(k)return b?0:k.slice(0);h=a,i=[],j=d.preFilter;while(h){(!c||(e=S.exec(h)))&&(e&&(h=h.slice(e[0].length)||h),i.push(f=[])),c=!1,(e=T.exec(h))&&(c=e.shift(),f.push({value:c,type:e[0].replace(R," ")}),h=h.slice(c.length));for(g in d.filter)!(e=X[g].exec(h))||j[g]&&!(e=j[g](e))||(c=e.shift(),f.push({value:c,type:g,matches:e}),h=h.slice(c.length));if(!c)break}return b?h.length:h?ga.error(a):z(a,i).slice(0)};function ra(a){for(var b=0,c=a.length,d="";c>b;b++)d+=a[b].value;return d}function sa(a,b,c){var d=b.dir,e=c&&"parentNode"===d,f=x++;return b.first?function(b,c,f){while(b=b[d])if(1===b.nodeType||e)return a(b,c,f)}:function(b,c,g){var h,i,j=[w,f];if(g){while(b=b[d])if((1===b.nodeType||e)&&a(b,c,g))return!0}else while(b=b[d])if(1===b.nodeType||e){if(i=b[u]||(b[u]={}),(h=i[d])&&h[0]===w&&h[1]===f)return j[2]=h[2];if(i[d]=j,j[2]=a(b,c,g))return!0}}}function ta(a){return a.length>1?function(b,c,d){var e=a.length;while(e--)if(!a[e](b,c,d))return!1;return!0}:a[0]}function ua(a,b,c){for(var d=0,e=b.length;e>d;d++)ga(a,b[d],c);return c}function va(a,b,c,d,e){for(var f,g=[],h=0,i=a.length,j=null!=b;i>h;h++)(f=a[h])&&(!c||c(f,d,e))&&(g.push(f),j&&b.push(h));return g}function wa(a,b,c,d,e,f){return d&&!d[u]&&(d=wa(d)),e&&!e[u]&&(e=wa(e,f)),ia(function(f,g,h,i){var j,k,l,m=[],n=[],o=g.length,p=f||ua(b||"*",h.nodeType?[h]:h,[]),q=!a||!f&&b?p:va(p,m,a,h,i),r=c?e||(f?a:o||d)?[]:g:q;if(c&&c(q,r,h,i),d){j=va(r,n),d(j,[],h,i),k=j.length;while(k--)(l=j[k])&&(r[n[k]]=!(q[n[k]]=l))}if(f){if(e||a){if(e){j=[],k=r.length;while(k--)(l=r[k])&&j.push(q[k]=l);e(null,r=[],j,i)}k=r.length;while(k--)(l=r[k])&&(j=e?J(f,l):m[k])>-1&&(f[j]=!(g[j]=l))}}else r=va(r===g?r.splice(o,r.length):r),e?e(null,g,r,i):H.apply(g,r)})}function xa(a){for(var b,c,e,f=a.length,g=d.relative[a[0].type],h=g||d.relative[" "],i=g?1:0,k=sa(function(a){return a===b},h,!0),l=sa(function(a){return J(b,a)>-1},h,!0),m=[function(a,c,d){var e=!g&&(d||c!==j)||((b=c).nodeType?k(a,c,d):l(a,c,d));return b=null,e}];f>i;i++)if(c=d.relative[a[i].type])m=[sa(ta(m),c)];else{if(c=d.filter[a[i].type].apply(null,a[i].matches),c[u]){for(e=++i;f>e;e++)if(d.relative[a[e].type])break;return wa(i>1&&ta(m),i>1&&ra(a.slice(0,i-1).concat({value:" "===a[i-2].type?"*":""})).replace(R,"$1"),c,e>i&&xa(a.slice(i,e)),f>e&&xa(a=a.slice(e)),f>e&&ra(a))}m.push(c)}return ta(m)}function ya(a,b){var c=b.length>0,e=a.length>0,f=function(f,g,h,i,k){var l,m,o,p=0,q="0",r=f&&[],s=[],t=j,u=f||e&&d.find.TAG("*",k),v=w+=null==t?1:Math.random()||.1,x=u.length;for(k&&(j=g!==n&&g);q!==x&&null!=(l=u[q]);q++){if(e&&l){m=0;while(o=a[m++])if(o(l,g,h)){i.push(l);break}k&&(w=v)}c&&((l=!o&&l)&&p--,f&&r.push(l))}if(p+=q,c&&q!==p){m=0;while(o=b[m++])o(r,s,g,h);if(f){if(p>0)while(q--)r[q]||s[q]||(s[q]=F.call(i));s=va(s)}H.apply(i,s),k&&!f&&s.length>0&&p+b.length>1&&ga.uniqueSort(i)}return k&&(w=v,j=t),r};return c?ia(f):f}return h=ga.compile=function(a,b){var c,d=[],e=[],f=A[a+" "];if(!f){b||(b=g(a)),c=b.length;while(c--)f=xa(b[c]),f[u]?d.push(f):e.push(f);f=A(a,ya(e,d)),f.selector=a}return f},i=ga.select=function(a,b,e,f){var i,j,k,l,m,n="function"==typeof a&&a,o=!f&&g(a=n.selector||a);if(e=e||[],1===o.length){if(j=o[0]=o[0].slice(0),j.length>2&&"ID"===(k=j[0]).type&&c.getById&&9===b.nodeType&&p&&d.relative[j[1].type]){if(b=(d.find.ID(k.matches[0].replace(ca,da),b)||[])[0],!b)return e;n&&(b=b.parentNode),a=a.slice(j.shift().value.length)}i=X.needsContext.test(a)?0:j.length;while(i--){if(k=j[i],d.relative[l=k.type])break;if((m=d.find[l])&&(f=m(k.matches[0].replace(ca,da),aa.test(j[0].type)&&pa(b.parentNode)||b))){if(j.splice(i,1),a=f.length&&ra(j),!a)return H.apply(e,f),e;break}}}return(n||h(a,o))(f,b,!p,e,aa.test(a)&&pa(b.parentNode)||b),e},c.sortStable=u.split("").sort(B).join("")===u,c.detectDuplicates=!!l,m(),c.sortDetached=ja(function(a){return 1&a.compareDocumentPosition(n.createElement("div"))}),ja(function(a){return a.innerHTML="<a href='#'></a>","#"===a.firstChild.getAttribute("href")})||ka("type|href|height|width",function(a,b,c){return c?void 0:a.getAttribute(b,"type"===b.toLowerCase()?1:2)}),c.attributes&&ja(function(a){return a.innerHTML="<input/>",a.firstChild.setAttribute("value",""),""===a.firstChild.getAttribute("value")})||ka("value",function(a,b,c){return c||"input"!==a.nodeName.toLowerCase()?void 0:a.defaultValue}),ja(function(a){return null==a.getAttribute("disabled")})||ka(K,function(a,b,c){var d;return c?void 0:a[b]===!0?b.toLowerCase():(d=a.getAttributeNode(b))&&d.specified?d.value:null}),ga}(a);m.find=s,m.expr=s.selectors,m.expr[":"]=m.expr.pseudos,m.unique=s.uniqueSort,m.text=s.getText,m.isXMLDoc=s.isXML,m.contains=s.contains;var t=m.expr.match.needsContext,u=/^<(\w+)\s*\/?>(?:<\/\1>|)$/,v=/^.[^:#\[\.,]*$/;function w(a,b,c){if(m.isFunction(b))return m.grep(a,function(a,d){return!!b.call(a,d,a)!==c});if(b.nodeType)return m.grep(a,function(a){return a===b!==c});if("string"==typeof b){if(v.test(b))return m.filter(b,a,c);b=m.filter(b,a)}return m.grep(a,function(a){return m.inArray(a,b)>=0!==c})}m.filter=function(a,b,c){var d=b[0];return c&&(a=":not("+a+")"),1===b.length&&1===d.nodeType?m.find.matchesSelector(d,a)?[d]:[]:m.find.matches(a,m.grep(b,function(a){return 1===a.nodeType}))},m.fn.extend({find:function(a){var b,c=[],d=this,e=d.length;if("string"!=typeof a)return this.pushStack(m(a).filter(function(){for(b=0;e>b;b++)if(m.contains(d[b],this))return!0}));for(b=0;e>b;b++)m.find(a,d[b],c);return c=this.pushStack(e>1?m.unique(c):c),c.selector=this.selector?this.selector+" "+a:a,c},filter:function(a){return this.pushStack(w(this,a||[],!1))},not:function(a){return this.pushStack(w(this,a||[],!0))},is:function(a){return!!w(this,"string"==typeof a&&t.test(a)?m(a):a||[],!1).length}});var x,y=a.document,z=/^(?:\s*(<[\w\W]+>)[^>]*|#([\w-]*))$/,A=m.fn.init=function(a,b){var c,d;if(!a)return this;if("string"==typeof a){if(c="<"===a.charAt(0)&&">"===a.charAt(a.length-1)&&a.length>=3?[null,a,null]:z.exec(a),!c||!c[1]&&b)return!b||b.jquery?(b||x).find(a):this.constructor(b).find(a);if(c[1]){if(b=b instanceof m?b[0]:b,m.merge(this,m.parseHTML(c[1],b&&b.nodeType?b.ownerDocument||b:y,!0)),u.test(c[1])&&m.isPlainObject(b))for(c in b)m.isFunction(this[c])?this[c](b[c]):this.attr(c,b[c]);return this}if(d=y.getElementById(c[2]),d&&d.parentNode){if(d.id!==c[2])return x.find(a);this.length=1,this[0]=d}return this.context=y,this.selector=a,this}return a.nodeType?(this.context=this[0]=a,this.length=1,this):m.isFunction(a)?"undefined"!=typeof x.ready?x.ready(a):a(m):(void 0!==a.selector&&(this.selector=a.selector,this.context=a.context),m.makeArray(a,this))};A.prototype=m.fn,x=m(y);var B=/^(?:parents|prev(?:Until|All))/,C={children:!0,contents:!0,next:!0,prev:!0};m.extend({dir:function(a,b,c){var d=[],e=a[b];while(e&&9!==e.nodeType&&(void 0===c||1!==e.nodeType||!m(e).is(c)))1===e.nodeType&&d.push(e),e=e[b];return d},sibling:function(a,b){for(var c=[];a;a=a.nextSibling)1===a.nodeType&&a!==b&&c.push(a);return c}}),m.fn.extend({has:function(a){var b,c=m(a,this),d=c.length;return this.filter(function(){for(b=0;d>b;b++)if(m.contains(this,c[b]))return!0})},closest:function(a,b){for(var c,d=0,e=this.length,f=[],g=t.test(a)||"string"!=typeof a?m(a,b||this.context):0;e>d;d++)for(c=this[d];c&&c!==b;c=c.parentNode)if(c.nodeType<11&&(g?g.index(c)>-1:1===c.nodeType&&m.find.matchesSelector(c,a))){f.push(c);break}return this.pushStack(f.length>1?m.unique(f):f)},index:function(a){return a?"string"==typeof a?m.inArray(this[0],m(a)):m.inArray(a.jquery?a[0]:a,this):this[0]&&this[0].parentNode?this.first().prevAll().length:-1},add:function(a,b){return this.pushStack(m.unique(m.merge(this.get(),m(a,b))))},addBack:function(a){return this.add(null==a?this.prevObject:this.prevObject.filter(a))}});function D(a,b){do a=a[b];while(a&&1!==a.nodeType);return a}m.each({parent:function(a){var b=a.parentNode;return b&&11!==b.nodeType?b:null},parents:function(a){return m.dir(a,"parentNode")},parentsUntil:function(a,b,c){return m.dir(a,"parentNode",c)},next:function(a){return D(a,"nextSibling")},prev:function(a){return D(a,"previousSibling")},nextAll:function(a){return m.dir(a,"nextSibling")},prevAll:function(a){return m.dir(a,"previousSibling")},nextUntil:function(a,b,c){return m.dir(a,"nextSibling",c)},prevUntil:function(a,b,c){return m.dir(a,"previousSibling",c)},siblings:function(a){return m.sibling((a.parentNode||{}).firstChild,a)},children:function(a){return m.sibling(a.firstChild)},contents:function(a){return m.nodeName(a,"iframe")?a.contentDocument||a.contentWindow.document:m.merge([],a.childNodes)}},function(a,b){m.fn[a]=function(c,d){var e=m.map(this,b,c);return"Until"!==a.slice(-5)&&(d=c),d&&"string"==typeof d&&(e=m.filter(d,e)),this.length>1&&(C[a]||(e=m.unique(e)),B.test(a)&&(e=e.reverse())),this.pushStack(e)}});var E=/\S+/g,F={};function G(a){var b=F[a]={};return m.each(a.match(E)||[],function(a,c){b[c]=!0}),b}m.Callbacks=function(a){a="string"==typeof a?F[a]||G(a):m.extend({},a);var b,c,d,e,f,g,h=[],i=!a.once&&[],j=function(l){for(c=a.memory&&l,d=!0,f=g||0,g=0,e=h.length,b=!0;h&&e>f;f++)if(h[f].apply(l[0],l[1])===!1&&a.stopOnFalse){c=!1;break}b=!1,h&&(i?i.length&&j(i.shift()):c?h=[]:k.disable())},k={add:function(){if(h){var d=h.length;!function f(b){m.each(b,function(b,c){var d=m.type(c);"function"===d?a.unique&&k.has(c)||h.push(c):c&&c.length&&"string"!==d&&f(c)})}(arguments),b?e=h.length:c&&(g=d,j(c))}return this},remove:function(){return h&&m.each(arguments,function(a,c){var d;while((d=m.inArray(c,h,d))>-1)h.splice(d,1),b&&(e>=d&&e--,f>=d&&f--)}),this},has:function(a){return a?m.inArray(a,h)>-1:!(!h||!h.length)},empty:function(){return h=[],e=0,this},disable:function(){return h=i=c=void 0,this},disabled:function(){return!h},lock:function(){return i=void 0,c||k.disable(),this},locked:function(){return!i},fireWith:function(a,c){return!h||d&&!i||(c=c||[],c=[a,c.slice?c.slice():c],b?i.push(c):j(c)),this},fire:function(){return k.fireWith(this,arguments),this},fired:function(){return!!d}};return k},m.extend({Deferred:function(a){var b=[["resolve","done",m.Callbacks("once memory"),"resolved"],["reject","fail",m.Callbacks("once memory"),"rejected"],["notify","progress",m.Callbacks("memory")]],c="pending",d={state:function(){return c},always:function(){return e.done(arguments).fail(arguments),this},then:function(){var a=arguments;return m.Deferred(function(c){m.each(b,function(b,f){var g=m.isFunction(a[b])&&a[b];e[f[1]](function(){var a=g&&g.apply(this,arguments);a&&m.isFunction(a.promise)?a.promise().done(c.resolve).fail(c.reject).progress(c.notify):c[f[0]+"With"](this===d?c.promise():this,g?[a]:arguments)})}),a=null}).promise()},promise:function(a){return null!=a?m.extend(a,d):d}},e={};return d.pipe=d.then,m.each(b,function(a,f){var g=f[2],h=f[3];d[f[1]]=g.add,h&&g.add(function(){c=h},b[1^a][2].disable,b[2][2].lock),e[f[0]]=function(){return e[f[0]+"With"](this===e?d:this,arguments),this},e[f[0]+"With"]=g.fireWith}),d.promise(e),a&&a.call(e,e),e},when:function(a){var b=0,c=d.call(arguments),e=c.length,f=1!==e||a&&m.isFunction(a.promise)?e:0,g=1===f?a:m.Deferred(),h=function(a,b,c){return function(e){b[a]=this,c[a]=arguments.length>1?d.call(arguments):e,c===i?g.notifyWith(b,c):--f||g.resolveWith(b,c)}},i,j,k;if(e>1)for(i=new Array(e),j=new Array(e),k=new Array(e);e>b;b++)c[b]&&m.isFunction(c[b].promise)?c[b].promise().done(h(b,k,c)).fail(g.reject).progress(h(b,j,i)):--f;return f||g.resolveWith(k,c),g.promise()}});var H;m.fn.ready=function(a){return m.ready.promise().done(a),this},m.extend({isReady:!1,readyWait:1,holdReady:function(a){a?m.readyWait++:m.ready(!0)},ready:function(a){if(a===!0?!--m.readyWait:!m.isReady){if(!y.body)return setTimeout(m.ready);m.isReady=!0,a!==!0&&--m.readyWait>0||(H.resolveWith(y,[m]),m.fn.triggerHandler&&(m(y).triggerHandler("ready"),m(y).off("ready")))}}});function I(){y.addEventListener?(y.removeEventListener("DOMContentLoaded",J,!1),a.removeEventListener("load",J,!1)):(y.detachEvent("onreadystatechange",J),a.detachEvent("onload",J))}function J(){(y.addEventListener||"load"===event.type||"complete"===y.readyState)&&(I(),m.ready())}m.ready.promise=function(b){if(!H)if(H=m.Deferred(),"complete"===y.readyState)setTimeout(m.ready);else if(y.addEventListener)y.addEventListener("DOMContentLoaded",J,!1),a.addEventListener("load",J,!1);else{y.attachEvent("onreadystatechange",J),a.attachEvent("onload",J);var c=!1;try{c=null==a.frameElement&&y.documentElement}catch(d){}c&&c.doScroll&&!function e(){if(!m.isReady){try{c.doScroll("left")}catch(a){return setTimeout(e,50)}I(),m.ready()}}()}return H.promise(b)};var K="undefined",L;for(L in m(k))break;k.ownLast="0"!==L,k.inlineBlockNeedsLayout=!1,m(function(){var a,b,c,d;c=y.getElementsByTagName("body")[0],c&&c.style&&(b=y.createElement("div"),d=y.createElement("div"),d.style.cssText="position:absolute;border:0;width:0;height:0;top:0;left:-9999px",c.appendChild(d).appendChild(b),typeof b.style.zoom!==K&&(b.style.cssText="display:inline;margin:0;border:0;padding:1px;width:1px;zoom:1",k.inlineBlockNeedsLayout=a=3===b.offsetWidth,a&&(c.style.zoom=1)),c.removeChild(d))}),function(){var a=y.createElement("div");if(null==k.deleteExpando){k.deleteExpando=!0;try{delete a.test}catch(b){k.deleteExpando=!1}}a=null}(),m.acceptData=function(a){var b=m.noData[(a.nodeName+" ").toLowerCase()],c=+a.nodeType||1;return 1!==c&&9!==c?!1:!b||b!==!0&&a.getAttribute("classid")===b};var M=/^(?:\{[\w\W]*\}|\[[\w\W]*\])$/,N=/([A-Z])/g;function O(a,b,c){if(void 0===c&&1===a.nodeType){var d="data-"+b.replace(N,"-$1").toLowerCase();if(c=a.getAttribute(d),"string"==typeof c){try{c="true"===c?!0:"false"===c?!1:"null"===c?null:+c+""===c?+c:M.test(c)?m.parseJSON(c):c}catch(e){}m.data(a,b,c)}else c=void 0}return c}function P(a){var b;for(b in a)if(("data"!==b||!m.isEmptyObject(a[b]))&&"toJSON"!==b)return!1;
@@ -363,179 +363,241 @@ summary {
 
 
 
-<h1 class="title toc-ignore">LoadPancreasImages</h1>
+<h1 class="title toc-ignore">LoadPancreasData</h1>
 <h4 class="author">Nicolas Damond</h4>
-<h4 class="date">2020-03-23</h4>
+<h4 class="date">2020-04-17</h4>
 
 </div>
 
 
-<div id="script-to-download-images-and-masks-from-the-pancreas-imc-dataset-and-format-them-as-imagelist-objects" class="section level1">
-<h1>Script to download images and masks from the pancreas IMC dataset and format them as ImageList objects</h1>
+<div id="script-to-download-single-cell-data-from-the-pancreas-imc-dataset-and-format-the-data-as-a-singlecellexperiment-object" class="section level1">
+<h1>Script to download single-cell data from the pancreas IMC dataset and format the data as a SingleCellExperiment object</h1>
 <ul>
 <li>Publication: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6821395">Damond et al. A Map of Human Type 1 Diabetes Progression by Imaging Mass Cytometry. Cell Metab. 2019 Mar 5;29(3):755-768</a></li>
 <li>Dataset: <a href="http://dx.doi.org/10.17632/cydmwsfztj.2">accessible from Mendeley Data</a></li>
 </ul>
-<pre class="r"><code>library(SingleCellMapper)</code></pre>
+<pre class="r"><code>library(S4Vectors)
+library(SingleCellExperiment)
+library(cytomapper)</code></pre>
 </div>
-<div id="download-the-images-and-load-them-as-an-imagelist-object" class="section level1">
-<h1>Download the images and load them as an ImageList object</h1>
-<p>Here, a subset of 100 images from the pancreas IMC dataset is downloaded.</p>
-<p>! The updated Mendeley dataset is not published yet, can be temporarily accessed from <a href="https://data.mendeley.com/datasets/cydmwsfztj/draft?a=e02ab17c-c014-4338-b379-101424e1c64d" class="uri">https://data.mendeley.com/datasets/cydmwsfztj/draft?a=e02ab17c-c014-4338-b379-101424e1c64d</a></p>
+<div id="read-in-single-cell-data" class="section level1">
+<h1>Read-in single-cell data</h1>
+<p>Here, a subset of single-cell data, corresponding to 100 images from the full dataset is downloaded.</p>
 <pre class="r"><code># Download the zipped folder image and unzip it
-# url.images &lt;- (&quot;...&quot;)
-# download.file(url.images, destfile = &quot;images.zip&quot;)
-# unzip(&quot;images.zip&quot;)
-# remove.file(&quot;images.zip&quot;)
+url.cells &lt;- (&quot;https://data.mendeley.com/datasets/cydmwsfztj/2/files/f1e3b8dc-56be-4172-bbc4-3a6f9de97563/CellSubset.zip?dl=1&quot;)
+download.file(url.cells, destfile = &quot;CellSubset.zip&quot;)
+unzip(&quot;CellSubset.zip&quot;)
+file.remove(&quot;CellSubset.zip&quot;)</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="r"><code># Read-in the data
+cells &lt;- read.csv(&quot;CellSubset.csv&quot;, stringsAsFactors = FALSE)
 
-# (Temporary code to unzip the images, will be removed when the Mendeley dataset is public)
-fn.images &lt;- (&quot;/home/nicolasd/Data/CM2017/mendeley/ImageSubset.zip&quot;)
-unzip(fn.images)
-
-# Load the images as an ImageList object
-images &lt;- loadImages(&quot;./&quot;, pattern=&quot;_full_clean.tiff&quot;)
-images</code></pre>
-<pre><code>## ImageList containing 100 image(s)
-## names(100): E02_a0_full_clean E03_a0_full_clean E04_a0_full_clean E05_a0_full_clean E06_a0_full_clean E07_a0_full_clean E08_a0_full_clean E09_a0_full_clean E10_a0_full_clean E11_a0_full_clean E12_a0_full_clean E13_a0_full_clean E14_a0_full_clean E15_a0_full_clean E16_a0_full_clean E17_a0_full_clean E18_a0_full_clean E19_a0_full_clean E20_a0_full_clean E21_a0_full_clean E22_a0_full_clean E23_a0_full_clean E24_a0_full_clean E25_a0_full_clean E26_a0_full_clean E27_a0_full_clean E28_a0_full_clean E29_a0_full_clean E30_a0_full_clean E31_a0_full_clean E32_a0_full_clean E33_a0_full_clean E34_a0_full_clean G01_a0_full_clean G02_a0_full_clean G03_a0_full_clean G04_a0_full_clean G05_a0_full_clean G06_a0_full_clean G07_a0_full_clean G08_a0_full_clean G09_a0_full_clean G10_a0_full_clean G11_a0_full_clean G12_a0_full_clean G13_a0_full_clean G14_a0_full_clean G15_a0_full_clean G16_a0_full_clean G17_a0_full_clean G18_a0_full_clean G19_a0_full_clean G20_a0_full_clean G21_a0_full_clean G22_a0_full_clean G23_a0_full_clean G24_a0_full_clean G25_a0_full_clean G26_a0_full_clean G27_a0_full_clean G28_a0_full_clean G29_a0_full_clean G30_a0_full_clean G31_a0_full_clean G32_a0_full_clean G33_a0_full_clean J01_a0_full_clean J02_a0_full_clean J03_a0_full_clean J04_a0_full_clean J05_a0_full_clean J06_a0_full_clean J07_a0_full_clean J08_a0_full_clean J09_a0_full_clean J10_a0_full_clean J11_a0_full_clean J12_a0_full_clean J13_a0_full_clean J14_a0_full_clean J15_a0_full_clean J16_a0_full_clean J17_a0_full_clean J18_a0_full_clean J19_a0_full_clean J20_a0_full_clean J21_a0_full_clean J22_a0_full_clean J23_a0_full_clean J24_a0_full_clean J25_a0_full_clean J26_a0_full_clean J27_a0_full_clean J28_a0_full_clean J29_a0_full_clean J30_a0_full_clean J31_a0_full_clean J32_a0_full_clean J33_a0_full_clean J34_a0_full_clean 
-## Each image contains 38 channel(s)</code></pre>
+# Order the dataset by ImageNumber and ObjectNumber
+cells &lt;- cells[order(cells$ImageNumber, cells$ObjectNumber), ]</code></pre>
 </div>
-<div id="download-the-cell-masks-and-load-them-as-an-imagelist-object" class="section level1">
-<h1>Download the cell masks and load them as an ImageList object</h1>
+<div id="read-in-image-metadata" class="section level1">
+<h1>Read-in Image metadata</h1>
 <pre class="r"><code># Download the zipped folder image and unzip it
-# url.masks &lt;- (&quot;...&quot;)
-# download.file(url.masks, destfile = &quot;masks.zip&quot;)
-# unzip(&quot;masks.zip&quot;)
-# remove.file(&quot;masks.zip&quot;)
-
-# (Temporary code to unzip the masks, will be removed when the Mendeley dataset is public)
-fn.masks &lt;- (&quot;/home/nicolasd/Data/CM2017/mendeley/Masks.zip&quot;)
-unzip(fn.masks)
-
-# Load the images as an ImageList object
-masks &lt;- loadImages(&quot;./&quot;, pattern=&quot;_full_mask.tiff&quot;)
-masks</code></pre>
-<pre><code>## ImageList containing 845 image(s)
-## names(845): A01_a0_full_mask A02_a0_full_mask A03_a0_full_mask A04_a0_full_mask A05_a0_full_mask A06_a0_full_mask A07_a0_full_mask A08_a0_full_mask A09_a0_full_mask A10_a0_full_mask A11_a0_full_mask A12_a0_full_mask A13_a0_full_mask A14_a0_full_mask A15_a0_full_mask A16_a0_full_mask A17_a0_full_mask A18_a0_full_mask A19_a0_full_mask A20_a0_full_mask A21_a0_full_mask A22_a0_full_mask A23_a0_full_mask A24_a0_full_mask A25_a0_full_mask A27_a0_full_mask A30_a0_full_mask A31_a0_full_mask A32_a0_full_mask A34_a0_full_mask A35_a0_full_mask A36_a0_full_mask A37_a0_full_mask A38_a0_full_mask A39_a0_full_mask A40_a0_full_mask B01_a0_full_mask B02_a0_full_mask B03_a0_full_mask B04_a0_full_mask B05_a0_full_mask B06_a0_full_mask B07_a0_full_mask B08_a0_full_mask B09_a0_full_mask B10_a0_full_mask B11_a0_full_mask B12_a0_full_mask B13_a0_full_mask B14_a0_full_mask B15_a0_full_mask B16_a0_full_mask B17_a0_full_mask B18_a0_full_mask B19_a0_full_mask B20_a0_full_mask B21_a0_full_mask B22_a0_full_mask B23_a0_full_mask B24_a0_full_mask B25_a0_full_mask B27_a0_full_mask B28_a0_full_mask B29_a0_full_mask B30_a0_full_mask B31_a0_full_mask B32_a0_full_mask C01_a0_full_mask C02_a0_full_mask C03_a0_full_mask C04_a0_full_mask C05_a0_full_mask C06_a0_full_mask C07_a0_full_mask C08_a0_full_mask C09_a0_full_mask C10_a0_full_mask C11_a0_full_mask C12_a0_full_mask C13_a0_full_mask C14_a0_full_mask C15_a0_full_mask C16_a0_full_mask C17_a0_full_mask C18_a0_full_mask C19_a0_full_mask C20_a0_full_mask C21_a0_full_mask C22_a0_full_mask C23_a0_full_mask C24_a0_full_mask C25_a0_full_mask C26_a0_full_mask C27_a0_full_mask C28_a0_full_mask C29_a0_full_mask C30_a0_full_mask C31_a0_full_mask C32_a0_full_mask C33_a0_full_mask C34_a0_full_mask D01_a0_full_mask D02_a0_full_mask D03_a0_full_mask D04_a0_full_mask D05_a0_full_mask D06_a0_full_mask D07_a0_full_mask D08_a0_full_mask D09_a0_full_mask D10_a0_full_mask D11_a0_full_mask D12_a0_full_mask D13_a0_full_mask D14_a0_full_mask D15_a0_full_mask D16_a0_full_mask D17_a0_full_mask D18_a0_full_mask D19_a0_full_mask D20_a0_full_mask D21_a0_full_mask D22_a0_full_mask D23_a0_full_mask D24_a0_full_mask D25_a0_full_mask D26_a0_full_mask D27_a0_full_mask D28_a0_full_mask D29_a0_full_mask D30_a0_full_mask D31_a0_full_mask D32_a0_full_mask D33_a0_full_mask D34_a0_full_mask D35_a0_full_mask D36_a0_full_mask E02_a0_full_mask E03_a0_full_mask E04_a0_full_mask E05_a0_full_mask E06_a0_full_mask E07_a0_full_mask E08_a0_full_mask E09_a0_full_mask E10_a0_full_mask E11_a0_full_mask E12_a0_full_mask E13_a0_full_mask E14_a0_full_mask E15_a0_full_mask E16_a0_full_mask E17_a0_full_mask E18_a0_full_mask E19_a0_full_mask E20_a0_full_mask E21_a0_full_mask E22_a0_full_mask E23_a0_full_mask E24_a0_full_mask E25_a0_full_mask E26_a0_full_mask E27_a0_full_mask E28_a0_full_mask E29_a0_full_mask E30_a0_full_mask E31_a0_full_mask E32_a0_full_mask E33_a0_full_mask E34_a0_full_mask E35_a0_full_mask E36_a0_full_mask E37_a0_full_mask E38_a0_full_mask E39_a0_full_mask E40_a0_full_mask E41_a0_full_mask E42_a0_full_mask F01_a0_full_mask F02_a0_full_mask F03_a0_full_mask F04_a0_full_mask F05_a0_full_mask F06_a0_full_mask F07_a0_full_mask F08_a0_full_mask F09_a0_full_mask F10_a0_full_mask F11_a0_full_mask F12_a0_full_mask F13_a0_full_mask F14_a0_full_mask F15_a0_full_mask F16_a0_full_mask F17_a0_full_mask F18_a0_full_mask F19_a0_full_mask F20_a0_full_mask F21_a0_full_mask F22_a0_full_mask F23_a0_full_mask F24_a0_full_mask F25_a0_full_mask F26_a0_full_mask G01_a0_full_mask G02_a0_full_mask G03_a0_full_mask G04_a0_full_mask G05_a0_full_mask G06_a0_full_mask G07_a0_full_mask G08_a0_full_mask G09_a0_full_mask G10_a0_full_mask G11_a0_full_mask G12_a0_full_mask G13_a0_full_mask G14_a0_full_mask G15_a0_full_mask G16_a0_full_mask G17_a0_full_mask G18_a0_full_mask G19_a0_full_mask G20_a0_full_mask G21_a0_full_mask G22_a0_full_mask G23_a0_full_mask G24_a0_full_mask G25_a0_full_mask G26_a0_full_mask G27_a0_full_mask G28_a0_full_mask G29_a0_full_mask G30_a0_full_mask G31_a0_full_mask G32_a0_full_mask G33_a0_full_mask G34_a0_full_mask G35_a0_full_mask G36_a0_full_mask H01_a0_full_mask H02_a0_full_mask H03_a0_full_mask H04_a0_full_mask H05_a0_full_mask H06_a0_full_mask H07_a0_full_mask H08_a0_full_mask H09_a0_full_mask H10_a0_full_mask H11_a0_full_mask H12_a0_full_mask H13_a0_full_mask H14_a0_full_mask H15_a0_full_mask H16_a0_full_mask H17_a0_full_mask H18_a0_full_mask H19_a0_full_mask H20_a0_full_mask H21_a0_full_mask H22_a0_full_mask H23_a0_full_mask H24_a0_full_mask H25_a0_full_mask H26_a0_full_mask H27_a0_full_mask H28_a0_full_mask H29_a0_full_mask H30_a0_full_mask H31_a0_full_mask H32_a0_full_mask H33_a0_full_mask H34_a0_full_mask H35_a0_full_mask H36_a0_full_mask H37_a0_full_mask H38_a0_full_mask H39_a0_full_mask H40_a0_full_mask H41_a0_full_mask H42_a0_full_mask H43_a0_full_mask H44_a0_full_mask H45_a0_full_mask J01_a0_full_mask J02_a0_full_mask J03_a0_full_mask J04_a0_full_mask J05_a0_full_mask J06_a0_full_mask J07_a0_full_mask J08_a0_full_mask J09_a0_full_mask J10_a0_full_mask J11_a0_full_mask J12_a0_full_mask J13_a0_full_mask J14_a0_full_mask J15_a0_full_mask J16_a0_full_mask J17_a0_full_mask J18_a0_full_mask J19_a0_full_mask J20_a0_full_mask J21_a0_full_mask J22_a0_full_mask J23_a0_full_mask J24_a0_full_mask J25_a0_full_mask J26_a0_full_mask J27_a0_full_mask J28_a0_full_mask J29_a0_full_mask J30_a0_full_mask J31_a0_full_mask J32_a0_full_mask J33_a0_full_mask J34_a0_full_mask J35_a0_full_mask J36_a0_full_mask K01_a0_full_mask K02_a0_full_mask K03_a0_full_mask K04_a0_full_mask K05_a0_full_mask K06_a0_full_mask K07_a0_full_mask K08_a0_full_mask K09_a0_full_mask K10_a0_full_mask K11_a0_full_mask K12_a0_full_mask K13_a0_full_mask K14_a0_full_mask K15_a0_full_mask K16_a0_full_mask K17_a0_full_mask K18_a0_full_mask K19_a0_full_mask K20_a0_full_mask K21_a0_full_mask K22_a0_full_mask K23_a0_full_mask K24_a0_full_mask K25_a0_full_mask K26_a0_full_mask K27_a0_full_mask K28_a0_full_mask K29_a0_full_mask K30_a0_full_mask K31_a0_full_mask K32_a0_full_mask K33_a0_full_mask K34_a0_full_mask K35_a0_full_mask K36_a0_full_mask L01_a0_full_mask L02_a0_full_mask L03_a0_full_mask L04_a0_full_mask L05_a0_full_mask L06_a0_full_mask L07_a0_full_mask L08_a0_full_mask L09_a0_full_mask L10_a0_full_mask L11_a0_full_mask L12_a0_full_mask L13_a0_full_mask L14_a0_full_mask L15_a0_full_mask L16_a0_full_mask L17_a0_full_mask L18_a0_full_mask L19_a0_full_mask L20_a0_full_mask L21_a0_full_mask L22_a0_full_mask L23_a0_full_mask L24_a0_full_mask L25_a0_full_mask L26_a0_full_mask L27_a0_full_mask L28_a0_full_mask L29_a0_full_mask L30_a0_full_mask L31_a0_full_mask L32_a0_full_mask L33_a0_full_mask L34_a0_full_mask L35_a0_full_mask L36_a0_full_mask M01_a0_full_mask M02_a0_full_mask M03_a0_full_mask M04_a0_full_mask M05_a0_full_mask M06_a0_full_mask M07_a0_full_mask M08_a0_full_mask M09_a0_full_mask M10_a0_full_mask M11_a0_full_mask M12_a0_full_mask M13_a0_full_mask M14_a0_full_mask M15_a0_full_mask M16_a0_full_mask M17_a0_full_mask M18_a0_full_mask M19_a0_full_mask M20_a0_full_mask M21_a0_full_mask M22_a0_full_mask M23_a0_full_mask M24_a0_full_mask M25_a0_full_mask M26_a0_full_mask M27_a0_full_mask M28_a0_full_mask M29_a0_full_mask M30_a0_full_mask M31_a0_full_mask M32_a0_full_mask M33_a0_full_mask M34_a0_full_mask M35_a0_full_mask M36_a0_full_mask N25_a0_full_mask N26_a0_full_mask N27_a0_full_mask N28_a0_full_mask N29_a0_full_mask N30_a0_full_mask N31_a0_full_mask N32_a0_full_mask N33_a0_full_mask N34_a0_full_mask N35_a0_full_mask N36_a0_full_mask N37_a0_full_mask N38_a0_full_mask N39_a0_full_mask N40_a0_full_mask N41_a0_full_mask N42_a0_full_mask N43_a0_full_mask N44_a0_full_mask N45_a0_full_mask N46_a0_full_mask N47_a0_full_mask N48_a0_full_mask N49_a0_full_mask N50_a0_full_mask N51_a0_full_mask N52_a0_full_mask N53_a0_full_mask N54_a0_full_mask N55_a0_full_mask N56_a0_full_mask N57_a0_full_mask N58_a0_full_mask N59_a0_full_mask N60_a0_full_mask O01_a0_full_mask O02_a0_full_mask O03_a0_full_mask O04_a0_full_mask O05_a0_full_mask O06_a0_full_mask O07_a0_full_mask O08_a0_full_mask O09_a0_full_mask O10_a0_full_mask O11_a0_full_mask O12_a0_full_mask O13_a0_full_mask O14_a0_full_mask O15_a0_full_mask O16_a0_full_mask O17_a0_full_mask O18_a0_full_mask O19_a0_full_mask O20_a0_full_mask O21_a0_full_mask O22_a0_full_mask O23_a0_full_mask O24_a0_full_mask O25_a0_full_mask O26_a0_full_mask O27_a0_full_mask O28_a0_full_mask O29_a0_full_mask O30_a0_full_mask O31_a0_full_mask O32_a0_full_mask O33_a0_full_mask O34_a0_full_mask O35_a0_full_mask O36_a0_full_mask P05_a0_full_mask P07_a0_full_mask P09_a0_full_mask P15_a0_full_mask P17_a0_full_mask P18_a0_full_mask P21_a0_full_mask P23_a0_full_mask P25_a0_full_mask P28_a0_full_mask P30_a0_full_mask P31_a0_full_mask P32_a0_full_mask P33_a0_full_mask P34_a0_full_mask P35_a0_full_mask P36_a0_full_mask P37_a0_full_mask P38_a0_full_mask P39_a0_full_mask P40_a0_full_mask P41_a0_full_mask P42_a0_full_mask P43_a0_full_mask P44_a0_full_mask P45_a0_full_mask P46_a0_full_mask P47_a0_full_mask P48_a0_full_mask P49_a0_full_mask Q01_a0_full_mask Q02_a0_full_mask Q03_a0_full_mask Q04_a0_full_mask Q05_a0_full_mask Q06_a0_full_mask Q07_a0_full_mask Q08_a0_full_mask Q09_a0_full_mask Q10_a0_full_mask Q11_a0_full_mask Q12_a0_full_mask Q13_a0_full_mask Q14_a0_full_mask Q15_a0_full_mask Q16_a0_full_mask Q17_a0_full_mask Q18_a0_full_mask Q19_a0_full_mask Q20_a0_full_mask Q21_a0_full_mask Q22_a0_full_mask Q23_a0_full_mask Q24_a0_full_mask Q25_a0_full_mask Q26_a0_full_mask Q27_a0_full_mask Q28_a0_full_mask Q29_a0_full_mask Q31_a0_full_mask Q32_a0_full_mask Q33_a0_full_mask Q34_a0_full_mask Q35_a0_full_mask Q36_a0_full_mask R01_a0_full_mask R02_a0_full_mask R03_a0_full_mask R04_a0_full_mask R05_a0_full_mask R06_a0_full_mask R07_a0_full_mask R08_a0_full_mask R09_a0_full_mask R10_a0_full_mask R11_a0_full_mask R12_a0_full_mask R13_a0_full_mask R14_a0_full_mask R15_a0_full_mask R16_a0_full_mask R17_a0_full_mask R18_a0_full_mask R19_a0_full_mask R20_a0_full_mask R21_a0_full_mask R22_a0_full_mask R23_a0_full_mask R24_a0_full_mask R25_a0_full_mask R26_a0_full_mask R27_a0_full_mask R28_a0_full_mask R29_a0_full_mask R30_a0_full_mask R31_a0_full_mask R32_a0_full_mask R33_a0_full_mask R34_a0_full_mask R35_a0_full_mask R36_a0_full_mask S01_a0_full_mask S02_a0_full_mask S03_a0_full_mask S04_a0_full_mask S05_a0_full_mask S06_a0_full_mask S07_a0_full_mask S08_a0_full_mask S09_a0_full_mask S10_a0_full_mask S11_a0_full_mask S12_a0_full_mask S13_a0_full_mask S14_a0_full_mask S15_a0_full_mask S16_a0_full_mask S17_a0_full_mask S18_a0_full_mask S19_a0_full_mask S20_a0_full_mask S21_a0_full_mask S22_a0_full_mask S23_a0_full_mask S25_a0_full_mask S26_a0_full_mask S27_a0_full_mask S28_a0_full_mask S29_a0_full_mask S30_a0_full_mask S31_a0_full_mask S32_a0_full_mask S33_a0_full_mask S34_a0_full_mask S35_a0_full_mask S36_a0_full_mask T05_a0_full_mask T06_a0_full_mask T08_a0_full_mask T09_a0_full_mask T10_a0_full_mask T11_a0_full_mask T12_a0_full_mask T13_a0_full_mask T14_a0_full_mask T15_a0_full_mask T16_a0_full_mask T17_a0_full_mask T18_a0_full_mask T19_a0_full_mask T20_a0_full_mask T21_a0_full_mask T22_a0_full_mask T23_a0_full_mask T24_a0_full_mask T25_a0_full_mask T26_a0_full_mask T27_a0_full_mask T28_a0_full_mask T29_a0_full_mask T30_a0_full_mask T31_a0_full_mask T32_a0_full_mask T33_a0_full_mask T34_a0_full_mask T35_a0_full_mask T36_a0_full_mask T37_a0_full_mask T38_a0_full_mask T39_a0_full_mask T40_a0_full_mask U02_a0_full_mask U03_a0_full_mask U04_a0_full_mask U10_a0_full_mask U11_a0_full_mask U12_a0_full_mask U13_a0_full_mask U14_a0_full_mask U15_a0_full_mask U16_a0_full_mask U22_a0_full_mask U27_a0_full_mask U28_a0_full_mask U29_a0_full_mask U30_a0_full_mask U32_a0_full_mask U33_a0_full_mask U34_a0_full_mask U35_a0_full_mask U36_a0_full_mask U37_a0_full_mask U38_a0_full_mask U39_a0_full_mask U40_a0_full_mask U41_a0_full_mask U42_a0_full_mask U43_a0_full_mask U44_a0_full_mask U45_a0_full_mask U46_a0_full_mask U47_a0_full_mask U48_a0_full_mask U50_a0_full_mask U51_a0_full_mask U52_a0_full_mask V01_a0_full_mask V02_a0_full_mask V03_a0_full_mask V04_a0_full_mask V05_a0_full_mask V06_a0_full_mask V07_a0_full_mask V08_a0_full_mask V09_a0_full_mask V10_a0_full_mask V11_a0_full_mask V12_a0_full_mask V13_a0_full_mask V14_a0_full_mask V15_a0_full_mask V16_a0_full_mask V17_a0_full_mask V18_a0_full_mask V19_a0_full_mask V20_a0_full_mask V21_a0_full_mask V22_a0_full_mask V23_a0_full_mask V24_a0_full_mask V25_a0_full_mask V26_a0_full_mask V27_a0_full_mask V28_a0_full_mask V29_a0_full_mask V30_a0_full_mask V31_a0_full_mask V32_a0_full_mask V33_a0_full_mask V34_a0_full_mask V35_a0_full_mask V36_a0_full_mask W01_a0_full_mask W02_a0_full_mask W03_a0_full_mask W04_a0_full_mask W05_a0_full_mask W06_a0_full_mask W07_a0_full_mask W08_a0_full_mask W09_a0_full_mask W10_a0_full_mask W11_a0_full_mask W12_a0_full_mask W13_a0_full_mask W14_a0_full_mask W15_a0_full_mask W16_a0_full_mask W17_a0_full_mask W18_a0_full_mask W19_a0_full_mask W20_a0_full_mask W21_a0_full_mask W22_a0_full_mask W23_a0_full_mask W24_a0_full_mask W25_a0_full_mask W26_a0_full_mask W27_a0_full_mask W28_a0_full_mask W29_a0_full_mask W31_a0_full_mask W32_a0_full_mask W33_a0_full_mask W34_a0_full_mask W35_a0_full_mask W36_a0_full_mask W37_a0_full_mask W38_a0_full_mask W39_a0_full_mask X01_a0_full_mask X02_a0_full_mask X03_a0_full_mask X04_a0_full_mask X05_a0_full_mask X06_a0_full_mask X07_a0_full_mask X08_a0_full_mask X09_a0_full_mask X10_a0_full_mask X11_a0_full_mask X12_a0_full_mask X13_a0_full_mask X14_a0_full_mask X15_a0_full_mask X16_a0_full_mask X17_a0_full_mask X18_a0_full_mask X19_a0_full_mask X20_a0_full_mask X21_a0_full_mask X22_a0_full_mask X23_a0_full_mask X24_a0_full_mask X26_a0_full_mask X27_a0_full_mask X28_a0_full_mask X29_a0_full_mask X30_a0_full_mask X31_a0_full_mask X32_a0_full_mask X34_a0_full_mask X35_a0_full_mask X36_a0_full_mask Y01_a0_full_mask Y02_a0_full_mask Y03_a0_full_mask Y04_a0_full_mask Y05_a0_full_mask Y06_a0_full_mask Y07_a0_full_mask Y08_a0_full_mask Y09_a0_full_mask Y10_a0_full_mask Y11_a0_full_mask Y12_a0_full_mask Y14_a0_full_mask Y15_a0_full_mask Y16_a0_full_mask Y17_a0_full_mask Y18_a0_full_mask Y19_a0_full_mask Y20_a0_full_mask Y21_a0_full_mask Y22_a0_full_mask Y23_a0_full_mask Y24_a0_full_mask Y25_a0_full_mask Y26_a0_full_mask Y27_a0_full_mask Y28_a0_full_mask Y29_a0_full_mask Y30_a0_full_mask Y31_a0_full_mask 
-## Each image contains 1 channel</code></pre>
+url.image &lt;- (&quot;https://data.mendeley.com/datasets/cydmwsfztj/2/files/0b236273-d21b-4566-84a2-f1c56324a900/Image.zip?dl=1&quot;)
+download.file(url.image, destfile = &quot;Image.zip&quot;)
+unzip(&quot;Image.zip&quot;)
+file.remove(&quot;Image.zip&quot;)</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="r"><code># Read-in the data
+image &lt;- read.csv(&quot;All_Image.csv&quot;, stringsAsFactors = FALSE)</code></pre>
 </div>
-<div id="remove-tiff-files-from-the-root-directory" class="section level1">
-<h1>Remove tiff files from the root directory</h1>
-<pre class="r"><code># Remove image stacks
-images.del &lt;- list.files(&quot;./&quot;, pattern=&quot;_full_clean.tiff&quot;)
-file.remove(images.del)</code></pre>
-<pre><code>##   [1] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
-##  [16] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
-##  [31] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
-##  [46] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
-##  [61] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
-##  [76] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
-##  [91] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE</code></pre>
-<pre class="r"><code># Remove masks
-masks.del &lt;- list.files(&quot;./&quot;, pattern=&quot;_full_mask.tiff&quot;)
-file.remove(masks.del)</code></pre>
-<pre><code>##   [1] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
-##  [16] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
-##  [31] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
-##  [46] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
-##  [61] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
-##  [76] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
-##  [91] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
-## [106] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
-## [121] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
-## [136] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
-## [151] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
-## [166] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
-## [181] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
-## [196] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
-## [211] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
-## [226] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
-## [241] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
-## [256] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
-## [271] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
-## [286] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
-## [301] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
-## [316] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
-## [331] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
-## [346] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
-## [361] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
-## [376] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
-## [391] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
-## [406] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
-## [421] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
-## [436] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
-## [451] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
-## [466] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
-## [481] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
-## [496] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
-## [511] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
-## [526] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
-## [541] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
-## [556] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
-## [571] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
-## [586] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
-## [601] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
-## [616] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
-## [631] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
-## [646] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
-## [661] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
-## [676] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
-## [691] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
-## [706] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
-## [721] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
-## [736] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
-## [751] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
-## [766] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
-## [781] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
-## [796] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
-## [811] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
-## [826] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
-## [841] TRUE TRUE TRUE TRUE TRUE</code></pre>
+<div id="read-in-cell-type-information" class="section level1">
+<h1>Read-in cell type information</h1>
+<pre class="r"><code># Download the zipped folder image and unzip it
+url.celltypes &lt;- (&quot;https://data.mendeley.com/datasets/cydmwsfztj/2/files/59e8da72-5bfe-4289-b95b-28348a6e1222/CellTypes.zip?dl=1&quot;)
+download.file(url.celltypes, destfile = &quot;CellTypes.zip&quot;)
+unzip(&quot;CellTypes.zip&quot;)
+file.remove(&quot;CellTypes.zip&quot;)</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="r"><code># Read-in the data
+celltypes &lt;- read.csv(&quot;CellTypes.csv&quot;, stringsAsFactors = FALSE)</code></pre>
+</div>
+<div id="read-in-donor-information" class="section level1">
+<h1>Read-in donor information</h1>
+<pre class="r"><code># Download the zipped folder image and unzip it
+url.donors &lt;- (&quot;https://data.mendeley.com/datasets/cydmwsfztj/2/files/9074990e-1b93-4c79-8c49-1db01a66398b/Donors.zip?dl=1&quot;)
+download.file(url.donors, destfile = &quot;Donors.zip&quot;)
+unzip(&quot;Donors.zip&quot;)
+file.remove(&quot;Donors.zip&quot;)</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="r"><code># Read-in the data
+donors &lt;- read.csv(&quot;Donors.csv&quot;, stringsAsFactors = FALSE)</code></pre>
+</div>
+<div id="load-relevant-cell-specific-metadata" class="section level1">
+<h1>Load relevant cell-specific metadata</h1>
+<pre class="r"><code>cell.metadata &lt;- DataFrame(ImageNumber = cells$ImageNumber,
+                           CellNumber = cells$ObjectNumber,
+                           Pos_X = cells$Location_Center_X,
+                           Pos_Y = cells$Location_Center_Y,
+                           ParentIslet = cells$Parent_Islets,
+                           ClosestIslet = cells$Parent_ExpandedIslets,
+                           Area = cells$AreaShape_Area,
+                           NbNeighbours = cells$Neighbors_NumberOfNeighbors_3)</code></pre>
+</div>
+<div id="load-relevant-image-specific-metadata" class="section level1">
+<h1>Load relevant image-specific metadata</h1>
+<pre class="r"><code>image.metadata &lt;- DataFrame(ImageNumber = image$ImageNumber,
+                            ImageFullName = image$FileName_CleanStack,
+                            slide = image$Metadata_Slide,
+                            width = image$Width_CleanStack,
+                            height = image$Height_CleanStack)</code></pre>
+</div>
+<div id="merge-cell-and-image-metadata" class="section level1">
+<h1>Merge cell and image metadata</h1>
+<pre class="r"><code>cell.metadata &lt;- merge(cell.metadata, image.metadata, by=&quot;ImageNumber&quot;)</code></pre>
+</div>
+<div id="add-image-names" class="section level1">
+<h1>Add image names</h1>
+<p>This information is used by <code>cytomapper</code> to match single-cell data with images and masks</p>
+<pre class="r"><code>cell.metadata$ImageName &lt;- sub(&quot;_a0_full_clean.tiff&quot;, &quot;&quot;, cell.metadata$ImageFullName)</code></pre>
+</div>
+<div id="import-cell-types" class="section level1">
+<h1>Import cell types</h1>
+<pre class="r"><code># Add cell ids to cell metadata (format: &quot;ImageName_CellNumber&quot;)
+cell.metadata$id &lt;- paste(cell.metadata$ImageName, cell.metadata$CellNumber, sep=&quot;_&quot;)
+
+# Merge cell metadata and cell type information
+cell.metadata &lt;- merge(cell.metadata,
+                       celltypes[, c(&quot;id&quot;, &quot;CellCat&quot;, &quot;CellType&quot;)],
+                       by=&quot;id&quot;)</code></pre>
+</div>
+<div id="import-donor-metadata" class="section level1">
+<h1>Import donor metadata</h1>
+<pre class="r"><code>cell.metadata &lt;- merge(cell.metadata, donors, by=&quot;slide&quot;)</code></pre>
+</div>
+<div id="order-the-cell-metadata-dataset-and-add-rownames" class="section level1">
+<h1>Order the cell metadata dataset and add rownames</h1>
+<pre class="r"><code># Rows are ordered by ImageNumber and CellNumber
+cell.metadata &lt;- cell.metadata[order(cell.metadata$ImageNumber, cell.metadata$CellNumber), ]
+
+# Cell ids are used as row names
+rownames(cell.metadata) &lt;- cell.metadata$id</code></pre>
 </div>
 <div id="load-panel-data" class="section level1">
 <h1>Load panel data</h1>
 <p>The panel contains antibody-related metadata. The channel-mass file is used to match panel information and image stack slices.</p>
 <pre class="r"><code># Import panel
-# url.panel &lt;- (&quot;...&quot;)
-# download.file(url.panel, destfile = &quot;panel.csv&quot;)
-# panel &lt;- read.csv(panel.csv)
+url.panel &lt;- (&quot;https://data.mendeley.com/datasets/cydmwsfztj/2/files/2f9fecfc-b98f-4937-bc38-ae1b959bd74d/Panel.csv?dl=1&quot;)
+download.file(url.panel, destfile = &quot;panel.csv&quot;)
+panel &lt;- read.csv(&quot;panel.csv&quot;)
 
 # Import channel-mass file
-# url.channelmass &lt;- (&quot;...&quot;)
-# download.file(url.channelmass, destfile = &quot;ChannelMass.csv&quot;)
-# panel &lt;- read.csv(ChannelMass.csv)
-
-# Temporary code
-panel &lt;- read.csv(&quot;/home/nicolasd/Data/CM2017/mendeley/Panel.csv&quot;)
-channel.mass &lt;- read.csv(&quot;/home/nicolasd/Data/CM2017/mendeley/ChannelMass.csv&quot;, header=F)</code></pre>
+url.channelmass &lt;- (&quot;https://data.mendeley.com/datasets/cydmwsfztj/2/files/704312eb-377c-42e2-8227-44bb9aca0fb3/ChannelMass.csv?dl=1&quot;)
+download.file(url.channelmass, destfile = &quot;ChannelMass.csv&quot;)
+channel.mass &lt;- read.csv(&quot;ChannelMass.csv&quot;, header = FALSE)</code></pre>
 </div>
-<div id="scale-masks" class="section level1">
-<h1>Scale masks</h1>
-<p>The masks are 16-bit images and need to be re-scaled.</p>
-<pre class="r"><code>masks &lt;- endoapply(masks, function(x) x*(2^16-1))</code></pre>
-</div>
-<div id="add-image-names-for-images-and-masks" class="section level1">
-<h1>Add image names for images and masks</h1>
-<p>This information is stored in the metadata columns of the ImageList objects and is used by SingleCellMapper to match single cell data, images and mask</p>
-<pre class="r"><code>mcols(images)$ImageName &lt;- gsub(&quot;_a0_full_clean&quot;, &quot;&quot;, names(images))
-mcols(masks)$ImageName &lt;- gsub(&quot;_a0_full_mask&quot;, &quot;&quot;, names(masks))</code></pre>
-</div>
-<div id="subset-the-masks-to-keep-only-masks-matching-an-image-in-images" class="section level1">
-<h1>Subset the masks to keep only masks matching an image in <code>images</code></h1>
-<pre class="r"><code>masks &lt;- masks[mcols(masks)$ImageName %in% mcols(images)$ImageName]</code></pre>
-</div>
-<div id="add-protein-short-names-as-channel-names" class="section level1">
-<h1>Add protein short names as channel names</h1>
+<div id="select-relevant-channels-and-match-them-with-image-stack-slices" class="section level1">
+<h1>Select relevant channels and match them with image stack slices</h1>
 <pre class="r"><code># Match panel and stack slice information
 panel &lt;- panel[panel$full == 1,]
 panel &lt;- panel[match(channel.mass[,1], panel$MetalTag),]
 
-# Add channel names to the  image stacks ImageList object
-channelNames(images) &lt;- panel$shortname</code></pre>
+# Add short protein names as panel rownames
+rownames(panel) &lt;- panel$shortname</code></pre>
 </div>
-<div id="save-the-imagelist-objects" class="section level1">
-<h1>Save the ImageList objects</h1>
-<pre class="r"><code>saveRDS(images, &quot;pancreas_images.rds&quot;)
-saveRDS(masks, &quot;pancreas_masks.rds&quot;)</code></pre>
+<div id="load-single-cell-measurements" class="section level1">
+<h1>Load single cell measurements</h1>
+<p>Here, we import the mean intensity per cell</p>
+<pre class="r"><code>cur_counts &lt;- cells[, grepl(&quot;Intensity_MeanIntensity_CleanStack&quot;, colnames(cells))]</code></pre>
+</div>
+<div id="reorder-the-counts-channels-based-on-channel-number" class="section level1">
+<h1>Reorder the counts channels (based on channel number)</h1>
+<pre class="r"><code>channelNumber &lt;- as.numeric(sub(&quot;^.*_c&quot;, &quot;&quot;, colnames(cur_counts)))
+cur_counts &lt;- cur_counts[, order(channelNumber, decreasing = FALSE)]</code></pre>
+</div>
+<div id="create-the-singlecellexperiment-sce-object" class="section level1">
+<h1>Create the SingleCellExperiment (SCE) object</h1>
+<pre class="r"><code>sce &lt;- SingleCellExperiment(assays = list(counts = t(as.matrix(cur_counts))))</code></pre>
+</div>
+<div id="add-transformed-counts-as-a-new-assay" class="section level1">
+<h1>Add transformed counts as a new assay</h1>
+<p>exprs = asinh-transformed counts</p>
+<pre class="r"><code>assay(sce, &quot;exprs&quot;) &lt;- asinh(counts(sce)/1)</code></pre>
+</div>
+<div id="set-dimnames" class="section level1">
+<h1>Set dimnames</h1>
+<pre class="r"><code>rownames(sce) &lt;- rownames(panel)
+colnames(sce) &lt;- rownames(cell.metadata)</code></pre>
+</div>
+<div id="store-metadata-in-the-sce-object" class="section level1">
+<h1>Store metadata in the SCE object</h1>
+<pre class="r"><code>colData(sce) &lt;- cell.metadata
+rowData(sce) &lt;- panel
+sce</code></pre>
+<pre><code>## class: SingleCellExperiment 
+## dim: 38 252059 
+## metadata(0):
+## assays(2): counts exprs
+## rownames(38): H3 SMA ... Ir191 Ir193
+## rowData names(15): TubeNb MetalTag ... miCAT2 miCAT
+## colnames(252059): E02_1 E02_2 ... J34_1149 J34_1150
+## colData names(26): slide id ... Ethnicity BMI
+## reducedDimNames(0):
+## spikeNames(0):
+## altExpNames(0):</code></pre>
+</div>
+<div id="save-sce" class="section level1">
+<h1>Save SCE</h1>
+<pre class="r"><code>saveRDS(sce, &quot;pancreas_sce.rds&quot;)</code></pre>
+</div>
+<div id="delete-unneeded-csv-files-from-the-extdata-directory" class="section level1">
+<h1>Delete unneeded CSV files from the extdata directory</h1>
+<pre class="r"><code>file.remove(&quot;All_Image.csv&quot;, &quot;CellSubset.csv&quot;, &quot;CellTypes.csv&quot;, &quot;Donors.csv&quot;, &quot;panel.csv&quot;, &quot;ChannelMass.csv&quot;)</code></pre>
+<pre><code>## [1] TRUE TRUE TRUE TRUE TRUE TRUE</code></pre>
+<pre class="r"><code>sessionInfo()</code></pre>
+<pre><code>## R version 3.6.1 (2019-07-05)
+## Platform: x86_64-pc-linux-gnu (64-bit)
+## Running under: Ubuntu 16.04.6 LTS
+## 
+## Matrix products: default
+## BLAS:   /usr/lib/libblas/libblas.so.3.6.0
+## LAPACK: /usr/lib/lapack/liblapack.so.3.6.0
+## 
+## locale:
+##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
+##  [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
+##  [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
+##  [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+##  [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+## [11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+## 
+## attached base packages:
+## [1] parallel  stats4    stats     graphics  grDevices utils     datasets 
+## [8] methods   base     
+## 
+## other attached packages:
+##  [1] cytomapper_0.99.4           EBImage_4.28.1             
+##  [3] SingleCellExperiment_1.8.0  SummarizedExperiment_1.16.1
+##  [5] DelayedArray_0.12.3         BiocParallel_1.20.1        
+##  [7] matrixStats_0.56.0          Biobase_2.46.0             
+##  [9] GenomicRanges_1.38.0        GenomeInfoDb_1.22.1        
+## [11] IRanges_2.20.2              S4Vectors_0.24.4           
+## [13] BiocGenerics_0.32.0        
+## 
+## loaded via a namespace (and not attached):
+##  [1] tidyselect_1.0.0       locfit_1.5-9.4         xfun_0.13             
+##  [4] purrr_0.3.3            lattice_0.20-41        colorspace_1.4-1      
+##  [7] viridisLite_0.3.0      htmltools_0.4.0        yaml_2.2.1            
+## [10] rlang_0.4.5            pillar_1.4.3           glue_1.4.0            
+## [13] sp_1.4-1               RColorBrewer_1.1-2     jpeg_0.1-8.1          
+## [16] GenomeInfoDbData_1.2.2 lifecycle_0.2.0        stringr_1.4.0         
+## [19] zlibbioc_1.32.0        munsell_0.5.0          gtable_0.3.0          
+## [22] raster_3.0-12          htmlwidgets_1.5.1      codetools_0.2-15      
+## [25] evaluate_0.14          knitr_1.28             Rcpp_1.0.4            
+## [28] scales_1.1.0           XVector_0.26.0         abind_1.4-5           
+## [31] gridExtra_2.3          ggplot2_3.3.0          png_0.1-7             
+## [34] digest_0.6.25          stringi_1.4.6          tiff_0.1-5            
+## [37] dplyr_0.8.5            grid_3.6.1             tools_3.6.1           
+## [40] bitops_1.0-6           magrittr_1.5           RCurl_1.98-1.1        
+## [43] tibble_2.1.3           pkgconfig_2.0.3        crayon_1.3.4          
+## [46] Matrix_1.2-18          assertthat_0.2.1       rmarkdown_2.1         
+## [49] viridis_0.5.1          R6_2.4.1               fftwtools_0.9-8       
+## [52] compiler_3.6.1</code></pre>
 </div>
 
 
