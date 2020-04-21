@@ -26,6 +26,3 @@ Preprocessing folder
 - LoadImages:
 - LoadMasks:
 
-
-## Tests
-- Comparison with the `cardinal` package.
