@@ -15,3 +15,4 @@ Preprocessing/PancreasData/Panel.csv
 Preprocessing/PancreasData/ChannelMass.csv
 Preprocessing/PancreasData/*_full_clean.tiff
 Preprocessing/PancreasData/*_full_mask.tiff
+*.tiff

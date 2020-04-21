@@ -1,0 +1,60 @@
+---
+title: "Figures"
+author: "Nils Eling and Nicolas Damond"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+This script reproduces the analysis performed in the `cytomapper` publication and generates all displayed figures.
+The analysis was performed using cytomapper version 1.0.0, Biocondcutor version 3.11 and R version 4.0.
+
+Please follow the pre-processing scripts in the `Preprocessing` folder to download the data and generate the following objects:
+
+1. A `SingleCellExperiment` object containing the cell- and marker-specific expression and metadata.
+2. A `CytoImageList` object containing 100 example images, where each image contains 38 channels
+3. A `CytoImageList` object containing 100 example masks, which are associated to and a segmentation result of the images in 2.
+
+Here, we will load all relevant libraries and read in the data.
+
+```{r read-in-data}
+library(SingleCellExperiment)
+library(cytomapper)
+
+sce <- readRDS("Preprocessing/PancreasData/pancreas_sce.rds")
+images <- readRDS("Preprocessing/PancreasData/pancreas_images.rds")
+masks <- readRDS("Preprocessing/PancreasData/pancreas_masks.rds")
+```
+
+## Figure 1
+
+For Figure 1, we will only use a subset of the data for visualization purposes.
+
+```{r Figure-3}
+plotCells(masks[1:3], object = sce, cell_id = "CellNumber", img_id = "ImageName", 
+          colour_by = "CellType", )
+plotPixels(cur_images[1:3], colour_by = c("PIN", "CDH", "H3"), 
+           bcg = list(PIN = c(0, 2, 1), CDH = c(0, 2, 1), H3 = c(0, 4, 1)))
+```
+
+## Figure 2
+
+```{r Figure-2}
+plotCells(masks[1:10], object = sce, cell_id = "CellNumber", img_id = "ImageName", colour_by = "CellType")
+```
+
+## Figure 3
+
+```{r Figure-3}
+cur_images <- images[1:10]
+cur_images <- normalize(cur_images, separateImages = TRUE)
+plotPixels(cur_images, colour_by = c("PIN", "CDH", "H3"), 
+           bcg = list(PIN = c(0, 2, 1), CDH = c(0, 2, 1), H3 = c(0, 4, 1)))
+```
+
+```{r}
+sessionInfo()
+```
