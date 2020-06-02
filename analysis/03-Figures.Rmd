@@ -12,12 +12,12 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 This script reproduces the analysis performed in the `cytomapper` publication and generates all displayed figures.
-The analysis was performed using cytomapper version 1.0.0, Biocondcutor version 3.11 and R version 4.0.
+The analysis was performed using cytomapper version 1.0.0, Bioconductor version 3.11 and R version 4.0.
 
-Please follow the pre-processing scripts in the `Preprocessing` folder to download the data and generate the following objects:
+The previous scripts have generated the following files in the `data/PancreasData` folder:
 
 1. A `SingleCellExperiment` object containing the cell- and marker-specific expression and metadata.
-2. A `CytoImageList` object containing 100 example images, where each image contains 38 channels
+2. A `CytoImageList` object containing 100 example images of 3 donors, where each image contains 38 channels
 3. A `CytoImageList` object containing 100 example masks, which are associated to and a segmentation result of the images in 2.
 
 Here, we will load all relevant libraries and read in the data.
@@ -27,18 +27,19 @@ library(dplyr)
 library(SingleCellExperiment)
 library(cytomapper)
 
-sce <- readRDS(file.path("Preprocessing", "PancreasData", "pancreas_sce.rds"))
-images <- readRDS(file.path("Preprocessing", "PancreasData", "pancreas_images.rds"))
-masks <- readRDS(file.path("Preprocessing", "PancreasData", "pancreas_masks.rds"))
+sce <- readRDS("data/PancreasData/pancreas_sce.rds")
+images <- readRDS("data/PancreasData/pancreas_images.rds")
+masks <- readRDS("data/PancreasData/pancreas_masks.rds")
 ```
 
-# Figure 3
+In type 1 diabetes (T1D), pancreatic insulin-producing beta cells are killed by self-reacting immune cells. 
+Here, we will visualize association between T cells and beta cells in three pancreas donors at different stage of the disease (Non-diabetic, recent onset T1D and long duration T1D).  
 
-In type 1 diabetes (T1D), pancreatic insulin-producing beta cells are killed by self-reacting immune cells. Here, we will visualize association between T cells and beta cells in three pancreas donors at different stage of the disease (Non-diabetic, recent onset T1D and long duration T1D).  
+In our dataset, cell types can be visualized in the `CellType` column of `colData(sce)` (`unique(colData(sce)$CellType)`). 
+T cells have the cell type `Tc` (CD8+) or `Th` (CD4+) and beta cells are labelled as `beta`.  
 
-In our dataset, cell types can be visualized in the `CellType` column of `colData(sce)` (`unique(colData(sce)$CellType)`). T cells have the cell type `Tc` (CD8+) or `Th` (CD4+) and beta cells are labelled as `beta`.  
-
-First, we will select for each donor the image with the highest density of T cells (number of T cells per mm^2). Then, we will subset the `SingleCellExperiment` object (`sce`) and the `CytoImageList` objects (`images` and `masks`).
+First, we will select for each donor the image with the highest density of T cells (number of T cells per mm^2). 
+Then, we will subset the `SingleCellExperiment` object (`sce`) and the `CytoImageList` objects (`images` and `masks`).
 
 ```{r select-images}
 # Select the three images with the higest T cell density
@@ -57,48 +58,57 @@ selected.images <- as_tibble(colData(sce)) %>%
 print(selected.images)
 
 # Subset the objects
-cur.sce <- sce[, sce$ImageName %in% selected.images]
-cur.images <- images[mcols(images)$ImageName %in% selected.images]
-cur.masks <- masks[mcols(masks)$ImageName %in% selected.images]
+cur_sce <- sce[, sce$ImageName %in% selected.images]
+cur_images <- images[mcols(images)$ImageName %in% selected.images]
+cur_masks <- masks[mcols(masks)$ImageName %in% selected.images]
 ```
 
 ## Plot cells
 
 To visualize association between islet and T cells, we will use the `plotCells` function and display beta and T cells on the three images selected above.  
 
-The different cell types will be coloured as following: Tc cells in red, Th cells in blue, beta cells in yellow, the other islet cells (alpha, gamma, delta) in cyan and the rest of the cells in black.
+The different cell types will be coloured as following: Tc cells in red, Th cells in blue, beta cells in yellow, the other islet cells (alpha, delta) in cyan and the rest of the cells in black.
+
+To display only a selected number of cells, the `SingleCellExperiment` can be subsetted.
 
 ```{r plotCells}
+cur_sce <- cur_sce[,cur_sce$CellType %in% c("beta", "alpha", "delta", "Tc", "Th")]
+
 # Define the colors for the different cell types
-ct.colours <- rep("black", length(unique(sce$CellType)))
-names(ct.colours) <- unique(sce$CellType)
-ct.colours["beta"] <- "yellow"
-ct.colours[c("alpha", "gamma", "delta")] <- "cyan"
-ct.colours["Tc"] <- "red"
-ct.colours["Th"] <- "blue"
+ct_colours <- vector(mode = "character", length = length(unique(cur_sce$CellType)))
+names(ct_colours) <- unique(cur_sce$CellType)
+ct_colours["beta"] <- "yellow"
+ct_colours[c("alpha", "delta")] <- "cyan"
+ct_colours["Tc"] <- "red"
+ct_colours["Th"] <- "blue"
 
 # Plot the cells
-plotCells(mask = cur.masks,
-          object = cur.sce,
+plotCells(mask = cur_masks,
+          object = cur_sce,
           cell_id = "CellNumber",
           img_id = "ImageName",
           colour_by = "CellType",
-          colour = list(CellType = ct.colours),
+          colour = list(CellType = ct_colours),
           image_title = list(text = c("Non-diabetic",
                                       "Recent onset T1D",
                                       "Long duration T1D"),
-                             cex = 1.1),
+                             cex = 1.1,
+                             colour = "black"),
           scale_bar = list(length = 100,
-                           label = expression("100 " ~ mu * "m")))
+                           label = expression("100 " ~ mu * "m"),
+                           cex = 1.1,
+                           colour = "black"),
+          missing_colour = "white",
+          background_colour = "gray")
 ```
 
 We now see that T cells are located closer to the islet on the "Recent onset T1D" image. In addition, no beta cells are visible on the "Long duration T1D" image, as expected because they have been destroyed by the immune system.    
 
-We will now confirm that this is reflected on the original images by plotting the corresponding pixel-level data with the `plotPixels` function. CD4 (`CD4` expressed by Th cells) will be plotted in blue, CD8 (`CD8a`, Tc cells) in red and proinsulin (`PIN`, beta cells) in yellow.
+We will now confirm that this is reflected on the original images by plotting the corresponding pixel-level data with the `plotPixels` function. 
+CD4 (`CD4` expressed by Th cells) will be plotted in blue, CD8 (`CD8a`, Tc cells) in red and proinsulin (`PIN`, beta cells) in yellow.
 
 ```{r plotPixels}
-plotPixels(object = cur.sce,
-           image = cur.images,
+plotPixels(image = cur_images,
            cell_id = "CellNumber",
            img_id = "ImageName",
            colour_by = c("PIN", "CD4", "CD8a"), 
@@ -118,9 +128,9 @@ plotPixels(object = cur.sce,
                             label = expression("100 " ~ mu * "m")))
 ```
 
-This plot confirms that beta cells are surrounded by infiltrating T cells on the "Recent onset T1D" image. In addition, proinsulin abundance seems to be reduced on that image as compared to the "Non-diabetic" control image. This observation can be further explored by performing additional data analysis.
-
-
+This plot confirms that beta cells are surrounded by infiltrating T cells on the "Recent onset T1D" image. 
+In addition, proinsulin abundance seems to be reduced on that image as compared to the "Non-diabetic" control image. 
+This observation can be further explored by performing additional data analysis.
 
 ## Alternative
 
@@ -128,18 +138,18 @@ Plot only islet and immune cell types first.
 
 ```{r plotCells2}
 # Define the colors for the different cell types
-cat.colours <- rep("black", length(unique(sce$CellCat)))
-names(cat.colours) <- unique(sce$CellCat)
-cat.colours["islet"] <- "yellow"
-cat.colours["immune"] <- "red"
+cat_colours <- rep("black", length(unique(sce$CellCat)))
+names(cat_colours) <- unique(sce$CellCat)
+cat_colours["islet"] <- "yellow"
+cat_colours["immune"] <- "red"
 
 # Plot the cells
-plotCells(mask = cur.masks,
-          object = cur.sce,
+plotCells(mask = cur_masks,
+          object = cur_sce,
           cell_id = "CellNumber",
           img_id = "ImageName",
           colour_by = "CellCat",
-          colour = list(CellCat = cat.colours),
+          colour = list(CellCat = cat_colours),
           image_title = list(text = c("Non-diabetic",
                                       "Recent onset T1D",
                                       "Long duration T1D"),
@@ -148,12 +158,10 @@ plotCells(mask = cur.masks,
                            label = expression("100 " ~ mu * "m")))
 ```
 
-
 Then plot the channels corresponding to the different immune cell types (and we see that we have mostly T cells around the islet on the "Recent onset T1D" image).
 
 ```{r plotPixels2}
-plotPixels(object = cur.sce,
-           image = cur.images,
+plotPixels(image = cur_images,
            cell_id = "CellNumber",
            img_id = "ImageName",
            colour_by = c("PIN", "CD4", "CD8a", "CD20", "CD68", "MPO"), 
@@ -175,8 +183,4 @@ plotPixels(object = cur.sce,
                               cex = 1.1),
            scale_bar = list(length = 100,
                             label = expression("100 " ~ mu * "m")))
-```
-
-```{r}
-sessionInfo()
 ```
