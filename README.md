@@ -2,8 +2,8 @@
 
 Scripts for testing and validating the cytomapper package.
 
-
 ## Data
+
 The example dataset is
 (https://www.cell.com/cell-metabolism/fulltext/S1550-4131(18)30691-0)
 
@@ -21,6 +21,7 @@ Specifically, the following files are used:
 
 
 ## How to load the data
+
 Preprocessing folder
 - LoadPancreasData:
 - LoadImages:
