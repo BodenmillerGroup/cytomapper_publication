@@ -9,7 +9,6 @@ editor_options:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-knitr::opts_knit$set(root.dir = file.path(".", "PancreasData"))
 ```
 
 
@@ -30,12 +29,12 @@ Here, a subset of 100 images from the pancreas IMC dataset is downloaded.
 ```{r load-images}
 # Download the zipped folder image and unzip it
 url.images <- ("https://data.mendeley.com/datasets/cydmwsfztj/2/files/b37054d2-d5d0-4c48-a001-81ff77136f41/ImageSubset.zip?dl=1")
-download.file(url.images, destfile = "ImageSubset.zip")
-unzip("ImageSubset.zip")
-file.remove("ImageSubset.zip")
+download.file(url.images, destfile = "data/PancreasData/ImageSubset.zip")
+unzip("data/PancreasData/ImageSubset.zip", exdir = "data/PancreasData/")
+file.remove("data/PancreasData/ImageSubset.zip")
 
 # Load the images as a CytoImageList object
-images <- loadImages("./", pattern="_full_clean.tiff")
+images <- loadImages("data/PancreasData/", pattern="_full_clean.tiff")
 images
 ```
 
@@ -44,24 +43,24 @@ images
 ```{r load-masks}
 # Download the zipped folder image and unzip it
 url.masks <- ("https://data.mendeley.com/datasets/cydmwsfztj/2/files/13679a61-e9b4-4820-9f09-a5bbc697647c/Masks.zip?dl=1")
-download.file(url.masks, destfile = "Masks.zip")
-unzip("Masks.zip")
-file.remove("Masks.zip")
+download.file(url.masks, destfile = "data/PancreasData/Masks.zip")
+unzip("data/PancreasData/Masks.zip", exdir = "data/PancreasData/")
+file.remove("data/PancreasData/Masks.zip")
 
 # Load the images as a CytoImageList object
-masks <- loadImages("./", pattern="_full_mask.tiff")
+masks <- loadImages("data/PancreasData/", pattern="_full_mask.tiff")
 masks
 ```
 
-# Remove tiff files from the root directory
+# Remove tiff files from the data directory
 
 ```{r clean-up-2, message = FALSE}
 # Remove image stacks
-images.del <- list.files("./", pattern="_full_clean.tiff")
+images.del <- list.files("data/PancreasData/", pattern="_full_clean.tiff", full.names = TRUE)
 file.remove(images.del)
 
 # Remove masks
-masks.del <- list.files("./", pattern="_full_mask.tiff")
+masks.del <- list.files("data/PancreasData/", pattern="_full_mask.tiff", full.names = TRUE)
 file.remove(masks.del)
 ```
 
@@ -73,13 +72,13 @@ The channel-mass file is used to match panel information and image stack slices.
 ```{r load-panel}
 # Import panel
 url.panel <- ("https://data.mendeley.com/datasets/cydmwsfztj/2/files/2f9fecfc-b98f-4937-bc38-ae1b959bd74d/Panel.csv?dl=1")
-download.file(url.panel, destfile = "panel.csv")
-panel <- read.csv("panel.csv")
+download.file(url.panel, destfile = "data/PancreasData/panel.csv")
+panel <- read.csv("data/PancreasData/panel.csv")
 
 # Import channel-mass file
 url.channelmass <- ("https://data.mendeley.com/datasets/cydmwsfztj/2/files/704312eb-377c-42e2-8227-44bb9aca0fb3/ChannelMass.csv?dl=1")
-download.file(url.channelmass, destfile = "ChannelMass.csv")
-channel.mass <- read.csv("ChannelMass.csv", header = FALSE)
+download.file(url.channelmass, destfile = "data/PancreasData/ChannelMass.csv")
+channel.mass <- read.csv("data/PancreasData/ChannelMass.csv", header = FALSE)
 ```
 
 # Scale masks
@@ -88,7 +87,7 @@ The masks are 16-bit images and need to be re-scaled.
 We then convert the mask values to integer.
 
 ```{r scale-masks}
-masks <- scaleImages(masks, (2 ^ 16) - 1)
+masks <- scaleImages(masks, value = (2 ^ 16) - 1)
 ```
 
 # Add image names for images and masks
@@ -122,16 +121,12 @@ channelNames(images) <- panel$shortname
 # Save the CytoImageList objects
 
 ```{r save}
-saveRDS(images, "pancreas_images.rds")
-saveRDS(masks, "pancreas_masks.rds")
+saveRDS(images, "data/PancreasData/pancreas_images.rds")
+saveRDS(masks, "data/PancreasData/pancreas_masks.rds")
 ```
 
 # Delete unneeded CSV files from the extdata directory
 
 ```{r clean-up, message = FALSE}
-file.remove("panel.csv", "ChannelMass.csv")
-```
-
-```{r session-info}
-sessionInfo()
+file.remove("data/PancreasData/panel.csv", "data/PancreasData/ChannelMass.csv")
 ```
