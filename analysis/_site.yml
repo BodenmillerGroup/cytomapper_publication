@@ -11,6 +11,8 @@ navbar:
     href: 01-LoadPancreasData.html
   - text: Load Pancreas Images
     href: 02-LoadPancreasImages.html
+  - text: Main Figures
+    href: 03-Figures.html
   - text: License
     href: license.html
 output:

@@ -92,14 +92,30 @@ plotCells(mask = cur_masks,
           image_title = list(text = c("Non-diabetic",
                                       "Recent onset T1D",
                                       "Long duration T1D"),
-                             cex = 1.1,
                              colour = "black"),
           scale_bar = list(length = 100,
                            label = expression("100 " ~ mu * "m"),
-                           cex = 1.1,
                            colour = "black"),
           missing_colour = "white",
           background_colour = "gray")
+
+# Save figure
+plotCells(mask = cur_masks,
+          object = cur_sce,
+          cell_id = "CellNumber",
+          img_id = "ImageName",
+          colour_by = "CellType",
+          colour = list(CellType = ct_colours),
+          image_title = list(text = c("Non-diabetic",
+                                      "Recent onset T1D",
+                                      "Long duration T1D"),
+                             colour = "black"),
+          scale_bar = list(length = 100,
+                           label = expression("100 " ~ mu * "m"),
+                           colour = "black"),
+          missing_colour = "white",
+          background_colour = "gray", 
+          save_plot = list(filename = "docs/final_figures/main/Fig_1B.png", scale = 3))
 ```
 
 We now see that T cells are located closer to the islet on the "Recent onset T1D" image. In addition, no beta cells are visible on the "Long duration T1D" image, as expected because they have been destroyed by the immune system.    
@@ -122,10 +138,29 @@ plotPixels(image = cur_images,
                       CD8a = c(0, 3, 1)),
            image_title = list(text = c("Non-diabetic",
                                        "Recent onset T1D",
-                                       "Long duration T1D"),
-                              cex = 1.1),
+                                       "Long duration T1D")),
            scale_bar = list(length = 100,
                             label = expression("100 " ~ mu * "m")))
+
+# Save figure
+plotPixels(image = cur_images,
+           cell_id = "CellNumber",
+           img_id = "ImageName",
+           colour_by = c("PIN", "CD4", "CD8a"), 
+           colour = list(PIN = c("black", "yellow"),
+                         # SYP = c("black", "cyan"),
+                         CD4 = c("black", "blue"),
+                         CD8a = c("black", "red")),
+           bcg = list(PIN = c(0, 4, 1),
+                      # SYP = c(0, 3, 1),
+                      CD4 = c(0, 3, 1),
+                      CD8a = c(0, 3, 1)),
+           image_title = list(text = c("Non-diabetic",
+                                       "Recent onset T1D",
+                                       "Long duration T1D")),
+           scale_bar = list(length = 100,
+                            label = expression("100 " ~ mu * "m")),
+           save_plot = list(filename = "docs/final_figures/main/Fig_1C.png", scale = 3))
 ```
 
 This plot confirms that beta cells are surrounded by infiltrating T cells on the "Recent onset T1D" image. 
