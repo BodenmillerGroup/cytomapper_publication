@@ -16,3 +16,8 @@ data/PancreasData/*_full_clean.tiff
 data/PancreasData/*_full_mask.tiff
 *.tiff
 .Rproj.user
+
+.Rhistory
+
+# Final figures
+docs/final_figures/*

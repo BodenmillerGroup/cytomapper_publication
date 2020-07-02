@@ -14,6 +14,74 @@ knitr::opts_chunk$set(echo = TRUE)
 This script reproduces the analysis performed in the `cytomapper` publication and generates all displayed figures.
 The analysis was performed using cytomapper version 1.0.0, Bioconductor version 3.11 and R version 4.0.
 
+Here, we will load the libraries required for data analysis:
+
+```{r load-libraries, message=FALSE}
+library(dplyr)
+library(SingleCellExperiment)
+library(cytomapper)
+```
+
+## Figure 1
+
+In the first figure, we will solely display the example data shipped with `cytomapper`.
+They can be read in using the `data` function.
+
+```{r load-example-data}
+data("pancreasSCE")
+data("pancreasImages")
+data("pancreasMasks")
+```
+
+We will save the segmentation masks and single-channel images for image 1 and 3 doe display purposes.
+
+```{r save-example-data}
+plotCells(pancreasMasks[1], legend = NULL, image_title = NULL, 
+          scale_bar = NULL, interpolate = FALSE, 
+          save_plot = list(filename = "docs/final_figures/main/Fig_1A_mask1.png"))
+plotCells(pancreasMasks[3], legend = NULL, image_title = NULL, 
+          scale_bar = NULL, interpolate = FALSE, 
+          save_plot = list(filename = "docs/final_figures/main/Fig_1A_mask2.png"))
+
+for(i in 1:5){
+  cur_col <- list(c("black", "white"))
+  names(cur_col) <- channelNames(pancreasImages)[i]
+  plotPixels(pancreasImages[1], legend = NULL, image_title = NULL, 
+          scale_bar = NULL, interpolate = FALSE, colour_by = channelNames(pancreasImages)[i],
+          colour = cur_col,
+          save_plot = list(filename = paste0("docs/final_figures/main/Fig_1B_img1_ch", i, ".png")))
+  
+    plotPixels(pancreasImages[3], legend = NULL, image_title = NULL, 
+          scale_bar = NULL, interpolate = FALSE, colour_by = channelNames(pancreasImages)[i],
+          colour = cur_col,
+          save_plot = list(filename = paste0("docs/final_figures/main/Fig_1B_img2_ch", i, ".png")))
+}
+```
+
+We will next visualize the example cell-types on the segmentation masks and the composite images of 5 colours.
+
+```{r viz-example-images}
+plotCells(mask = pancreasMasks[1], object = pancreasSCE, img_id = "ImageNb", cell_id = "CellNb",
+          colour_by = "CellType", 
+          save_plot = list(filename = "docs/final_figures/main/Fig_1A_celltype1.png",
+                           scale = 10))
+plotCells(mask = pancreasMasks[3], object = pancreasSCE, img_id = "ImageNb", cell_id = "CellNb",
+          colour_by = "CellType", 
+          save_plot = list(filename = "docs/final_figures/main/Fig_1A_celltype2.png",
+                           scale = 10))
+
+plotPixels(image = pancreasImages[1], object = pancreasSCE,
+           img_id = "ImageNb", cell_id = "CellNb", colour_by = channelNames(pancreasImages),
+           save_plot = list(filename = "docs/final_figures/main/Fig_1B_composite1.png",
+                           scale = 10))
+plotPixels(image = pancreasImages[3], object = pancreasSCE,
+           img_id = "ImageNb", cell_id = "CellNb", colour_by = channelNames(pancreasImages),
+           save_plot = list(filename = "docs/final_figures/main/Fig_1B_composite2.png",
+                           scale = 10))
+```
+
+## Figure 2
+
 The previous scripts have generated the following files in the `data/PancreasData` folder:
 
 1. A `SingleCellExperiment` object containing the cell- and marker-specific expression and metadata.
@@ -23,10 +91,6 @@ The previous scripts have generated the following files in the `data/PancreasDat
 Here, we will load all relevant libraries and read in the data.
 
 ```{r read-in-data, message=FALSE}
-library(dplyr)
-library(SingleCellExperiment)
-library(cytomapper)
-
 sce <- readRDS("data/PancreasData/pancreas_sce.rds")
 images <- readRDS("data/PancreasData/pancreas_images.rds")
 masks <- readRDS("data/PancreasData/pancreas_masks.rds")
