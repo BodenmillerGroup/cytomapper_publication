@@ -1,0 +1,93 @@
+---
+title: "Figure 3"
+author: "Nils Eling and Nicolas Damond"
+date: "`r Sys.Date()`"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+This script reproduces the analysis performed in Figure 3.
+Here, we will load the libraries and data for this figure:
+
+```{r load-libraries-and-data, message=FALSE}
+library(cytomapper)
+library(dplyr)
+
+sce <- readRDS("data/PancreasData/pancreas_sce.rds")
+images <- readRDS("data/PancreasData/pancreas_images.rds")
+masks <- readRDS("data/PancreasData/pancreas_masks.rds")
+```
+
+We will now order the images based on the percentage of beta cells out of all islet cells.
+In that way, we can visualize the decline of beta cells across all sample images.
+
+```{r order-by-beta-cells}
+cur_summary <- as_tibble(colData(sce)) %>% 
+  # Calculate for each image the area and beta cell density
+  group_by(ImageNumber) %>%
+  summarise(ImageName = unique(ImageName),
+            Stage = unique(stage),
+            betaCellCount = sum(CellType == "beta"),
+            isletCellCount = sum(CellCat == "islet")) %>%
+  mutate(betaCellFraction = betaCellCount / isletCellCount) %>%
+  arrange(desc(betaCellFraction))
+```
+
+Next, we will plot the cell-types on images after reordering them by beta cell fraction.
+We will further subset the SingleCellExperiment object to only contain iselt cells.
+
+```{r plotCellTypes}
+cur_sce <- sce[,sce$CellCat == "islet"]
+cur_order <- match(cur_summary$ImageName, mcols(masks)$ImageName)
+
+# Define the colors for the different cell types
+ct_colours <- vector(mode = "character", length = length(unique(cur_sce$CellType)))
+names(ct_colours) <- unique(cur_sce$CellType)
+ct_colours["beta"] <- "yellow"
+ct_colours["alpha"] <- "firebrick1"
+ct_colours["delta"] <- "firebrick3"
+ct_colours["gamma"] <- "deeppink4"
+
+plotCells(mask = masks[cur_order],
+          object = cur_sce,
+          img_id = "ImageName",
+          cell_id = "CellNumber",
+          colour_by = "CellType",
+          scale_bar = list(length = 100,
+                           label = expression("100 " ~ mu * "m"),
+                           colour = "black"),
+          colour = list(CellType = ct_colours),
+          missing_colour = "white",
+          background_colour = "gray",
+          image_title = list(text = cur_summary$Stage,
+                             colour = "black"))
+
+# Save plot
+plotCells(mask = masks[cur_order],
+          object = cur_sce,
+          img_id = "ImageName",
+          cell_id = "CellNumber",
+          colour_by = "CellType",
+          scale_bar = list(length = 100,
+                           label = "",
+                           colour = "black"),
+          legend = list(colour_by.legend.cex = 9,
+                        margin = 100),
+          colour = list(CellType = ct_colours),
+          missing_colour = "white",
+          background_colour = "gray",
+          image_title = list(text = paste(cur_summary$ImageName, "-",
+                                          cur_summary$Stage),
+                             colour = "black"),
+          save_plot = list(filename = "docs/final_figures/main/Fig_3.png"))
+```
+
+Here, we see the progressive decline in beta cell fractions. 
+The images are ordered based on T1D stage: Non-diabetic, Onset and Long-Duration, as expected.
+We further see an increased morphological irregularity in Long-Duration islets.
+
