@@ -19,7 +19,6 @@ library(cytomapper)
 library(dplyr)
 
 sce <- readRDS("data/PancreasData/pancreas_sce.rds")
-images <- readRDS("data/PancreasData/pancreas_images.rds")
 masks <- readRDS("data/PancreasData/pancreas_masks.rds")
 ```
 
@@ -59,12 +58,15 @@ plotCells(mask = masks[cur_order],
           cell_id = "CellNumber",
           colour_by = "CellType",
           scale_bar = list(length = 100,
-                           label = expression("100 " ~ mu * "m"),
+                           label = "",
                            colour = "black"),
+          legend = list(colour_by.legend.cex = 9,
+                        margin = 100),
           colour = list(CellType = ct_colours),
           missing_colour = "white",
           background_colour = "gray",
-          image_title = list(text = cur_summary$Stage,
+          image_title = list(text = paste(cur_summary$ImageName, "-",
+                                          cur_summary$Stage),
                              colour = "black"))
 
 # Save plot

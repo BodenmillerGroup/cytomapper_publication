@@ -1,7 +1,7 @@
 ---
 title: "Figure 2"
 author: "Nils Eling and Nicolas Damond"
-date: "2020-06-02"
+date: "`r Sys.Date()`"
 output: workflowr::wflow_html
 editor_options:
   chunk_output_type: console
@@ -19,8 +19,6 @@ library(dplyr)
 library(SingleCellExperiment)
 library(cytomapper)
 ```
-
-## Figure 2
 
 The previous scripts have generated the following files in the `data/PancreasData` folder:
 

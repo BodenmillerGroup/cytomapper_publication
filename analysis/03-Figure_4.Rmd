@@ -1,0 +1,90 @@
+---
+title: "Figure 4"
+author: "Nils Eling and Nicolas Damond"
+date: "`r Sys.Date()`"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+This script reproduces the analysis performed in Figure 4.
+Here, we will load the libraries and data for this figure:
+
+```{r load-libraries-and-data, message=FALSE}
+library(cytomapper)
+library(dplyr)
+
+sce <- readRDS("data/PancreasData/pancreas_sce.rds")
+images <- readRDS("data/PancreasData/pancreas_images.rds")
+```
+
+Similar to Figure 3, we will now order the images based on the mean intensity of all PIN positive pixels. 
+
+```{r order-by-beta-cells}
+PIN_mean <- unlist(lapply(images,
+                   function(x){
+                     cur_x <- x[,,"PIN"]
+                     mean(cur_x[cur_x > 0])
+                   }))
+```
+
+Here, we will visualize the marker pro-insulin (PIN) across all images.
+Due to the progressive decline in beta cell function, we expect PIN expression to be reduced in Long-Duration patients.
+However, a similar analysis can be performed to visually detect image-to-image irregularities in background stain.
+
+We will normalize across all images to keep the differences in staining intensity between images intact.
+
+```{r plotCellTypes}
+# Specify the image order
+cur_order <- order(PIN_mean, decreasing = TRUE)
+
+# Collect metadata for images
+cur_meta <- as_tibble(colData(sce)) %>%
+  group_by(ImageNumber) %>%
+  summarise_at(vars("ImageName", "ImageFullName", "stage"), unique) %>%
+  mutate(ImageFullName = gsub(".tiff", "", ImageFullName)) %>%
+  as.data.frame()
+
+rownames(cur_meta) <- cur_meta$ImageFullName
+cur_meta <- cur_meta[names(PIN_mean)[cur_order],]
+
+images <- normalize(images)
+images <- normalize(images, inputRange = c(0, 0.2))
+
+plotPixels(image = images[cur_order],
+          colour_by = "PIN",
+          scale_bar = list(length = 100,
+                           label = "",
+                           colour = "white"),
+          colour = list(PIN = c("black", "yellow")),
+          legend = list(margin = 100,
+                        colour_by.title.cex = 8,
+                        colour_by.labels.cex = 4),
+          image_title = list(text = cur_meta$stage,
+                             colour = "white",
+                             cex = 3))
+
+# Save plot
+plotPixels(image = images[cur_order],
+          colour_by = "PIN",
+          scale_bar = list(length = 100,
+                           label = "",
+                           colour = "white"),
+          colour = list(PIN = c("black", "yellow")),
+          legend = list(margin = 100,
+                        colour_by.title.cex = 8,
+                        colour_by.labels.cex = 4),
+          image_title = list(text = cur_meta$stage,
+                             colour = "white",
+                             cex = 3),
+          save_plot = list(filename = "docs/final_figures/main/Fig_4.png"))
+```
+
+Here, we see the progressive decline in beta cell fractions. 
+The images are ordered based on T1D stage: Non-diabetic, Onset and Long-Duration, as expected.
+We further see an increased morphological irregularity in Long-Duration islets.
+
