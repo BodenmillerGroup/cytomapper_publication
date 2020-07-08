@@ -79,7 +79,8 @@ plotPixels(image = cur_images,
            bcg = list(H3 = c(0, 3, 1),
                       CD4 = c(0, 4, 1)),
            scale_bar = list(length = 100,
-                            label = expression("100 " ~ mu * "m")),
+                            label = expression("100 " ~ mu * "m"),
+                            margin = c(40, 40)),
            save_plot = list(filename = "docs/final_figures/main/Fig_5A.png", scale = 3))
 
 cur_sce <- sce[,sce$CellType == "Tc"]
@@ -117,4 +118,105 @@ plotPixels(image = cur_images,
                             label = expression("100 " ~ mu * "m"),
                             margin = c(40, 40)),
            save_plot = list(filename = "docs/final_figures/main/Fig_5B.png", scale = 3))
+```
+
+As a second example, we will select images with high alpha and beta cell count and perform a similar analysis as above.
+Due to the loss of beta cells, we will only select images of healthy patients.
+
+```{r select-islet-cells}
+# Select the three images with the higest alpha and beta cell density
+selected_images <- as_tibble(colData(sce)) %>% 
+  filter(stage == "Non-diabetic") %>%
+  group_by(ImageName) %>%
+  summarise(width = mean(width),
+            height = mean(height),
+            ImageArea = (width * height) / 10^6,
+            alphaCellCount = sum(CellType == "alpha"),
+            alphaCellDensity = alphaCellCount / ImageArea,
+            betaCellCount = sum(CellType == "beta"),
+            betaCellDensity = betaCellCount / ImageArea) %>%
+  mutate(alphaCellRank = rank(alphaCellDensity),
+         betaCellRank = rank(betaCellDensity),
+         rankSum = alphaCellRank + betaCellRank) %>%
+  arrange(desc(rankSum))
+```
+
+We will now outline alpha and beta cells.
+
+```{r outline-alpha-cells}
+top_images <- selected_images$ImageName[1:3]
+
+cur_images <- images[match(top_images, mcols(images)$ImageName)]
+cur_masks <- masks[match(top_images, mcols(images)$ImageName)]
+cur_sce <- sce[,sce$CellType == "alpha"]
+
+plotPixels(image = cur_images,
+           object = cur_sce,
+           mask = cur_masks,
+           img_id = "ImageName",
+           cell_id = "CellNumber",
+           colour_by = c("H3", "GCG"),
+           outline_by = "CellType",
+           colour = list(H3 = c("black", "blue"),
+                         GCG = c("black", "red"),
+                         CellType = c(alpha = "white")),
+           bcg = list(H3 = c(0, 3, 1),
+                      GCG = c(0, 4, 1)),
+           scale_bar = list(length = 100,
+                            label = expression("100 " ~ mu * "m"),
+                            margin = c(40, 40)))
+
+# Save image
+plotPixels(image = cur_images,
+           object = cur_sce,
+           mask = cur_masks,
+           img_id = "ImageName",
+           cell_id = "CellNumber",
+           colour_by = c("H3", "GCG"),
+           outline_by = "CellType",
+           colour = list(H3 = c("black", "blue"),
+                         GCG = c("black", "red"),
+                         CellType = c(alpha = "white")),
+           bcg = list(H3 = c(0, 3, 1),
+                      GCG = c(0, 4, 1)),
+           scale_bar = list(length = 100,
+                            label = expression("100 " ~ mu * "m"),
+                            margin = c(40, 40)),
+           save_plot = list(filename = "docs/final_figures/main/Fig_5C.png", scale = 3))
+
+cur_sce <- sce[,sce$CellType == "beta"]
+
+plotPixels(image = cur_images,
+           object = cur_sce,
+           mask = cur_masks,
+           img_id = "ImageName",
+           cell_id = "CellNumber",
+           colour_by = c("H3", "PIN"),
+           outline_by = "CellType",
+           colour = list(H3 = c("black", "blue"),
+                         PIN = c("black", "red"),
+                         CellType = c(beta = "white")),
+           bcg = list(H3 = c(0, 3, 1),
+                      PIN = c(0, 4, 1)),
+           scale_bar = list(length = 100,
+                            label = expression("100 " ~ mu * "m"),
+                            margin = c(40, 40)))
+
+# Save image
+plotPixels(image = cur_images,
+           object = cur_sce,
+           mask = cur_masks,
+           img_id = "ImageName",
+           cell_id = "CellNumber",
+           colour_by = c("H3", "PIN"),
+           outline_by = "CellType",
+           colour = list(H3 = c("black", "blue"),
+                         PIN = c("black", "red"),
+                         CellType = c(beta = "white")),
+           bcg = list(H3 = c(0, 3, 1),
+                      PIN = c(0, 4, 1)),
+           scale_bar = list(length = 100,
+                            label = expression("100 " ~ mu * "m"),
+                            margin = c(40, 40)),
+           save_plot = list(filename = "docs/final_figures/main/Fig_5D.png", scale = 3))
 ```
