@@ -65,8 +65,6 @@ cur_images <- images[mcols(images)$ImageName %in% selected.images]
 cur_masks <- masks[mcols(masks)$ImageName %in% selected.images]
 ```
 
-## Plot cells
-
 To visualize association between islet and T cells, we will use the `plotCells` function and display beta and T cells on the three images selected above.  
 
 The different cell types will be coloured as following: Tc cells in red, Th cells in blue, beta cells in yellow, the other islet cells (alpha, delta) in cyan and the rest of the cells in black.
@@ -215,5 +213,3 @@ plotPixels(image = cur_images,
 This plot confirms that beta cells are surrounded by infiltrating T cells on the "Recent onset T1D" image. 
 In addition, proinsulin abundance seems to be reduced on that image as compared to the "Non-diabetic" control image. 
 This observation can be further explored by performing additional data analysis.
-
-## Figure 3

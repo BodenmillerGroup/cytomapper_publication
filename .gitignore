@@ -6,7 +6,7 @@ data/PancreasData/pancreas_masks.rds
 data/PancreasData/pancreas_sce.rds
 
 # Temporary files downloaded by the "01-LoadPancreasData.Rmd" and "02-LoadPancreasImages.Rmd" scripts
-datag/PancreasData/CellSubset.csv
+data/PancreasData/CellSubset.csv
 data/PancreasData/All_Image.csv
 data/PancreasData/CellTypes.csv
 data/PancreasData/Donors.csv

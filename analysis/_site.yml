@@ -3,18 +3,26 @@ output_dir: ../docs
 navbar:
   title: "cytomapper_publication"
   left:
-  - text: Home
+  - text: Introduction
     href: index.html
-  - text: About
-    href: about.html
-  - text: Load Pancreas Data
-    href: 01-LoadPancreasData.html
-  - text: Load Pancreas Images
-    href: 02-LoadPancreasImages.html
-  - text: Main Figures
-    href: 03-Figures.html
-  - text: License
-    href: license.html
+  - text: Pre-pocessing
+    menu:
+    - text: Load Pancreas Data
+      href: 01-LoadPancreasData.html
+    - text: Load Pancreas Images
+      href: 02-LoadPancreasImages.html
+  - text: Figures
+    menu:
+    - text: Figure 1
+      href: 03-Figure_1.html
+    - text: Figure 2
+      href: 03-Figure_2.html
+    - text: Figure 3
+      href: 03-Figure_3.html
+    - text: Figure 4
+      href: 03-Figure_4.html
+    - text: Figure 5
+      href: 03-Figure_5.html
 output:
   workflowr::wflow_html:
     toc: yes
