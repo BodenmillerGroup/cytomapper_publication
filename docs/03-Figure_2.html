@@ -395,10 +395,10 @@ div.tocify {
       <a href="03-Figure_3.html">Figure 3</a>
     </li>
     <li>
-      <a href="03-Figure_3.html">Figure 3</a>
+      <a href="03-Figure_4.html">Figure 4</a>
     </li>
     <li>
-      <a href="03-Figure_4.html">Figure 4</a>
+      <a href="03-Figure_5.html">Figure 5</a>
     </li>
   </ul>
 </li>
@@ -532,16 +532,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomBodenmillerGroupcytomapperpublicationtreeb0e748fc0c7694caa3aebbfa9c6715fdef8afaedtargetblankb0e748fa"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/BodenmillerGroup/cytomapper_publication/tree/b0e748fc0c7694caa3aebbfa9c6715fdef8afaed" target="_blank">b0e748f</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomBodenmillerGroupcytomapperpublicationtreea47f6fd383b33beb76c025f5b3d935acdf2526d0targetblanka47f6fda"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/BodenmillerGroup/cytomapper_publication/tree/a47f6fd383b33beb76c025f5b3d935acdf2526d0" target="_blank">a47f6fd</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomBodenmillerGroupcytomapperpublicationtreeb0e748fc0c7694caa3aebbfa9c6715fdef8afaedtargetblankb0e748fa" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomBodenmillerGroupcytomapperpublicationtreea47f6fd383b33beb76c025f5b3d935acdf2526d0targetblanka47f6fda" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/BodenmillerGroup/cytomapper_publication/tree/b0e748fc0c7694caa3aebbfa9c6715fdef8afaed" target="_blank">b0e748f</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/BodenmillerGroup/cytomapper_publication/tree/a47f6fd383b33beb76c025f5b3d935acdf2526d0" target="_blank">a47f6fd</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -556,12 +556,6 @@ Ignored files:
     Ignored:    data/PancreasData/pancreas_images.rds
     Ignored:    data/PancreasData/pancreas_masks.rds
     Ignored:    data/PancreasData/pancreas_sce.rds
-
-Unstaged changes:
-    Modified:   .gitignore
-    Modified:   analysis/_site.yml
-    Deleted:    analysis/about.Rmd
-    Deleted:    analysis/license.Rmd
 
 </code></pre>
 <p>
@@ -600,6 +594,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/BodenmillerGroup/cytomapper_publication/blob/5476a61faf288fd91c0e0c72e9a201284d267095/analysis/03-Figure_2.Rmd" target="_blank">5476a61</a>
+</td>
+<td>
+nilseling
+</td>
+<td>
+2020-07-08
+</td>
+<td>
+Recompiled files
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/BodenmillerGroup/cytomapper_publication/5476a61faf288fd91c0e0c72e9a201284d267095/docs/03-Figure_2.html" target="_blank">5476a61</a>
+</td>
+<td>
+nilseling
+</td>
+<td>
+2020-07-08
+</td>
+<td>
+Recompiled files
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -677,8 +705,6 @@ print(selected.images)</code></pre>
 cur_sce &lt;- sce[, sce$ImageName %in% selected.images]
 cur_images &lt;- images[mcols(images)$ImageName %in% selected.images]
 cur_masks &lt;- masks[mcols(masks)$ImageName %in% selected.images]</code></pre>
-<div id="plot-cells" class="section level2">
-<h2>Plot cells</h2>
 <p>To visualize association between islet and T cells, we will use the <code>plotCells</code> function and display beta and T cells on the three images selected above.</p>
 <p>The different cell types will be coloured as following: Tc cells in red, Th cells in blue, beta cells in yellow, the other islet cells (alpha, delta) in cyan and the rest of the cells in black.</p>
 <p>To display only a selected number of cells, the <code>SingleCellExperiment</code> can be subsetted.</p>
@@ -709,6 +735,43 @@ plotCells(mask = cur_masks,
           missing_colour = &quot;white&quot;,
           background_colour = &quot;gray&quot;)</code></pre>
 <p><img src="figure/03-Figure_2.Rmd/plotCells-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-plotCells-1">
+Past versions of plotCells-1.png
+</button>
+</p>
+<div id="fig-plotCells-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/BodenmillerGroup/cytomapper_publication/blob/5476a61faf288fd91c0e0c72e9a201284d267095/docs/figure/03-Figure_2.Rmd/plotCells-1.png" target="_blank">5476a61</a>
+</td>
+<td>
+nilseling
+</td>
+<td>
+2020-07-08
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code># Save figure
 plotCells(mask = cur_masks,
           object = cur_sce,
@@ -748,6 +811,43 @@ plotCells(mask = cur_masks,
           missing_colour = &quot;white&quot;,
           background_colour = &quot;gray&quot;)</code></pre>
 <p><img src="figure/03-Figure_2.Rmd/plotCells-meanExpression-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-plotCells-meanExpression-1">
+Past versions of plotCells-meanExpression-1.png
+</button>
+</p>
+<div id="fig-plotCells-meanExpression-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/BodenmillerGroup/cytomapper_publication/blob/5476a61faf288fd91c0e0c72e9a201284d267095/docs/figure/03-Figure_2.Rmd/plotCells-meanExpression-1.png" target="_blank">5476a61</a>
+</td>
+<td>
+nilseling
+</td>
+<td>
+2020-07-08
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code># Save figure
 plotCells(mask = cur_masks,
           object = cur_sce,
@@ -787,6 +887,43 @@ plotCells(mask = cur_masks,
            scale_bar = list(length = 100,
                             label = expression(&quot;100 &quot; ~ mu * &quot;m&quot;)))</code></pre>
 <p><img src="figure/03-Figure_2.Rmd/plotPixels-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-plotPixels-1">
+Past versions of plotPixels-1.png
+</button>
+</p>
+<div id="fig-plotPixels-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/BodenmillerGroup/cytomapper_publication/blob/5476a61faf288fd91c0e0c72e9a201284d267095/docs/figure/03-Figure_2.Rmd/plotPixels-1.png" target="_blank">5476a61</a>
+</td>
+<td>
+nilseling
+</td>
+<td>
+2020-07-08
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code># Save figure
 plotPixels(image = cur_images,
            cell_id = &quot;CellNumber&quot;,
@@ -807,9 +944,6 @@ plotPixels(image = cur_images,
                             label = expression(&quot;100 &quot; ~ mu * &quot;m&quot;)),
            save_plot = list(filename = &quot;docs/final_figures/main/Fig_2C.png&quot;, scale = 3))</code></pre>
 <p>This plot confirms that beta cells are surrounded by infiltrating T cells on the “Recent onset T1D” image. In addition, proinsulin abundance seems to be reduced on that image as compared to the “Non-diabetic” control image. This observation can be further explored by performing additional data analysis.</p>
-</div>
-<div id="figure-3" class="section level2">
-<h2>Figure 3</h2>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -864,7 +998,6 @@ loaded via a namespace (and not attached):
 [55] glue_1.4.1             purrr_0.3.4            jpeg_0.1-8.1          
 [58] abind_1.4-5            yaml_2.2.1             colorspace_1.4-1      
 [61] knitr_1.28            </code></pre>
-</div>
 </div>
 
 
