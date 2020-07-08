@@ -29,7 +29,7 @@ This analysis will visually confirm cell-type phenotyping and segmentation resul
 We will first select images with a high count of CD4 and CD8 T cells.
 
 ```{r select-Tcells}
-# Select the three images with the higest T cell density
+# Select the image with the higest T cell density
 selected_images <- as_tibble(colData(sce)) %>% 
   # Calculate for each image the area, number of T cells and T cell density
   group_by(ImageName) %>%
@@ -41,10 +41,10 @@ selected_images <- as_tibble(colData(sce)) %>%
   arrange(desc(TcellDensity))
 ```
 
-Now, we will visualize the top three images and outline CD4 and CD8 T cells.
+Now, we will visualize the top image and outline CD4 and CD8 T cells.
 
 ```{r highlight-Tcell-outline}
-top_images <- selected_images$ImageName[1:3]
+top_images <- selected_images$ImageName[1]
 
 cur_images <- images[match(top_images, mcols(images)$ImageName)]
 cur_masks <- masks[match(top_images, mcols(images)$ImageName)]
@@ -60,10 +60,13 @@ plotPixels(image = cur_images,
            colour = list(H3 = c("black", "blue"),
                          CD4 = c("black", "red"),
                          CellType = c(Th = "white")),
-           bcg = list(H3 = c(0, 3, 1),
-                      CD4 = c(0, 4, 1)),
+           bcg = list(H3 = c(0, 1.5, 1),
+                      CD4 = c(0, 6, 1)),
            scale_bar = list(length = 100,
-                            label = expression("100 " ~ mu * "m")))
+                            label = expression("100 " ~ mu * "m"),
+                            margin = c(20, 20)),
+           legend = list(colour_by.title.cex = 1.5,
+                         margin = 50))
 
 # Save image
 plotPixels(image = cur_images,
@@ -76,11 +79,13 @@ plotPixels(image = cur_images,
            colour = list(H3 = c("black", "blue"),
                          CD4 = c("black", "red"),
                          CellType = c(Th = "white")),
-           bcg = list(H3 = c(0, 3, 1),
-                      CD4 = c(0, 4, 1)),
+           bcg = list(H3 = c(0, 1.5, 1),
+                      CD4 = c(0, 6, 1)),
            scale_bar = list(length = 100,
                             label = expression("100 " ~ mu * "m"),
-                            margin = c(40, 40)),
+                            margin = c(20, 20)),
+           legend = list(colour_by.title.cex = 1.5,
+                         margin = 50),
            save_plot = list(filename = "docs/final_figures/main/Fig_5A.png", scale = 3))
 
 cur_sce <- sce[,sce$CellType == "Tc"]
@@ -95,11 +100,13 @@ plotPixels(image = cur_images,
            colour = list(H3 = c("black", "blue"),
                          CD8a = c("black", "red"),
                          CellType = c(Tc = "white")),
-           bcg = list(H3 = c(0, 3, 1),
-                      CD8a = c(0, 4, 1)),
+           bcg = list(H3 = c(0, 1.5, 1),
+                      CD8a = c(0, 6, 1)),
+           legend = list(colour_by.title.cex = 1.5,
+                         margin = 50),
            scale_bar = list(length = 100,
                             label = expression("100 " ~ mu * "m"),
-                            margin = c(40, 40)))
+                            margin = c(20, 20)))
 
 # Save image
 plotPixels(image = cur_images,
@@ -112,11 +119,13 @@ plotPixels(image = cur_images,
            colour = list(H3 = c("black", "blue"),
                          CD8a = c("black", "red"),
                          CellType = c(Tc = "white")),
-           bcg = list(H3 = c(0, 3, 1),
-                      CD8a = c(0, 4, 1)),
+           bcg = list(H3 = c(0, 1.5, 1),
+                      CD8a = c(0, 6, 1)),
            scale_bar = list(length = 100,
                             label = expression("100 " ~ mu * "m"),
                             margin = c(40, 40)),
+           legend = list(colour_by.title.cex = 1.5,
+                         margin = 50),
            save_plot = list(filename = "docs/final_figures/main/Fig_5B.png", scale = 3))
 ```
 
@@ -144,7 +153,7 @@ selected_images <- as_tibble(colData(sce)) %>%
 We will now outline alpha and beta cells.
 
 ```{r outline-alpha-cells}
-top_images <- selected_images$ImageName[1:3]
+top_images <- selected_images$ImageName[1]
 
 cur_images <- images[match(top_images, mcols(images)$ImageName)]
 cur_masks <- masks[match(top_images, mcols(images)$ImageName)]
@@ -161,10 +170,12 @@ plotPixels(image = cur_images,
                          GCG = c("black", "red"),
                          CellType = c(alpha = "white")),
            bcg = list(H3 = c(0, 3, 1),
-                      GCG = c(0, 4, 1)),
+                      GCG = c(0, 6, 1)),
            scale_bar = list(length = 100,
                             label = expression("100 " ~ mu * "m"),
-                            margin = c(40, 40)))
+                            margin = c(40, 40)),
+           legend = list(colour_by.title.cex = 1.5,
+                         margin = 50))
 
 # Save image
 plotPixels(image = cur_images,
@@ -178,10 +189,12 @@ plotPixels(image = cur_images,
                          GCG = c("black", "red"),
                          CellType = c(alpha = "white")),
            bcg = list(H3 = c(0, 3, 1),
-                      GCG = c(0, 4, 1)),
+                      GCG = c(0, 6, 1)),
            scale_bar = list(length = 100,
                             label = expression("100 " ~ mu * "m"),
                             margin = c(40, 40)),
+           legend = list(colour_by.title.cex = 1.5,
+                         margin = 50),
            save_plot = list(filename = "docs/final_figures/main/Fig_5C.png", scale = 3))
 
 cur_sce <- sce[,sce$CellType == "beta"]
@@ -197,10 +210,12 @@ plotPixels(image = cur_images,
                          PIN = c("black", "red"),
                          CellType = c(beta = "white")),
            bcg = list(H3 = c(0, 3, 1),
-                      PIN = c(0, 4, 1)),
+                      PIN = c(0, 6, 1)),
            scale_bar = list(length = 100,
                             label = expression("100 " ~ mu * "m"),
-                            margin = c(40, 40)))
+                            margin = c(40, 40)),
+           legend = list(colour_by.title.cex = 1.5,
+                         margin = 50))
 
 # Save image
 plotPixels(image = cur_images,
@@ -214,9 +229,11 @@ plotPixels(image = cur_images,
                          PIN = c("black", "red"),
                          CellType = c(beta = "white")),
            bcg = list(H3 = c(0, 3, 1),
-                      PIN = c(0, 4, 1)),
+                      PIN = c(0, 6, 1)),
            scale_bar = list(length = 100,
                             label = expression("100 " ~ mu * "m"),
                             margin = c(40, 40)),
+           legend = list(colour_by.title.cex = 1.5,
+                         margin = 50),
            save_plot = list(filename = "docs/final_figures/main/Fig_5D.png", scale = 3))
 ```
