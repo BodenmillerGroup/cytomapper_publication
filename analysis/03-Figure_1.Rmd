@@ -27,7 +27,7 @@ data("pancreasImages")
 data("pancreasMasks")
 ```
 
-We will save the segmentation masks and single-channel images for image 1 and 3 doe display purposes.
+We will save the segmentation masks and single-channel images for image 1 and 3 for display purposes.
 
 ```{r save-example-data}
 plotCells(pancreasMasks[1], legend = NULL, image_title = NULL, 
@@ -65,21 +65,21 @@ plotCells(mask = pancreasMasks[3], object = pancreasSCE, img_id = "ImageNb", cel
                            scale = 10))
 
 plotPixels(image = pancreasImages[1], object = pancreasSCE,
-           img_id = "ImageNb", cell_id = "CellNb", colour_by = channelNames(pancreasImages),
+           img_id = "ImageNb", cell_id = "CellNb", colour_by = c("CD99", "PIN", "H3", "CD8a", "CDH"),
            bcg = list(H3 = c(0, 4, 1),
                       CD99 = c(0, 3, 1),
                       PIN = c(0, 5, 1),
                       CD8a = c(0, 5, 1),
-                      CDH = c(0, 3, 1)),
+                      CDH = c(0, 2, 1)),
            save_plot = list(filename = "docs/final_figures/main/Fig_1B_composite1.png",
                            scale = 10))
 plotPixels(image = pancreasImages[3], object = pancreasSCE,
-           img_id = "ImageNb", cell_id = "CellNb", colour_by = channelNames(pancreasImages),
-           bcg = list(H3 = c(0, 2, 1),
+           img_id = "ImageNb", cell_id = "CellNb", colour_by = c("CD99", "PIN", "H3", "CD8a", "CDH"),
+           bcg = list(H3 = c(0, 1.5, 1),
                       CD99 = c(0, 3, 1),
                       PIN = c(0, 1, 1),
                       CD8a = c(0, 4, 1),
-                      CDH = c(0, 3, 1)),
+                      CDH = c(0, 2, 1)),
            save_plot = list(filename = "docs/final_figures/main/Fig_1B_composite2.png",
                            scale = 10))
 ```
