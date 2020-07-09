@@ -38,7 +38,7 @@ However, a similar analysis can be performed to visually detect image-to-image i
 
 We will normalize across all images to keep the differences in staining intensity between images intact.
 
-```{r plotCellTypes}
+```{r plotCellTypes, fig.width=120, fig.height=120}
 # Specify the image order
 cur_order <- order(PIN_mean, decreasing = TRUE)
 
@@ -62,7 +62,7 @@ plotPixels(image = images[cur_order],
                            colour = "white"),
           colour = list(PIN = c("black", "yellow")),
           legend = list(margin = 100,
-                        colour_by.title.cex = 8,
+                        colour_by.title.cex = 6,
                         colour_by.labels.cex = 4),
           image_title = list(text = cur_meta$stage,
                              colour = "white",

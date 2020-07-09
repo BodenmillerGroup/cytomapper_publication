@@ -40,7 +40,7 @@ cur_summary <- as_tibble(colData(sce)) %>%
 Next, we will plot the cell-types on images after reordering them by beta cell fraction.
 We will further subset the SingleCellExperiment object to only contain iselt cells.
 
-```{r plotCellTypes}
+```{r plotCellTypes, fig.width=120, fig.height=120}
 cur_sce <- sce[,sce$CellCat == "islet"]
 cur_order <- match(cur_summary$ImageName, mcols(masks)$ImageName)
 
@@ -60,7 +60,7 @@ plotCells(mask = masks[cur_order],
           scale_bar = list(length = 100,
                            label = "",
                            colour = "black"),
-          legend = list(colour_by.legend.cex = 9,
+          legend = list(colour_by.legend.cex = 4,
                         margin = 100),
           colour = list(CellType = ct_colours),
           missing_colour = "white",
