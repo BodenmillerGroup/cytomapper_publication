@@ -1,7 +1,7 @@
 name: "cytomapper_publication"
 output_dir: ../docs
 navbar:
-  title: "cytomapper_publication"
+  title: "Cytomapper paper"
   left:
   - text: Introduction
     href: index.html
@@ -23,6 +23,9 @@ navbar:
       href: 03-Figure_4.html
     - text: Figure 5
       href: 03-Figure_5.html
+  right:
+    - icon: fa-github fa-lg
+      href: https://github.com/BodenmillerGroup/cytomapper_publication
 output:
   workflowr::wflow_html:
     toc: yes
