@@ -43,29 +43,32 @@ for(i in 1:5){
   plotPixels(pancreasImages[1], legend = NULL, image_title = NULL, 
           scale_bar = NULL, interpolate = FALSE, colour_by = channelNames(pancreasImages)[i],
           colour = cur_col,
-          save_plot = list(filename = paste0("docs/final_figures/main/Fig_1B_img1_ch", i, ".png")))
+          save_plot = list(filename = paste0("docs/final_figures/main/Fig_1B_img1_ch", 
+                                             i, ".png")))
   
     plotPixels(pancreasImages[3], legend = NULL, image_title = NULL, 
           scale_bar = NULL, interpolate = FALSE, colour_by = channelNames(pancreasImages)[i],
           colour = cur_col,
-          save_plot = list(filename = paste0("docs/final_figures/main/Fig_1B_img2_ch", i, ".png")))
+          save_plot = list(filename = paste0("docs/final_figures/main/Fig_1B_img2_ch", 
+                                             i, ".png")))
 }
 ```
 
 We will next visualize the example cell-types on the segmentation masks and the composite images of 5 colours.
 
 ```{r viz-example-images}
-plotCells(mask = pancreasMasks[1], object = pancreasSCE, img_id = "ImageNb", cell_id = "CellNb",
-          colour_by = "CellType", 
+plotCells(mask = pancreasMasks[1], object = pancreasSCE, img_id = "ImageNb", 
+          cell_id = "CellNb", colour_by = "CellType", 
           save_plot = list(filename = "docs/final_figures/main/Fig_1A_celltype1.png",
                            scale = 10))
-plotCells(mask = pancreasMasks[3], object = pancreasSCE, img_id = "ImageNb", cell_id = "CellNb",
-          colour_by = "CellType", 
+plotCells(mask = pancreasMasks[3], object = pancreasSCE, img_id = "ImageNb", 
+          cell_id = "CellNb", colour_by = "CellType", 
           save_plot = list(filename = "docs/final_figures/main/Fig_1A_celltype2.png",
                            scale = 10))
 
 plotPixels(image = pancreasImages[1], object = pancreasSCE,
-           img_id = "ImageNb", cell_id = "CellNb", colour_by = c("CD99", "PIN", "H3", "CD8a", "CDH"),
+           img_id = "ImageNb", cell_id = "CellNb", 
+           colour_by = c("CD99", "PIN", "H3", "CD8a", "CDH"),
            bcg = list(H3 = c(0, 4, 1),
                       CD99 = c(0, 3, 1),
                       PIN = c(0, 5, 1),
@@ -74,7 +77,8 @@ plotPixels(image = pancreasImages[1], object = pancreasSCE,
            save_plot = list(filename = "docs/final_figures/main/Fig_1B_composite1.png",
                            scale = 10))
 plotPixels(image = pancreasImages[3], object = pancreasSCE,
-           img_id = "ImageNb", cell_id = "CellNb", colour_by = c("CD99", "PIN", "H3", "CD8a", "CDH"),
+           img_id = "ImageNb", cell_id = "CellNb", colour_by = 
+             c("CD99", "PIN", "H3", "CD8a", "CDH"),
            bcg = list(H3 = c(0, 1.5, 1),
                       CD99 = c(0, 3, 1),
                       PIN = c(0, 1, 1),

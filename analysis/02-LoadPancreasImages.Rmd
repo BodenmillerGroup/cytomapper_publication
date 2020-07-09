@@ -90,12 +90,12 @@ The masks are 16-bit images and need to be re-scaled in order to obtain integer 
 
 ```{r scale-masks}
 # Before scaling
-unique(masks[[1]])
+masks[[1]]
 
 masks <- scaleImages(masks, value = (2 ^ 16) - 1)
 
 # After scaling
-unique(masks[[1]])
+masks[[1]]
 ```
 
 Next, we will add the `ImageName` to the images and masks objects.
