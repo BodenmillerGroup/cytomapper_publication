@@ -14,7 +14,7 @@ knitr::opts_chunk$set(echo = TRUE)
 This script downloads the single-cell data from the pancreas IMC dataset available [here](http://dx.doi.org/10.17632/cydmwsfztj.2).
 The dataset is associated to the following publication:
 
-[Damond et al. A Map of Human Type 1 Diabetes Progression by Imaging Mass Cytometry. Cell Metab. 2019 Mar 5;29(3):755-768](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6821395)
+[Damond et al. A Map of Human Type 1 Diabetes Progression by Imaging Mass Cytometry. Cell Metabolism. 2019 Mar 5;29(3):755-768](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6821395)
 
 After obtaining the raw data as produced by the [IMC segmentation pipeline](https://github.com/BodenmillerGroup/ImcSegmentationPipeline), we will further process them to create a [SingleCellExperiment](https://bioconductor.org/packages/release/bioc/html/SingleCellExperiment.html) object.
 

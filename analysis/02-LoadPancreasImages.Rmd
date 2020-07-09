@@ -1,5 +1,5 @@
 ---
-title: "LoadPancreasImages"
+title: "Load example images"
 author: "Nicolas Damond"
 date: "`r Sys.Date()`"
 output: workflowr::wflow_html
@@ -11,22 +11,22 @@ editor_options:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+This script downloads 100 example images and masks form the pancreas IMC dataset available [here](http://dx.doi.org/10.17632/cydmwsfztj.2).
+The dataset is associated to the following publication:
 
-# Script to download images and masks from the pancreas IMC dataset and format them as CytoImageList objects
+[Damond et al. A Map of Human Type 1 Diabetes Progression by Imaging Mass Cytometry. Cell Metabolism. 2019 Mar 5;29(3):755-768](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6821395)
 
-- Publication: [Damond et al. A Map of Human Type 1 Diabetes Progression by Imaging Mass Cytometry. Cell Metab. 2019 Mar 5;29(3):755-768](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6821395)
-- Dataset: [accessible from Mendeley Data](http://dx.doi.org/10.17632/cydmwsfztj.2)
+The images and masks have been created using the [imctools](https://github.com/BodenmillerGroup/imctools) package and the [IMC segmentation pipeline](https://github.com/BodenmillerGroup/ImcSegmentationPipeline). 
+We will use the [cytomapper](https://www.bioconductor.org/packages/release/bioc/html/cytomapper.html) package to read in the images and create `CytoImageList` objects.
 
-```{r load-packages, message=FALSE}
-library(EBImage)
-library(cytomapper)
-```
-
-# Download the images and load them as a CytoImageList object
+# Download and read-in images
 
 Here, a subset of 100 images from the pancreas IMC dataset is downloaded.
+We use the `loadImages` function of the `cytomapper` package to read them into a `CytoImageList` object.
 
-```{r load-images}
+```{r load-images, message=FALSE}
+library(cytomapper)
+
 # Download the zipped folder image and unzip it
 url.images <- ("https://data.mendeley.com/datasets/cydmwsfztj/2/files/b37054d2-d5d0-4c48-a001-81ff77136f41/ImageSubset.zip?dl=1")
 download.file(url.images, destfile = "data/PancreasData/ImageSubset.zip")
@@ -38,7 +38,7 @@ images <- loadImages("data/PancreasData/", pattern="_full_clean.tiff")
 images
 ```
 
-# Download the cell masks and load them as a CytoImageList object
+We also download the associated segemntation masks and read them into a `CytoImageList` object.
 
 ```{r load-masks}
 # Download the zipped folder masks and unzip it
@@ -52,7 +52,7 @@ masks <- loadImages("data/PancreasData/", pattern="_full_mask.tiff")
 masks
 ```
 
-# Remove tiff files from the data directory
+Here, we remove the downloaded images again.
 
 ```{r clean-up-2, message = FALSE}
 # Remove image stacks
@@ -66,8 +66,10 @@ file.remove(masks.del)
 
 # Load panel data
 
-The panel contains antibody-related metadata.
-The channel-mass file is used to match panel information and image stack slices.
+Here, we will download the panel information, which contains antibody-related metadata.
+However, for some datasets, the channel-order and the panel order do not match.
+For this, the channel-mass file is used to match panel information and image stack slices.
+This will be important later to set the `channelNames` of the `CytoImageList` objects.
 
 ```{r load-panel}
 # Import panel
@@ -81,33 +83,41 @@ download.file(url.channelmass, destfile = "data/PancreasData/ChannelMass.csv")
 channel.mass <- read.csv("data/PancreasData/ChannelMass.csv", header = FALSE)
 ```
 
-# Scale masks
+# Process images and masks
 
-The masks are 16-bit images and need to be re-scaled.
-We then convert the mask values to integer.
+We will now have to process the images to make them compatible with `cytomapper`.
+The masks are 16-bit images and need to be re-scaled in order to obtain integer cell IDs.
 
 ```{r scale-masks}
+# Before scaling
+unique(masks[[1]])
+
 masks <- scaleImages(masks, value = (2 ^ 16) - 1)
+
+# After scaling
+unique(masks[[1]])
 ```
 
-# Add image names for images and masks
-
-This information is stored in the metadata columns of the CytoImageList objects
-and is used by SingleCellMapper to match single cell data, images and mask
+Next, we will add the `ImageName` to the images and masks objects.
+This information is stored in the metadata columns of the `CytoImageList` objects
+and is used by `cytomapper` to match single cell data, images and mask
 
 ```{r add-image-names}
 mcols(images)$ImageName <- gsub("_a0_full_clean", "", names(images))
 mcols(masks)$ImageName <- gsub("_a0_full_mask", "", names(masks))
 ```
 
-# Subset the masks to keep only masks matching an image in `images`
+We downloaded the full set of segmentation masks.
+To match the segmentation masks to the corresponding images, we will subset them.
+As a safty check, we will make sure that the `ImageName`s of the masks are identical to those of the images.
 
 ```{r subset-masks}
 masks <- masks[mcols(masks)$ImageName %in% mcols(images)$ImageName]
 identical(mcols(masks)$ImageName, mcols(images)$ImageName)
 ```
 
-# Add protein short names as channel names
+Finally, we will use the protein short name as `channelNames`.
+Again, we need to make sure that the names match the correct order of the channels.
 
 ```{r add-channel-names}
 # Match panel and stack slice information
@@ -120,12 +130,16 @@ channelNames(images) <- panel$shortname
 
 # Save the CytoImageList objects
 
+Here, we will save the generated `CytoImageList` objects for convenient access later on.
+
 ```{r save}
 saveRDS(images, "data/PancreasData/pancreas_images.rds")
 saveRDS(masks, "data/PancreasData/pancreas_masks.rds")
 ```
 
-# Delete unneeded CSV files from the extdata directory
+# Clean up
+
+We will delete all unecessary files.
 
 ```{r clean-up, message = FALSE}
 file.remove("data/PancreasData/panel.csv", "data/PancreasData/ChannelMass.csv")
