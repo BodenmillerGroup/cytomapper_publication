@@ -1,6 +1,6 @@
-# cytomapper_publication
+# Cytomapper paper
 
-Scripts for testing and validating the cytomapper package.
+The scripts contained in this repository serve the purpose of testing, validating and publishing the [cytomapper](https://www.bioconductor.org/packages/release/bioc/html/cytomapper.html) package.
 
 ## Data
 
@@ -19,11 +19,4 @@ Specifically, the following files are used:
 - [`Panel`](): Antibody panel.
 - [`ChannelMass`](): File used to match channels (stack slices) and metals (antibodies).
 
-
-## How to load the data
-
-Preprocessing folder
-- LoadPancreasData:
-- LoadImages:
-- LoadMasks:
 
