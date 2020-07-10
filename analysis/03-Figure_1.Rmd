@@ -40,15 +40,19 @@ plotCells(pancreasMasks[3], legend = NULL, image_title = NULL,
 for(i in 1:5){
   cur_col <- list(c("black", "white"))
   names(cur_col) <- channelNames(pancreasImages)[i]
+  
+  cur_bcg <- list(c(0,3,1))
+  names(cur_bcg) <- channelNames(pancreasImages)[i]
+  
   plotPixels(pancreasImages[1], legend = NULL, image_title = NULL, 
           scale_bar = NULL, interpolate = FALSE, colour_by = channelNames(pancreasImages)[i],
-          colour = cur_col,
+          colour = cur_col, bcg = cur_bcg,
           save_plot = list(filename = paste0("docs/final_figures/main/Fig_1B_img1_ch", 
                                              i, ".png")))
   
-    plotPixels(pancreasImages[3], legend = NULL, image_title = NULL, 
+  plotPixels(pancreasImages[3], legend = NULL, image_title = NULL, 
           scale_bar = NULL, interpolate = FALSE, colour_by = channelNames(pancreasImages)[i],
-          colour = cur_col,
+          colour = cur_col, bcg = cur_bcg,
           save_plot = list(filename = paste0("docs/final_figures/main/Fig_1B_img2_ch", 
                                              i, ".png")))
 }
