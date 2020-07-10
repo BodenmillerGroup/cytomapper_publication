@@ -123,7 +123,7 @@ plotPixels(image = cur_images,
                       CD8a = c(0, 6, 1)),
            scale_bar = list(length = 100,
                             label = expression("100 " ~ mu * "m"),
-                            margin = c(40, 40)),
+                            margin = c(20, 20)),
            legend = list(colour_by.title.cex = 1.5,
                          margin = 50),
            save_plot = list(filename = "docs/final_figures/main/Fig_5B.png", scale = 3))

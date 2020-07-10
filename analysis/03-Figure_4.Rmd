@@ -63,8 +63,7 @@ plotPixels(image = images[cur_order],
           colour = list(PIN = c("black", "yellow")),
           legend = list(margin = 100),
           image_title = list(text = cur_meta$stage,
-                             colour = "white",
-                             cex = 3))
+                             colour = "white"))
 
 # Save plot
 plotPixels(image = images[cur_order],
