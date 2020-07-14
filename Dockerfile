@@ -12,4 +12,6 @@ RUN apt-get update \
 
 RUN R -e 'install.packages("BiocManager")'
 RUN R -e 'BiocManager::install(version = "3.12", update = TRUE, ask = FALSE)'
-RUN R -e 'BiocManager::install("cytomapper")'
+RUN R -e 'BiocManager::install(c("cytomapper", "workflowr"))'
+
+COPY --chown=rstudio . /home/rstudio
