@@ -1,0 +1,62 @@
+---
+title: "Running cytomapper shiny"
+author: "Nils Eling and Tobias Hoch"
+date: "`r Sys.Date()`"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+This script offers an example on how to run the `cytomapperShiny` function to gate and visualize cells on images.
+For more information, please refer to `?cytomapperShiny` and the `Help` section within the Shiny app. 
+
+Here, we will read in the previously generated data objects and directly pass them into the `cytomapperShiny` function.
+
+```{r load-libraries-and-data, message=FALSE}
+library(cytomapper)
+
+sce <- readRDS("data/PancreasData/pancreas_sce.rds")
+masks <- readRDS("data/PancreasData/pancreas_masks.rds")
+images <- readRDS("data/PancreasData/pancreas_images.rds")
+```
+
+## Classic hierarchical gating
+
+When not supplying a segmentation mask or multi-channel image object, the `cytomapperShiny` function can be used to perform classic hierarchical gating similar to FlowJo on cell-specific expression values:
+
+```{r cytomapperShiny-1}
+if (interactive()) {
+  cytomapperShiny(object = sce, img_id = "ImageName", cell_id = "CellNumber")
+}
+```
+
+## Visualizing segmentation masks
+
+Next, we will only supply the `SingleCellExperiment` object and the `CytoImageList` segmentation mask object to the Shiny function.
+In this setting, segmentation masks are coloured (i) based on selected marker expression and (ii) based on the gated cells.
+
+```{r cytomapperShiny-2}
+if (interactive()) {
+  cytomapperShiny(object = sce, mask = masks, 
+                  cell_id = "CellNumber", img_id = "ImageName")
+}
+```
+
+## Visualizing multi-channel images
+
+In the third setting, we will gate cells based on their mean expression counts but outline the selected cells on composite images.
+For this, we will need to supply the `SingleCellExperiment` object, a `CytoImageList` object containing segmentation masks and a `CytoImageList` object containing multi-channel images.
+
+```{r cytomapperShiny-3}
+if (interactive()) {
+  cytomapperShiny(object = sce, mask = masks, image = images, 
+                  cell_id = "CellNumber", img_id = "ImageName")
+}
+```
+
+
+
