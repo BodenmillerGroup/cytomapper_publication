@@ -15,3 +15,5 @@ RUN R -e 'BiocManager::install(version = "3.12", update = TRUE, ask = FALSE)'
 RUN R -e 'BiocManager::install(c("cytomapper", "workflowr", "tidyverse"))'
 
 COPY --chown=rstudio . /home/rstudio
+
+RUN mkdir /home/rstudio/docs/final_figures/main/
