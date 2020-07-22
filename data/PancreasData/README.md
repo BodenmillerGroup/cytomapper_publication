@@ -13,3 +13,4 @@ The `02-LoadPancreasImages.Rmd` generates two `CytoImageList` objects:
 
 These files form a 100 image dataset that is used to illustrate the `cytomapper`
 package in the associated publication.
+This data is read in to perform the different parts of the analysis.

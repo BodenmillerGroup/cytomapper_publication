@@ -1,16 +1,11 @@
 # Example data
 
-The scripts contained in the `Preprocessing` folder can be run to download the
-data and to generate the datasets used to illustrate the `cytomapper` package.
-
-## List of example datasets
-
-- Pancreas data (Imaging Mass Cytometry)
+This folder contains example data to highlight the usability of the [cytomapper](https://www.bioconductor.org/packages/release/bioc/html/cytomapper.html) package.
 
 ## Pancreas data (Imaging Mass Cytometry)
 
 Raw Imaging Mass Cytometry (IMC) data are computationally processed using a
-segmentation pipeline (available at https://github.com/BodenmillerGroup/ImcSegmentationPipeline).
+segmentation pipeline (available at [https://github.com/BodenmillerGroup/ImcSegmentationPipeline](https://github.com/BodenmillerGroup/ImcSegmentationPipeline)).
 This produces image stacks containing the raw pixel values for > 35 channels,
 masks containing the segmented cells, cell-level expression, metadata
 information as well as a number of image-level meta information.
@@ -21,7 +16,7 @@ and is available from Mendeley Data: [http://dx.doi.org/10.17632/cydmwsfztj.2](h
 ### Downloading and preparing the dataset
 
 The dataset can be downloaded and saved using the `01-LoadPancreasData.Rmd` and
-the `02-LoadPancreasImages.Rmd` scripts.
+the `02-LoadPancreasImages.Rmd` scripts in the [analysis](../analysis) folder.
 
 The `01-LoadPancreasData.Rmd` script generates a `SingleCellExperiment` object:  
 - `pancreas_sce.rds`:  contains the single cell data.
