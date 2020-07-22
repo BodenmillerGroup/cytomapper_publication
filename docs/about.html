@@ -12,7 +12,7 @@
 
 <meta name="date" content="2020-07-22" />
 
-<title>Cytomapper publication</title>
+<title>Introduction</title>
 
 <script src="site_libs/header-attrs-2.3/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
@@ -21,6 +21,9 @@
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
@@ -262,6 +265,69 @@ $(document).ready(function () {
 
 
 
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
 
 </head>
 
@@ -269,6 +335,16 @@ $(document).ready(function () {
 
 
 <div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -347,7 +423,7 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Cytomapper publication</h1>
+<h1 class="title toc-ignore">Introduction</h1>
 <h4 class="author">Nils Eling</h4>
 <address class="author_afil">
 Department for Quantitative Biomedicine, University of Zurich<br><a class="author_email" href="mailto:#"><a href="mailto:nils.eling@dqbm.uzh.ch" class="email">nils.eling@dqbm.uzh.ch</a></a>
@@ -409,7 +485,7 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 </div>
 <div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
 <div class="panel-body">
-<p>The R Markdown file has unstaged changes. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
+<p>The R Markdown is untracked by Git. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
 </div>
 </div>
 </div>
@@ -523,7 +599,7 @@ Note that any generated files, e.g. HTML, png, CSS, etc., are not included in t
 <div id="versions" class="tab-pane fade">
 
 <p>
-These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/index.Rmd</code>) and HTML (<code>docs/index.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
+These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/about.Rmd</code>) and HTML (<code>docs/about.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
 </p>
 <div class="table-responsive">
 <table class="table table-condensed table-hover">
@@ -549,61 +625,10 @@ Message
 <tbody>
 <tr>
 <td>
-html
+Rmd
 </td>
 <td>
-<a href="https://rawcdn.githack.com/BodenmillerGroup/cytomapper_publication/d47d60920fb31c57ce69e4b328329156b2a14044/docs/index.html" target="_blank">d47d609</a>
-</td>
-<td>
-nilseling
-</td>
-<td>
-2020-07-22
-</td>
-<td>
-Recompiled from docker
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/BodenmillerGroup/cytomapper_publication/1dd9345e9ba79d9aff42f70471f813fe8be1610f/docs/index.html" target="_blank">1dd9345</a>
-</td>
-<td>
-nilseling
-</td>
-<td>
-2020-07-10
-</td>
-<td>
-Recompiled index
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/BodenmillerGroup/cytomapper_publication/2e3df8316688dc6602263ecbc6913b5553096df4/docs/index.html" target="_blank">2e3df83</a>
-</td>
-<td>
-nilseling
-</td>
-<td>
-2020-07-09
-</td>
-<td>
-Added Github icon and recompiled
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/BodenmillerGroup/cytomapper_publication/5476a61faf288fd91c0e0c72e9a201284d267095/docs/index.html" target="_blank">5476a61</a>
+<a href="https://github.com/BodenmillerGroup/cytomapper_publication/blob/5476a61faf288fd91c0e0c72e9a201284d267095/analysis/about.Rmd" target="_blank">5476a61</a>
 </td>
 <td>
 nilseling
@@ -620,7 +645,24 @@ Recompiled files
 html
 </td>
 <td>
-<a href="https://rawcdn.githack.com/BodenmillerGroup/cytomapper_publication/2fbf302fec4a78876f23673970f0f5c488672ff2/docs/index.html" target="_blank">2fbf302</a>
+<a href="https://rawcdn.githack.com/BodenmillerGroup/cytomapper_publication/5476a61faf288fd91c0e0c72e9a201284d267095/docs/about.html" target="_blank">5476a61</a>
+</td>
+<td>
+nilseling
+</td>
+<td>
+2020-07-08
+</td>
+<td>
+Recompiled files
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/BodenmillerGroup/cytomapper_publication/2fbf302fec4a78876f23673970f0f5c488672ff2/docs/about.html" target="_blank">2fbf302</a>
 </td>
 <td>
 nilseling
@@ -637,7 +679,7 @@ Re-compiled htmls
 html
 </td>
 <td>
-<a href="https://rawcdn.githack.com/BodenmillerGroup/cytomapper_publication/7960caa424bb48fca82d9eb98b3d406ab6959957/docs/index.html" target="_blank">7960caa</a>
+<a href="https://rawcdn.githack.com/BodenmillerGroup/cytomapper_publication/7960caa424bb48fca82d9eb98b3d406ab6959957/docs/about.html" target="_blank">7960caa</a>
 </td>
 <td>
 nilseling
@@ -654,7 +696,7 @@ Compiled htmls of preprocessing steps
 Rmd
 </td>
 <td>
-<a href="https://github.com/BodenmillerGroup/cytomapper_publication/blob/12bdedf72cf321f565f27a281ae71a987bd90c79/analysis/index.Rmd" target="_blank">12bdedf</a>
+<a href="https://github.com/BodenmillerGroup/cytomapper_publication/blob/12bdedf72cf321f565f27a281ae71a987bd90c79/analysis/about.Rmd" target="_blank">12bdedf</a>
 </td>
 <td>
 nilseling
@@ -673,56 +715,29 @@ Start workflowr project.
 </div>
 </div>
 </div>
-<p>The scripts hosted on this website serve the purpose of testing, validating and publishing the <a href="https://www.bioconductor.org/packages/release/bioc/html/cytomapper.html">cytomapper</a> package.</p>
-<div id="setting-up-the-environment" class="section level2">
-<h2>Setting up the environment</h2>
-<p>For reproducibility purposes, we use <a href="https://www.docker.com/">Docker</a> and <a href="https://jdblischak.github.io/workflowr/index.html">workflowr</a> to organize the scripts and the computational environment. Please follow these steps to set-up and run the analysis presented on this website:</p>
-<ol style="list-style-type: decimal">
-<li>Install <a href="https://docs.docker.com/get-docker/">Docker</a></li>
-<li>Pull the <a href="https://hub.docker.com/repository/docker/nilseling/bioconductor_cytomapper/tags?page=1">docker image</a></li>
-</ol>
-<pre><code>docker pull nilseling/bioconductor_cytomapper:0.0.1</code></pre>
-<ol start="3" style="list-style-type: decimal">
-<li>Run the docker image</li>
-</ol>
-<pre><code>docker run -e PASSWORD=bioc -p 8787:8787 nilseling/bioconductor_cytomapper:0.0.1</code></pre>
-<p>Here, the set <code>PASSWORD</code> is bioc. This will be used to login to RStudio later.</p>
-<ol start="4" style="list-style-type: decimal">
-<li>Open a browser window at <code>http://localhost:8787/</code></li>
-<li>Sign in to RStudio using <code>Username: rstudio</code> and <code>Password: bioc</code></li>
-</ol>
-<p>You have now a running instance of all the software needed to reproduce the analysis.</p>
+<p>Highly-multiplexed imaging acquires the spatial expression of multiple biological molecules such as RNA and proteins (here referred to as “markers”). Such data is usually represented as multi-channel images where each channel contains the pixel-intensities of individual molecules. A common step in multiplexed imaging analysis is image segmentation to obtain the outlines of individual cells and quantify cell-specific features such as marker expression, spatial location and morphology. Multiple GUI-based tools, such as <code>histoCAT</code>, <code>giotto</code>, <code>cytokit</code>, <code>ImaCytE</code> and <code>CytoMAP</code>, have been developed to quide users through multiplexed imaging analyses. Those tools however lack full reproducibility and are limited by a small set of selected algortihms. Here, we present <a href="https://www.bioconductor.org/packages/release/bioc/html/cytomapper.html">cytomapper</a>, a Bioconductor package for visualizing highly-multiplexed imaging data. The <code>cytomapper</code> package builds up on the <code>EBImage</code> functionality to visualize imaging data in R and the <code>SingleCellExperiment</code> container to store cell-specific expression and metadata.</p>
+<div class="figure">
+<img src="../data/img/Figure_1.png" alt="" />
+<p class="caption">Fig1</p>
 </div>
-<div id="running-the-code" class="section level2">
-<h2>Running the code</h2>
-<p>The following steps will guide you through running the analsysis:</p>
-<ol style="list-style-type: decimal">
-<li>Within RStudio, navigate to <code>cytmapper_publication</code></li>
-<li>By clicking <code>cytomapper_publication.Rproj</code>, open the correct R project</li>
-<li>Navigate to <code>analysis</code> and run the scripts in the provided order</li>
-</ol>
-<p>Further instructions can be found in the individual scripts.</p>
+<div id="getting-help" class="section level2">
+<h2>Getting help</h2>
+<p>For a full documentation, please refer to the vignette (<code>vignette("cytomapper")</code>) or the individual help functions (e.g. <code>?plotCells</code>).</p>
 </div>
-<div id="installing-cytomapper" class="section level2">
-<h2>Installing <code>cytomapper</code></h2>
-<p>Cytomapper can be obtained from <a href="https://www.bioconductor.org/packages/release/bioc/html/cytomapper.html">Bioconductor</a>. The following code will also install additional packages needed to perform the analysis.</p>
-<pre class="r"><code>if (!requireNamespace(&quot;BiocManager&quot;, quietly = TRUE))
-    install.packages(&quot;BiocManager&quot;)
-
-BiocManager::install(c(&quot;cytomapper&quot;, &quot;workflowr&quot;, &quot;tidyverse&quot;))</code></pre>
-<p>The analysis was performed using <code>cytomapper</code> version 1.1.2 and packages for <code>Bioconductor</code> version 3.12. Therefore, we recommend using the provided Docker container as explained above. Otherwise, the devel version of <code>cytomapper</code> can be installed via:</p>
-<pre class="r"><code>if (!requireNamespace(&quot;BiocManager&quot;, quietly = TRUE))
-    install.packages(&quot;BiocManager&quot;)
-
-BiocManager::install(version = &quot;3.12&quot;, update = TRUE, ask = FALSE)
-
-BiocManager::install(c(&quot;cytomapper&quot;, &quot;workflowr&quot;, &quot;tidyverse&quot;))</code></pre>
+<div id="basic-functionailty" class="section level2">
+<h2>Basic functionailty</h2>
+<p>The <code>cytomapper</code> package offers three main functions: <code>plotCells</code>, <code>plotPixels</code> and <code>cytomapperShiny</code></p>
+<div id="the-plotcells-function" class="section level3">
+<h3>The <code>plotCells</code> function</h3>
+<p>The <code>plotCells</code> function takes at least a <code>CytoImageList</code> object to visualize segmentation masks. When additionally providing a <code>SingleCellExperiment</code> object, masks can be coloured based on the cells’ expression or their metadata (e.g. cell-type). The <code>cytomapper</code> package supports subsetting of the <code>SingleCellExperiment</code> object to only visualize a selected subset of cells.</p>
 </div>
-<div id="data" class="section level2">
-<h2>Data</h2>
-<p>The example dataset used for this analysis has been published in: <a href="https://www.cell.com/cell-metabolism/fulltext/S1550-4131(18)30691-0">https://www.cell.com/cell-metabolism/fulltext/S1550-4131(18)30691-0</a></p>
-<p>The dataset is available for download from Mendeley Data: <a href="http://dx.doi.org/10.17632/cydmwsfztj.2">http://dx.doi.org/10.17632/cydmwsfztj.2</a></p>
-<p>Specifically, the following files are used in the current analysis: - <code>CellSubset</code>: Single cell data for a subset of 100 images from the original publication. - <code>ImageSubset</code>: Image stacks for a subset of 100 images from the original publication. - <code>Masks</code>: Cell masks as TIFF files. - <code>Image</code>: Image metadata. - <code>CellTypes</code>: Cell type information. - <code>Donors</code>: Pancreas donors metadata. - <code>Panel</code>: Antibody panel. - <code>ChannelMass</code>: File used to match channels (stack slices) and metals (antibodies).</p>
+<div id="the-plotpixels-function" class="section level3">
+<h3>The <code>plotPixels</code> function</h3>
+<p>The <code>plotPixels</code> function requires at least a multi-channel image <code>CytoImageList</code> object. By default, the first marker is visualized. Displayed markers can be selected by by setting <code>colour_by</code> to the entries in <code>channelNames(images)</code>. Furthermore, a <code>SingleCellExperiment</code> object and a <code>CytoImageList</code> segmentation mask object can be supplied to outline cells on images.</p>
+</div>
+<div id="the-cytomappershiny-function" class="section level3">
+<h3>The <code>cytomapperShiny</code> function</h3>
+<p>The <code>cytomapper</code> package provides a Shiny app, which can be used to hierarchically gate cells based on their expression and to visualize selected cells on images. This approach can be useful to robustly label cells based on their cell-type. A classifier can be trained using these labels and classify the remaining cells.</p>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -745,16 +760,19 @@ locale:
 attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
+other attached packages:
+[1] workflowr_1.6.2
+
 loaded via a namespace (and not attached):
  [1] Rcpp_1.0.5      rstudioapi_0.11 whisker_0.4     knitr_1.29     
- [5] magrittr_1.5    workflowr_1.6.2 R6_2.4.1        rlang_0.4.7    
- [9] stringr_1.4.0   tools_4.0.2     xfun_0.15       git2r_0.27.1   
-[13] htmltools_0.5.0 ellipsis_0.3.1  yaml_2.2.1      digest_0.6.25  
-[17] rprojroot_1.3-2 tibble_3.0.3    lifecycle_0.2.0 crayon_1.3.4   
-[21] later_1.1.0.1   vctrs_0.3.2     promises_1.1.1  fs_1.4.2       
-[25] glue_1.4.1      evaluate_0.14   rmarkdown_2.3   stringi_1.4.6  
-[29] compiler_4.0.2  pillar_1.4.6    backports_1.1.8 httpuv_1.5.4   
-[33] pkgconfig_2.0.3</code></pre>
+ [5] magrittr_1.5    R6_2.4.1        rlang_0.4.7     stringr_1.4.0  
+ [9] tools_4.0.2     xfun_0.15       git2r_0.27.1    htmltools_0.5.0
+[13] ellipsis_0.3.1  rprojroot_1.3-2 yaml_2.2.1      digest_0.6.25  
+[17] tibble_3.0.3    lifecycle_0.2.0 crayon_1.3.4    later_1.1.0.1  
+[21] vctrs_0.3.2     promises_1.1.1  fs_1.4.2        glue_1.4.1     
+[25] evaluate_0.14   rmarkdown_2.3   stringi_1.4.6   compiler_4.0.2 
+[29] pillar_1.4.6    backports_1.1.8 httpuv_1.5.4    pkgconfig_2.0.3</code></pre>
+</div>
 </div>
 </div>
 
@@ -774,6 +792,8 @@ footer is added to webpages before the MathJax javascript. -->
 
 
 
+</div>
+</div>
 
 </div>
 
@@ -806,6 +826,32 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>

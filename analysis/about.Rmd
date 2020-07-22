@@ -1,0 +1,59 @@
+---
+title: "Introduction"
+author:
+- name: Nils Eling
+  affiliation: Department for Quantitative Biomedicine, University of Zurich
+  email: nils.eling@dqbm.uzh.ch
+- name: Nicolas Damond
+  affiliation: Department for Quantitative Biomedicine, University of Zurich
+  email: nicolas.damond@dqbm.uzh.ch
+- name: Tobias Hoch
+  affiliation: Department for Quantitative Biomedicine, University of Zurich
+  email: tobias.hoch@dqbm.uzh.ch
+date: "`r Sys.Date()`"
+site: workflowr::wflow_site
+output:
+  workflowr::wflow_html:
+    toc: true
+editor_options:
+  chunk_output_type: console
+---
+
+Highly-multiplexed imaging acquires the spatial expression of multiple biological molecules such as RNA and proteins (here referred to as "markers"). 
+Such data is usually represented as multi-channel images where each channel contains the pixel-intensities of individual molecules. 
+A common step in multiplexed imaging analysis is image segmentation to obtain the outlines of individual cells and quantify cell-specific features such as marker expression, spatial location and morphology.
+Multiple GUI-based tools, such as `histoCAT`, `giotto`, `cytokit`, `ImaCytE` and `CytoMAP`, have been developed to quide users through multiplexed imaging analyses.
+Those tools however lack full reproducibility and are limited by a small set of selected algortihms.
+Here, we present [cytomapper](https://www.bioconductor.org/packages/release/bioc/html/cytomapper.html), a Bioconductor package for visualizing highly-multiplexed imaging data. 
+The `cytomapper` package builds up on the `EBImage` functionality to visualize imaging data in R and the `SingleCellExperiment` container to store cell-specific expression and metadata.
+
+![Fig1](../data/img/Figure_1.png)
+
+## Getting help
+
+For a full documentation, please refer to the vignette (`vignette("cytomapper")`) or the individual help functions (e.g. `?plotCells`).
+
+## Basic functionailty
+
+The `cytomapper` package offers three main functions: `plotCells`, `plotPixels` and `cytomapperShiny`
+
+### The `plotCells` function
+
+The `plotCells` function takes at least a `CytoImageList` object to visualize segmentation masks.
+When additionally providing a `SingleCellExperiment` object, masks can be coloured based on the cells' expression or their metadata (e.g. cell-type).
+The `cytomapper` package supports subsetting of the `SingleCellExperiment` object to only visualize a selected subset of cells.
+
+### The `plotPixels` function
+
+The `plotPixels` function requires at least a multi-channel image `CytoImageList` object.
+By default, the first marker is visualized.
+Displayed markers can be selected by by setting `colour_by` to the entries in `channelNames(images)`.
+Furthermore, a `SingleCellExperiment` object and a `CytoImageList` segmentation mask object can be supplied to outline cells on images.
+
+### The `cytomapperShiny` function
+
+The `cytomapper` package provides a Shiny app, which can be used to hierarchically gate cells based on their expression and to visualize selected cells on images.
+This approach can be useful to robustly label cells based on their cell-type. 
+A classifier can be trained using these labels and classify the remaining cells.
+
+

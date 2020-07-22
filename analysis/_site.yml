@@ -4,7 +4,7 @@ navbar:
   title: "Cytomapper paper"
   left:
   - text: Introduction
-    href: index.html
+    href: about.html
   - text: Pre-pocessing
     menu:
     - text: Load Pancreas Data
