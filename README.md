@@ -70,13 +70,13 @@ The example dataset has been published in:
 The dataset is available for download from Mendeley Data: [http://dx.doi.org/10.17632/cydmwsfztj.2](http://dx.doi.org/10.17632/cydmwsfztj.2)
 
 Specifically, the following files are used in the current analysis:
-- [`CellSubset`](): Single cell data for a subset of 100 images from the original publication.
-- [`ImageSubset`](): Image stacks for a subset of 100 images from the original publication.
-- [`Masks`](): Cell masks as TIFF files.
-- [`Image`](): Image metadata.
-- [`CellTypes`](): Cell type information.
-- [`Donors`](): Pancreas donors metadata.
-- [`Panel`](): Antibody panel.
-- [`ChannelMass`](): File used to match channels (stack slices) and metals (antibodies).
+- `CellSubset`: Single cell data for a subset of 100 images from the original publication.
+- `ImageSubset`: Image stacks for a subset of 100 images from the original publication.
+- `Masks`: Cell masks as TIFF files.
+- `Image`: Image metadata.
+- `CellTypes`: Cell type information.
+- `Donors`: Pancreas donors metadata.
+- `Panel`: Antibody panel.
+- `ChannelMass`: File used to match channels (stack slices) and metals (antibodies).
 
 For more information, please refer to the [data](data) folder.
