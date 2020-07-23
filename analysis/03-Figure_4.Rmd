@@ -53,7 +53,7 @@ rownames(cur_meta) <- cur_meta$ImageFullName
 cur_meta <- cur_meta[names(PIN_mean)[cur_order],]
 
 images <- normalize(images)
-images <- normalize(images, inputRange = c(0, 0.2))
+images <- normalize(images, inputRange = c(0, 0.05))
 
 plotPixels(image = images[cur_order],
           colour_by = "PIN",
