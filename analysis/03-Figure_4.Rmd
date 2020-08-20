@@ -24,7 +24,7 @@ images <- readRDS("data/PancreasData/pancreas_images.rds")
 
 Similar to Figure 3, we will now order the images based on the mean intensity of all PIN positive pixels. 
 
-```{r order-by-beta-cells}
+```{r order-by-PIN-expr}
 PIN_mean <- unlist(lapply(images,
                    function(x){
                      cur_x <- x[,,"PIN"]
@@ -38,7 +38,7 @@ However, a similar analysis can be performed to visually detect image-to-image i
 
 We will normalize across all images to keep the differences in staining intensity between images intact.
 
-```{r plotCellTypes}
+```{r plotPINexprs}
 # Specify the image order
 cur_order <- order(PIN_mean, decreasing = TRUE)
 

@@ -152,7 +152,7 @@ selected_images <- as_tibble(colData(sce)) %>%
 
 We will now outline alpha and beta cells.
 
-```{r outline-alpha-cells}
+```{r outline-alphaAndBeta-cells}
 top_images <- selected_images$ImageName[1]
 
 cur_images <- images[match(top_images, mcols(images)$ImageName)]
