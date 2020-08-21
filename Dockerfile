@@ -12,7 +12,7 @@ RUN apt-get update \
 
 RUN R -e 'install.packages("BiocManager")'
 RUN R -e 'BiocManager::install(version = "3.12", update = TRUE, ask = FALSE)'
-RUN R -e 'BiocManager::install(c("cytomapper", "workflowr", "tidyverse"))'
+RUN R -e 'BiocManager::install(c("cytomapper", "workflowr", "tidyverse", "devtools"))'
 RUN R -e 'devtools::install_github("BodenmillerGroup/cytomapper@v1.1.2", dependencies = FALSE)'
 
 RUN mkdir /home/rstudio/cytomapper_publication
