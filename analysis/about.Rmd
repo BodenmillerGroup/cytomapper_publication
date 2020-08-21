@@ -27,7 +27,7 @@ Those tools however lack full reproducibility and are limited by a small set of 
 Here, we present [cytomapper](https://www.bioconductor.org/packages/release/bioc/html/cytomapper.html), a Bioconductor package for visualizing highly-multiplexed imaging data. 
 The `cytomapper` package builds up on the `EBImage` functionality to visualize imaging data in R and the `SingleCellExperiment` container to store cell-specific expression and metadata.
 
-![Fig1](../data/img/Figure_1.png)
+![Fig1](img/Figure_1.png)
 
 ## Getting help
 
