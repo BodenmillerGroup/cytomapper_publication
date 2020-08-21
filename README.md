@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3994630.svg)](https://doi.org/10.5281/zenodo.3994630)
+
 # Cytomapper paper
 
 The scripts contained in this repository serve the purpose of testing, validating and publishing the [cytomapper](https://www.bioconductor.org/packages/release/bioc/html/cytomapper.html) package.
