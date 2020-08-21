@@ -58,21 +58,26 @@ Further instructions can be found in the individual scripts.
 
 ## Installing `cytomapper`
 
-Cytomapper can be obtained from [Bioconductor](https://www.bioconductor.org/packages/release/bioc/html/cytomapper.html).
+The `cytomapper` version used for the bioRxiv submission can be installed via:
+
+```r
+install.packages(c("devtools", "workflowr", "tidyverse"))
+devtools::install_github("BodenmillerGroup/cytomapper@v1.1.2")
+```
+
+The Bioconductor release version of `cytomapper` can be obtained from [Bioconductor](https://www.bioconductor.org/packages/release/bioc/html/cytomapper.html).
 The following code will also install additional packages needed to perform the analysis.
 
-```{r, eval=FALSE}
+```r
 if (!requireNamespace("BiocManager", quietly = TRUE))
     install.packages("BiocManager")
 
 BiocManager::install(c("cytomapper", "workflowr", "tidyverse"))
 ```
 
-The analysis was performed using `cytomapper` version 1.1.2 and packages for `Bioconductor` version 3.12.
-Therefore, we recommend using the provided Docker container as explained above.
-Otherwise, the devel version of `cytomapper` can be installed via:
+The Bioconductor development version of `cytomapper` can be installed via:
 
-```{r, eval=FALSE}
+```r
 if (!requireNamespace("BiocManager", quietly = TRUE))
     install.packages("BiocManager")
 
