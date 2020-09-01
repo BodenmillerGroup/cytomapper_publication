@@ -121,54 +121,8 @@ plotCells(mask = cur_masks,
 We now see that T cells are located closer to the islet on the "Recent onset T1D" image. 
 In addition, no beta cells are visible on the "Long duration T1D" image, as expected because they have been destroyed by the immune system.    
 
-We will now confirm that this is reflected on the original images by (i) plotting the corresponding expression values on the mask using the `plotCells` function and (ii) plotting the pixel-level data with the `plotPixels` function. 
+We will now confirm that this is reflected on the original images by plotting the pixel-level data with the `plotPixels` function. 
 CD4 (`CD4` expressed by Th cells) will be plotted in blue, CD8 (`CD8a`, Tc cells) in red and proinsulin (`PIN`, beta cells) in yellow.
-
-First, we will plot the arcsinh-transformed averaged expression on the images.
-
-```{r plotCells-meanExpression}
-plotCells(mask = cur_masks,
-          object = cur_sce,
-          cell_id = "CellNumber",
-          img_id = "ImageName",
-          exprs_values = "exprs",
-          colour_by = c("PIN", "CD4", "CD8a"), 
-           colour = list(PIN = c("black", "yellow"),
-                         CD4 = c("black", "blue"),
-                         CD8a = c("black", "red")),
-          image_title = list(text = c("Non-diabetic",
-                                      "Recent onset T1D",
-                                      "Long duration T1D"),
-                             colour = "black"),
-          scale_bar = list(length = 100,
-                           label = expression("100 " ~ mu * "m"),
-                           colour = "black"),
-          missing_colour = "white",
-          background_colour = "gray")
-
-# Save figure
-plotCells(mask = cur_masks,
-          object = cur_sce,
-          cell_id = "CellNumber",
-          img_id = "ImageName",
-          exprs_values = "exprs",
-          colour_by = c("PIN", "CD4", "CD8a"), 
-           colour = list(PIN = c("black", "yellow"),
-                         CD4 = c("black", "blue"),
-                         CD8a = c("black", "red")),
-          image_title = list(text = c("Non-diabetic",
-                                      "Recent onset T1D",
-                                      "Long duration T1D"),
-                             colour = "black"),
-          scale_bar = list(length = 100,
-                           label = expression("100 " ~ mu * "m"),
-                           colour = "black"),
-          missing_colour = "white",
-          background_colour = "gray",
-           save_plot = list(filename = "docs/final_figures/main/Fig_2B.png", scale = 3))
-```
-
-Finally, we will display the pixel-level information on the images.
 
 ```{r plotPixels}
 plotPixels(image = cur_images,
