@@ -87,3 +87,12 @@ Specifically, the following files are used in the current analysis:
 - `ChannelMass`: File used to match channels (stack slices) and metals (antibodies).
 
 For more information, please refer to the [data](data) folder.
+
+## Citation
+
+Please cite `cytomapper` as:
+
+```
+Nils Eling, Nicolas Damond, Tobias Hoch, Bernd Bodenmiller (2020). cytomapper: an R/Bioconductor package for visualisation of highly
+  multiplexed imaging data. bioRxiv, doi: 10.1101/2020.09.08.287516
+```
