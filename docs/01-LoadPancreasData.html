@@ -11,7 +11,7 @@
 
 <meta name="author" content="Nicolas Damond and Nils Eling" />
 
-<meta name="date" content="2020-08-21" />
+<meta name="date" content="2020-09-14" />
 
 <title>Load single-cell data</title>
 
@@ -423,7 +423,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Load single-cell data</h1>
 <h4 class="author">Nicolas Damond and Nils Eling</h4>
-<h4 class="date">2020-08-21</h4>
+<h4 class="date">2020-09-14</h4>
 
 </div>
 
@@ -448,7 +448,7 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2020-08-21
+<strong>Last updated:</strong> 2020-09-14
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
@@ -539,16 +539,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomBodenmillerGroupcytomapperpublicationtree212ac62ea461efb0e8009ec5bcfd7fdac849a1a3targetblank212ac62a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/BodenmillerGroup/cytomapper_publication/tree/212ac62ea461efb0e8009ec5bcfd7fdac849a1a3" target="_blank">212ac62</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomBodenmillerGroupcytomapperpublicationtree177107f9e33d24512fbc58bb99e8f3b0116d74fftargetblank177107fa"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/BodenmillerGroup/cytomapper_publication/tree/177107f9e33d24512fbc58bb99e8f3b0116d74ff" target="_blank">177107f</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomBodenmillerGroupcytomapperpublicationtree212ac62ea461efb0e8009ec5bcfd7fdac849a1a3targetblank212ac62a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomBodenmillerGroupcytomapperpublicationtree177107f9e33d24512fbc58bb99e8f3b0116d74fftargetblank177107fa" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/BodenmillerGroup/cytomapper_publication/tree/212ac62ea461efb0e8009ec5bcfd7fdac849a1a3" target="_blank">212ac62</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/BodenmillerGroup/cytomapper_publication/tree/177107f9e33d24512fbc58bb99e8f3b0116d74ff" target="_blank">177107f</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -556,10 +556,6 @@ Note that you need to be careful to ensure that all relevant files for the analy
 <pre><code>
 Ignored files:
     Ignored:    .Rproj.user/
-
-Unstaged changes:
-    Modified:   Dockerfile
-    Modified:   run.sh
 
 </code></pre>
 <p>
@@ -598,6 +594,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/BodenmillerGroup/cytomapper_publication/blob/177107f9e33d24512fbc58bb99e8f3b0116d74ff/analysis/01-LoadPancreasData.Rmd" target="_blank">177107f</a>
+</td>
+<td>
+nilseling
+</td>
+<td>
+2020-09-14
+</td>
+<td>
+Updated links to files
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/BodenmillerGroup/cytomapper_publication/8e6633ed78c192f83f492bca3a26bc0fbc253ead/docs/01-LoadPancreasData.html" target="_blank">8e6633e</a>
+</td>
+<td>
+Nils Eling
+</td>
+<td>
+2020-08-21
+</td>
+<td>
+Recompiled scripts
+</td>
+</tr>
 <tr>
 <td>
 html
@@ -874,7 +904,7 @@ library(SingleCellExperiment)
 library(cytomapper)
 
 # Download the zipped folder image and unzip it
-url.cells &lt;- (&quot;https://data.mendeley.com/datasets/cydmwsfztj/2/files/f1e3b8dc-56be-4172-bbc4-3a6f9de97563/CellSubset.zip?dl=1&quot;)
+url.cells &lt;- (&quot;https://data.mendeley.com/public-files/datasets/cydmwsfztj/files/f1e3b8dc-56be-4172-bbc4-3a6f9de97563/file_downloaded&quot;)
 download.file(url.cells, destfile = &quot;data/PancreasData/CellSubset.zip&quot;)
 unzip(&quot;data/PancreasData/CellSubset.zip&quot;, exdir = &quot;data/PancreasData&quot;)
 file.remove(&quot;data/PancreasData/CellSubset.zip&quot;)</code></pre>
@@ -889,7 +919,7 @@ cells &lt;- cells[order(cells$ImageNumber, cells$ObjectNumber), ]</code></pre>
 <h2>Read in image metadata</h2>
 <p>Next, we will read in the image-specific metadata.</p>
 <pre class="r"><code># Download the zipped folder image and unzip it
-url.image &lt;- (&quot;https://data.mendeley.com/datasets/cydmwsfztj/2/files/0b236273-d21b-4566-84a2-f1c56324a900/Image.zip?dl=1&quot;)
+url.image &lt;- (&quot;https://data.mendeley.com/public-files/datasets/cydmwsfztj/files/0b236273-d21b-4566-84a2-f1c56324a900/file_downloaded&quot;)
 download.file(url.image, destfile = &quot;data/PancreasData/Image.zip&quot;)
 unzip(&quot;data/PancreasData/Image.zip&quot;, exdir = &quot;data/PancreasData&quot;)
 file.remove(&quot;data/PancreasData/Image.zip&quot;)</code></pre>
@@ -901,7 +931,7 @@ image &lt;- read.csv(&quot;data/PancreasData/All_Image.csv&quot;, stringsAsFacto
 <h2>Read in cell-type information</h2>
 <p>In the original publication, cells were phenotyped based on informative marker expression. These phenotype labels are supplied in the online repository.</p>
 <pre class="r"><code># Download the zipped folder image and unzip it
-url.celltypes &lt;- (&quot;https://data.mendeley.com/datasets/cydmwsfztj/2/files/59e8da72-5bfe-4289-b95b-28348a6e1222/CellTypes.zip?dl=1&quot;)
+url.celltypes &lt;- (&quot;https://data.mendeley.com/public-files/datasets/cydmwsfztj/files/59e8da72-5bfe-4289-b95b-28348a6e1222/file_downloaded&quot;)
 download.file(url.celltypes, destfile = &quot;data/PancreasData/CellTypes.zip&quot;)
 unzip(&quot;data/PancreasData/CellTypes.zip&quot;, exdir = &quot;data/PancreasData&quot;)
 file.remove(&quot;data/PancreasData/CellTypes.zip&quot;)</code></pre>
@@ -913,7 +943,7 @@ celltypes &lt;- read.csv(&quot;data/PancreasData/CellTypes.csv&quot;, stringsAsF
 <h2>Read-in donor information</h2>
 <p>We will furthermore read in the metadata per donor.</p>
 <pre class="r"><code># Download the zipped folder image and unzip it
-url.donors &lt;- (&quot;https://data.mendeley.com/datasets/cydmwsfztj/2/files/9074990e-1b93-4c79-8c49-1db01a66398b/Donors.zip?dl=1&quot;)
+url.donors &lt;- (&quot;https://data.mendeley.com/public-files/datasets/cydmwsfztj/files/9074990e-1b93-4c79-8c49-1db01a66398b/file_downloaded&quot;)
 download.file(url.donors, destfile = &quot;data/PancreasData/Donors.zip&quot;)
 unzip(&quot;data/PancreasData/Donors.zip&quot;, exdir = &quot;data/PancreasData&quot;)
 file.remove(&quot;data/PancreasData/Donors.zip&quot;)</code></pre>
@@ -967,12 +997,12 @@ rownames(cell.metadata) &lt;- cell.metadata$id</code></pre>
 <h2>Generate marker-specific metadata</h2>
 <p>Here, we will download the panel information, which contains antibody-related metadata. However, for some datasets, the channel-order and the panel order do not match. For this, the channel-mass file is used to match panel information and image stack slices.</p>
 <pre class="r"><code># Import panel
-url.panel &lt;- (&quot;https://data.mendeley.com/datasets/cydmwsfztj/2/files/2f9fecfc-b98f-4937-bc38-ae1b959bd74d/Panel.csv?dl=1&quot;)
+url.panel &lt;- (&quot;https://data.mendeley.com/public-files/datasets/cydmwsfztj/files/2f9fecfc-b98f-4937-bc38-ae1b959bd74d/file_downloaded&quot;)
 download.file(url.panel, destfile = &quot;data/PancreasData/panel.csv&quot;)
 panel &lt;- read.csv(&quot;data/PancreasData/panel.csv&quot;)
 
 # Import channel-mass file
-url.channelmass &lt;- (&quot;https://data.mendeley.com/datasets/cydmwsfztj/2/files/704312eb-377c-42e2-8227-44bb9aca0fb3/ChannelMass.csv?dl=1&quot;)
+url.channelmass &lt;- (&quot;https://data.mendeley.com/public-files/datasets/cydmwsfztj/files/704312eb-377c-42e2-8227-44bb9aca0fb3/file_downloaded&quot;)
 download.file(url.channelmass, destfile = &quot;data/PancreasData/ChannelMass.csv&quot;)
 channel.mass &lt;- read.csv(&quot;data/PancreasData/ChannelMass.csv&quot;, header = FALSE)</code></pre>
 <p>First, we will select the relevant channels used for analysis and order the pannel based on channel mass.</p>
