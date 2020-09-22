@@ -28,7 +28,7 @@ We use the `loadImages` function of the `cytomapper` package to read them into a
 library(cytomapper)
 
 # Download the zipped folder image and unzip it
-url.images <- ("https://data.mendeley.com/datasets/cydmwsfztj/2/files/b37054d2-d5d0-4c48-a001-81ff77136f41/ImageSubset.zip?dl=1")
+url.images <- ("https://data.mendeley.com/public-files/datasets/cydmwsfztj/files/b37054d2-d5d0-4c48-a001-81ff77136f41/file_downloaded")
 download.file(url.images, destfile = "data/PancreasData/ImageSubset.zip")
 unzip("data/PancreasData/ImageSubset.zip", exdir = "data/PancreasData/")
 file.remove("data/PancreasData/ImageSubset.zip")
@@ -42,7 +42,7 @@ We also download the associated segemntation masks and read them into a `CytoIma
 
 ```{r load-masks}
 # Download the zipped folder masks and unzip it
-url.masks <- ("https://data.mendeley.com/datasets/cydmwsfztj/2/files/13679a61-e9b4-4820-9f09-a5bbc697647c/Masks.zip?dl=1")
+url.masks <- ("https://data.mendeley.com/public-files/datasets/cydmwsfztj/files/13679a61-e9b4-4820-9f09-a5bbc697647c/file_downloaded")
 download.file(url.masks, destfile = "data/PancreasData/Masks.zip")
 unzip("data/PancreasData/Masks.zip", exdir = "data/PancreasData/")
 file.remove("data/PancreasData/Masks.zip")
@@ -73,12 +73,12 @@ This will be important later to set the `channelNames` of the `CytoImageList` ob
 
 ```{r load-panel}
 # Import panel
-url.panel <- ("https://data.mendeley.com/datasets/cydmwsfztj/2/files/2f9fecfc-b98f-4937-bc38-ae1b959bd74d/Panel.csv?dl=1")
+url.panel <- ("https://data.mendeley.com/public-files/datasets/cydmwsfztj/files/2f9fecfc-b98f-4937-bc38-ae1b959bd74d/file_downloaded")
 download.file(url.panel, destfile = "data/PancreasData/panel.csv")
 panel <- read.csv("data/PancreasData/panel.csv")
 
 # Import channel-mass file
-url.channelmass <- ("https://data.mendeley.com/datasets/cydmwsfztj/2/files/704312eb-377c-42e2-8227-44bb9aca0fb3/ChannelMass.csv?dl=1")
+url.channelmass <- ("https://data.mendeley.com/public-files/datasets/cydmwsfztj/files/704312eb-377c-42e2-8227-44bb9aca0fb3/file_downloaded")
 download.file(url.channelmass, destfile = "data/PancreasData/ChannelMass.csv")
 channel.mass <- read.csv("data/PancreasData/ChannelMass.csv", header = FALSE)
 ```
