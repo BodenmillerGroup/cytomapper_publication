@@ -13,13 +13,13 @@ Please follow these steps to set-up and run the analysis presented in this repos
 2. Pull the [docker image](https://hub.docker.com/repository/docker/nilseling/bioconductor_cytomapper/tags?page=1)
 
 ```
-docker pull nilseling/bioconductor_cytomapper:0.0.1
+docker pull nilseling/bioconductor_cytomapper:0.0.2
 ```
 
 3. Run the docker image
 
 ```
-docker run -e PASSWORD=bioc -p 8787:8787 nilseling/bioconductor_cytomapper:0.0.1
+docker run -e PASSWORD=bioc -p 8787:8787 nilseling/bioconductor_cytomapper:0.0.2
 ```
 
 Here, the set `PASSWORD` is bioc. This will be used to login to RStudio later.
