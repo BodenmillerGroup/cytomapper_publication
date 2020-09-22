@@ -36,7 +36,7 @@ docker pull nilseling/bioconductor_cytomapper:0.0.2
 3. Run the docker image
 
 ```
-docker run -e PASSWORD=bioc -p 8787:8787 nilseling/bioconductor_cytomapper:0.0.1
+docker run -e PASSWORD=bioc -p 8787:8787 nilseling/bioconductor_cytomapper:0.0.2
 ```
 
 Here, the set `PASSWORD` is bioc. This will be used to login to RStudio later.
