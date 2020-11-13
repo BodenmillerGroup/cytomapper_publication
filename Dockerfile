@@ -1,5 +1,5 @@
 # Docker inheritance
-FROM rocker/rstudio:4.0.2
+FROM rocker/rstudio:4.0.3
 
 RUN apt-get update \
 	&& apt-get install -y --no-install-recommends apt-utils \
@@ -13,7 +13,6 @@ RUN apt-get update \
 RUN R -e 'install.packages("BiocManager")'
 RUN R -e 'BiocManager::install(version = "3.12", update = TRUE, ask = FALSE)'
 RUN R -e 'BiocManager::install(c("cytomapper", "workflowr", "dplyr", "tidyverse", "devtools"))'
-RUN R -e 'devtools::install_github("BodenmillerGroup/cytomapper@v1.1.2", dependencies = FALSE)'
 
 RUN mkdir /home/rstudio/cytomapper_publication
 
