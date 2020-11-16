@@ -1,1 +1,1 @@
-docker build --no-cache -t bioconductor_cytomapper:0.0.2 .
+docker build --no-cache -t bioconductor_cytomapper:0.0.3 .
