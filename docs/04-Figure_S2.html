@@ -9,11 +9,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="Nils Eling and Tobias Hoch" />
+<meta name="author" content="Nils Eling and Nicolas Damond" />
 
-<meta name="date" content="2020-09-22" />
+<meta name="date" content="2020-11-18" />
 
-<title>Running cytomapper shiny</title>
+<title>Supplementary Figure 2</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -27,6 +27,8 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="site_libs/anchor-sections-1.0/anchor-sections.js"></script>
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
@@ -37,6 +39,15 @@ div.section {
   padding-top: 12px;
 }
 </style>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
@@ -375,6 +386,9 @@ div.tocify {
     <li>
       <a href="02-LoadPancreasImages.html">Load Pancreas Images</a>
     </li>
+    <li>
+      <a href="03-DataAccess.html">Access Pancreas data</a>
+    </li>
   </ul>
 </li>
 <li class="dropdown">
@@ -385,24 +399,21 @@ div.tocify {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="03-Figure_1.html">Figure 1</a>
+      <a href="04-Figure_1.html">Figure 1</a>
     </li>
     <li>
-      <a href="03-Figure_2.html">Figure 2</a>
+      <a href="04-Figure_S1.html">Figure S1</a>
     </li>
     <li>
-      <a href="03-Figure_3.html">Figure 3</a>
+      <a href="04-Figure_S2.html">Figure S2</a>
     </li>
     <li>
-      <a href="03-Figure_4.html">Figure 4</a>
-    </li>
-    <li>
-      <a href="03-Figure_5.html">Figure 5</a>
+      <a href="04-Figure_S3.html">Figure S3</a>
     </li>
   </ul>
 </li>
 <li>
-  <a href="04-cytomapperShiny.html">cytomapperShiny</a>
+  <a href="04-Figure_S4_cytomapperShiny.html">cytomapperShiny</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -421,9 +432,9 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Running cytomapper shiny</h1>
-<h4 class="author">Nils Eling and Tobias Hoch</h4>
-<h4 class="date">2020-09-22</h4>
+<h1 class="title toc-ignore">Supplementary Figure 2</h1>
+<h4 class="author">Nils Eling and Nicolas Damond</h4>
+<h4 class="date">2020-11-18</h4>
 
 </div>
 
@@ -448,7 +459,7 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2020-09-22
+<strong>Last updated:</strong> 2020-11-18
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
@@ -539,16 +550,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomBodenmillerGroupcytomapperpublicationtree6f99bc314287284bbee65f182afc03781c97bcd7targetblank6f99bc3a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/BodenmillerGroup/cytomapper_publication/tree/6f99bc314287284bbee65f182afc03781c97bcd7" target="_blank">6f99bc3</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomBodenmillerGroupcytomapperpublicationtree6ccdd51ec962be46cdfc9d215075b6abe7e2d880targetblank6ccdd51a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/BodenmillerGroup/cytomapper_publication/tree/6ccdd51ec962be46cdfc9d215075b6abe7e2d880" target="_blank">6ccdd51</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomBodenmillerGroupcytomapperpublicationtree6f99bc314287284bbee65f182afc03781c97bcd7targetblank6f99bc3a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomBodenmillerGroupcytomapperpublicationtree6ccdd51ec962be46cdfc9d215075b6abe7e2d880targetblank6ccdd51a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/BodenmillerGroup/cytomapper_publication/tree/6f99bc314287284bbee65f182afc03781c97bcd7" target="_blank">6f99bc3</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/BodenmillerGroup/cytomapper_publication/tree/6ccdd51ec962be46cdfc9d215075b6abe7e2d880" target="_blank">6ccdd51</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -559,6 +570,9 @@ Ignored files:
     Ignored:    data/PancreasData/pancreas_images.rds
     Ignored:    data/PancreasData/pancreas_masks.rds
     Ignored:    data/PancreasData/pancreas_sce.rds
+
+Unstaged changes:
+    Modified:   analysis/04-Figure_1.Rmd
 
 </code></pre>
 <p>
@@ -573,7 +587,7 @@ Note that any generated files, e.g. HTML, png, CSS, etc., are not included in t
 <div id="versions" class="tab-pane fade">
 
 <p>
-These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/04-cytomapperShiny.Rmd</code>) and HTML (<code>docs/04-cytomapperShiny.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
+These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/04-Figure_S2.Rmd</code>) and HTML (<code>docs/04-Figure_S2.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
 </p>
 <div class="table-responsive">
 <table class="table table-condensed table-hover">
@@ -599,70 +613,19 @@ Message
 <tbody>
 <tr>
 <td>
-html
+Rmd
 </td>
 <td>
-<a href="https://rawcdn.githack.com/BodenmillerGroup/cytomapper_publication/05d2b29eb0788d0d589f095072a0c17c6d5f919f/docs/04-cytomapperShiny.html" target="_blank">05d2b29</a>
-</td>
-<td>
-Nils Eling
-</td>
-<td>
-2020-09-14
-</td>
-<td>
-Recompiled htmls
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/BodenmillerGroup/cytomapper_publication/8e6633ed78c192f83f492bca3a26bc0fbc253ead/docs/04-cytomapperShiny.html" target="_blank">8e6633e</a>
+<a href="https://github.com/BodenmillerGroup/cytomapper_publication/blob/96b285d3af713b9615a5d48a3b2f12f1f6b0af67/analysis/04-Figure_S2.Rmd" target="_blank">96b285d</a>
 </td>
 <td>
 Nils Eling
 </td>
 <td>
-2020-08-21
+2020-11-18
 </td>
 <td>
-Recompiled scripts
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/BodenmillerGroup/cytomapper_publication/9ddf2b31dca80a7af57543bba38ad40b380277c8/docs/04-cytomapperShiny.html" target="_blank">9ddf2b3</a>
-</td>
-<td>
-Nils Eling
-</td>
-<td>
-2020-08-20
-</td>
-<td>
-Recompiled from with docker container
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/BodenmillerGroup/cytomapper_publication/d47d60920fb31c57ce69e4b328329156b2a14044/docs/04-cytomapperShiny.html" target="_blank">d47d609</a>
-</td>
-<td>
-nilseling
-</td>
-<td>
-2020-07-22
-</td>
-<td>
-Recompiled from docker
+Set correct figure paths
 </td>
 </tr>
 <tr>
@@ -670,33 +633,16 @@ Recompiled from docker
 Rmd
 </td>
 <td>
-<a href="https://github.com/BodenmillerGroup/cytomapper_publication/blob/2449af5861686b79a304f6e9a81f78e91505a623/analysis/04-cytomapperShiny.Rmd" target="_blank">2449af5</a>
+<a href="https://github.com/BodenmillerGroup/cytomapper_publication/blob/08f5f0dfae97ef150341b59e7ac6a68fcc2a10f6/analysis/04-Figure_S2.Rmd" target="_blank">08f5f0d</a>
 </td>
 <td>
-nilseling
+Nils Eling
 </td>
 <td>
-2020-07-20
+2020-11-18
 </td>
 <td>
-Added cytomapperShiny script
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/BodenmillerGroup/cytomapper_publication/2449af5861686b79a304f6e9a81f78e91505a623/docs/04-cytomapperShiny.html" target="_blank">2449af5</a>
-</td>
-<td>
-nilseling
-</td>
-<td>
-2020-07-20
-</td>
-<td>
-Added cytomapperShiny script
+Split figures into main and supplements
 </td>
 </tr>
 </tbody>
@@ -706,35 +652,61 @@ Added cytomapperShiny script
 </div>
 </div>
 </div>
-<p>This script offers an example on how to run the <code>cytomapperShiny</code> function to gate and visualize cells on images. For more information, please refer to <code>?cytomapperShiny</code> and the <code>Help</code> section within the Shiny app.</p>
-<p>Here, we will read in the previously generated data objects and directly pass them into the <code>cytomapperShiny</code> function.</p>
+<p>This script reproduces the analysis performed in Supplementary Figure 2. Here, we will load the libraries and data for this figure:</p>
 <pre class="r"><code>library(cytomapper)
+library(dplyr)
 
 sce &lt;- readRDS(&quot;data/PancreasData/pancreas_sce.rds&quot;)
-masks &lt;- readRDS(&quot;data/PancreasData/pancreas_masks.rds&quot;)
 images &lt;- readRDS(&quot;data/PancreasData/pancreas_images.rds&quot;)</code></pre>
-<div id="classic-hierarchical-gating" class="section level2">
-<h2>Classic hierarchical gating</h2>
-<p>When not supplying a segmentation mask or multi-channel image object, the <code>cytomapperShiny</code> function can be used to perform classic hierarchical gating similar to FlowJo on cell-specific expression values:</p>
-<pre class="r"><code>if (interactive()) {
-  cytomapperShiny(object = sce, img_id = &quot;ImageName&quot;, cell_id = &quot;CellNumber&quot;)
-}</code></pre>
-</div>
-<div id="visualizing-segmentation-masks" class="section level2">
-<h2>Visualizing segmentation masks</h2>
-<p>Next, we will only supply the <code>SingleCellExperiment</code> object and the <code>CytoImageList</code> segmentation mask object to the Shiny function. In this setting, segmentation masks are coloured (i) based on selected marker expression and (ii) based on the gated cells.</p>
-<pre class="r"><code>if (interactive()) {
-  cytomapperShiny(object = sce, mask = masks, 
-                  cell_id = &quot;CellNumber&quot;, img_id = &quot;ImageName&quot;)
-}</code></pre>
-</div>
-<div id="visualizing-multi-channel-images" class="section level2">
-<h2>Visualizing multi-channel images</h2>
-<p>In the third setting, we will gate cells based on their mean expression counts but outline the selected cells on composite images. For this, we will need to supply the <code>SingleCellExperiment</code> object, a <code>CytoImageList</code> object containing segmentation masks and a <code>CytoImageList</code> object containing multi-channel images.</p>
-<pre class="r"><code>if (interactive()) {
-  cytomapperShiny(object = sce, mask = masks, image = images, 
-                  cell_id = &quot;CellNumber&quot;, img_id = &quot;ImageName&quot;)
-}</code></pre>
+<p>In line with Supplementary Figure 1, we will now order the images based on the mean intensity of all PIN positive pixels.</p>
+<pre class="r"><code>PIN_mean &lt;- unlist(lapply(images,
+                   function(x){
+                     cur_x &lt;- x[,,&quot;PIN&quot;]
+                     mean(cur_x[cur_x &gt; 0])
+                   }))</code></pre>
+<p>Here, we will visualize the marker pro-insulin (PIN) across all images. Due to the progressive decline in beta cell function, we expect PIN expression to be reduced in Long-Duration patients. However, a similar analysis can be performed to visually detect image-to-image irregularities in background stain.</p>
+<p>We will normalize across all images to keep the differences in staining intensity between images intact.</p>
+<pre class="r"><code># Specify the image order
+cur_order &lt;- order(PIN_mean, decreasing = TRUE)
+
+# Collect metadata for images
+cur_meta &lt;- as_tibble(colData(sce)) %&gt;%
+  group_by(ImageNumber) %&gt;%
+  summarise_at(vars(&quot;ImageName&quot;, &quot;ImageFullName&quot;, &quot;stage&quot;), unique) %&gt;%
+  mutate(ImageFullName = gsub(&quot;.tiff&quot;, &quot;&quot;, ImageFullName)) %&gt;%
+  as.data.frame()
+
+rownames(cur_meta) &lt;- cur_meta$ImageFullName
+cur_meta &lt;- cur_meta[names(PIN_mean)[cur_order],]
+
+images &lt;- normalize(images)
+images &lt;- normalize(images, inputRange = c(0, 0.05))
+
+plotPixels(image = images[cur_order],
+          colour_by = &quot;PIN&quot;,
+          scale_bar = list(length = 100,
+                           label = &quot;&quot;,
+                           colour = &quot;white&quot;),
+          colour = list(PIN = c(&quot;black&quot;, &quot;yellow&quot;)),
+          legend = list(margin = 100),
+          image_title = list(text = cur_meta$stage,
+                             colour = &quot;white&quot;))</code></pre>
+<p><img src="figure/04-Figure_S2.Rmd/plotPINexprs-1.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code># Save plot
+plotPixels(image = images[cur_order],
+          colour_by = &quot;PIN&quot;,
+          scale_bar = list(length = 100,
+                           label = &quot;&quot;,
+                           colour = &quot;white&quot;),
+          colour = list(PIN = c(&quot;black&quot;, &quot;yellow&quot;)),
+          legend = list(margin = 100,
+                        colour_by.title.cex = 8,
+                        colour_by.labels.cex = 4),
+          image_title = list(text = cur_meta$stage,
+                             colour = &quot;white&quot;,
+                             cex = 3),
+          save_plot = list(filename = &quot;docs/final_figures/supplements/Fig_S2.png&quot;))</code></pre>
+<p>Here, we see the progressive decline in beta cell fractions. The images are ordered based on T1D stage: Non-diabetic, Onset and Long-Duration, as expected. We further see an increased morphological irregularity in Long-Duration islets.</p>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -743,12 +715,12 @@ images &lt;- readRDS(&quot;data/PancreasData/pancreas_images.rds&quot;)</code></
 </p>
 <div id="workflowr-sessioninfo" class="collapse">
 <pre class="r"><code>sessionInfo()</code></pre>
-<pre><code>R version 4.0.2 (2020-06-22)
+<pre><code>R version 4.0.3 (2020-10-10)
 Platform: x86_64-pc-linux-gnu (64-bit)
-Running under: Ubuntu 20.04 LTS
+Running under: Ubuntu 20.04.1 LTS
 
 Matrix products: default
-BLAS/LAPACK: /usr/lib/x86_64-linux-gnu/openblas-openmp/libopenblasp-r0.3.8.so
+BLAS/LAPACK: /usr/lib/x86_64-linux-gnu/openblas-pthread/libopenblasp-r0.3.8.so
 
 locale:
  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
@@ -763,41 +735,40 @@ attached base packages:
 [8] methods   base     
 
 other attached packages:
- [1] cytomapper_1.1.2            SingleCellExperiment_1.11.7
- [3] SummarizedExperiment_1.19.6 DelayedArray_0.15.8        
- [5] matrixStats_0.56.0          Matrix_1.2-18              
- [7] Biobase_2.49.1              GenomicRanges_1.41.6       
- [9] GenomeInfoDb_1.25.11        IRanges_2.23.10            
-[11] S4Vectors_0.27.13           BiocGenerics_0.35.4        
-[13] EBImage_4.31.0              workflowr_1.6.2            
+ [1] dplyr_1.0.2                 cytomapper_1.2.0           
+ [3] SingleCellExperiment_1.12.0 SummarizedExperiment_1.20.0
+ [5] Biobase_2.50.0              GenomicRanges_1.42.0       
+ [7] GenomeInfoDb_1.26.0         IRanges_2.24.0             
+ [9] S4Vectors_0.28.0            BiocGenerics_0.36.0        
+[11] MatrixGenerics_1.2.0        matrixStats_0.57.0         
+[13] EBImage_4.32.0              workflowr_1.6.2            
 
 loaded via a namespace (and not attached):
  [1] viridis_0.5.1          viridisLite_0.3.0      svgPanZoom_0.3.4      
- [4] shiny_1.5.0            sp_1.4-2               GenomeInfoDbData_1.2.3
- [7] vipor_0.4.5            tiff_0.1-5             yaml_2.2.1            
-[10] gdtools_0.2.2          pillar_1.4.6           backports_1.1.10      
-[13] lattice_0.20-41        glue_1.4.2             digest_0.6.25         
-[16] RColorBrewer_1.1-2     promises_1.1.1         XVector_0.29.3        
-[19] colorspace_1.4-1       htmltools_0.5.0        httpuv_1.5.4          
-[22] pkgconfig_2.0.3        raster_3.3-13          zlibbioc_1.35.0       
-[25] purrr_0.3.4            xtable_1.8-4           fftwtools_0.9-8       
+ [4] shiny_1.5.0            sp_1.4-4               GenomeInfoDbData_1.2.4
+ [7] vipor_0.4.5            tiff_0.1-6             yaml_2.2.1            
+[10] gdtools_0.2.2          pillar_1.4.6           lattice_0.20-41       
+[13] glue_1.4.2             digest_0.6.27          RColorBrewer_1.1-2    
+[16] promises_1.1.1         XVector_0.30.0         colorspace_2.0-0      
+[19] htmltools_0.5.0        httpuv_1.5.4           Matrix_1.2-18         
+[22] pkgconfig_2.0.3        raster_3.4-5           zlibbioc_1.36.0       
+[25] purrr_0.3.4            xtable_1.8-4           fftwtools_0.9-9       
 [28] scales_1.1.1           svglite_1.2.3.2        whisker_0.4           
-[31] jpeg_0.1-8.1           later_1.1.0.1          cpp11_0.2.1           
-[34] git2r_0.27.1           tibble_3.0.3           generics_0.0.2        
-[37] ggplot2_3.3.2          ellipsis_0.3.1         magrittr_1.5          
-[40] crayon_1.3.4           mime_0.9               evaluate_0.14         
-[43] fs_1.5.0               beeswarm_0.2.3         shinydashboard_0.7.1  
-[46] tools_4.0.2            lifecycle_0.2.0        stringr_1.4.0         
-[49] munsell_0.5.0          locfit_1.5-9.4         compiler_4.0.2        
-[52] systemfonts_0.3.1      rlang_0.4.7            grid_4.0.2            
-[55] RCurl_1.98-1.2         rstudioapi_0.11        htmlwidgets_1.5.1     
-[58] bitops_1.0-6           rmarkdown_2.3          gtable_0.3.0          
-[61] codetools_0.2-16       abind_1.4-5            R6_2.4.1              
-[64] gridExtra_2.3          knitr_1.29             dplyr_1.0.2           
-[67] fastmap_1.0.1          rprojroot_1.3-2        stringi_1.5.3         
-[70] ggbeeswarm_0.6.0       Rcpp_1.0.5             vctrs_0.3.4           
-[73] png_0.1-7              tidyselect_1.1.0       xfun_0.17             </code></pre>
-</div>
+[31] jpeg_0.1-8.1           later_1.1.0.1          git2r_0.27.1          
+[34] tibble_3.0.4           generics_0.1.0         ggplot2_3.3.2         
+[37] ellipsis_0.3.1         magrittr_2.0.1         crayon_1.3.4          
+[40] mime_0.9               evaluate_0.14          fs_1.5.0              
+[43] beeswarm_0.2.3         shinydashboard_0.7.1   tools_4.0.3           
+[46] lifecycle_0.2.0        stringr_1.4.0          munsell_0.5.0         
+[49] locfit_1.5-9.4         DelayedArray_0.16.0    compiler_4.0.3        
+[52] systemfonts_0.3.2      rlang_0.4.8            grid_4.0.3            
+[55] RCurl_1.98-1.2         rstudioapi_0.13        htmlwidgets_1.5.2     
+[58] bitops_1.0-6           rmarkdown_2.5          gtable_0.3.0          
+[61] codetools_0.2-18       abind_1.4-5            R6_2.5.0              
+[64] gridExtra_2.3          knitr_1.30             fastmap_1.0.1         
+[67] rprojroot_2.0.2        stringi_1.5.3          ggbeeswarm_0.6.0      
+[70] Rcpp_1.0.5             vctrs_0.3.5            png_0.1-7             
+[73] tidyselect_1.1.0       xfun_0.19             </code></pre>
 </div>
 
 
@@ -823,7 +794,7 @@ footer is added to webpages before the MathJax javascript. -->
 
 // add bootstrap table styles to pandoc tables
 function bootstrapStylePandocTables() {
-  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
 }
 $(document).ready(function () {
   bootstrapStylePandocTables();
