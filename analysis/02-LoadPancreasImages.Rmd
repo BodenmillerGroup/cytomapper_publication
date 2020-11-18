@@ -38,7 +38,7 @@ images <- loadImages("data/PancreasData/", pattern="_full_clean.tiff")
 images
 ```
 
-We also download the associated segemntation masks and read them into a `CytoImageList` object.
+We also download the associated segmentation masks and read them into a `CytoImageList` object.
 
 ```{r load-masks}
 # Download the zipped folder masks and unzip it
@@ -109,7 +109,7 @@ mcols(masks)$ImageName <- gsub("_a0_full_mask", "", names(masks))
 
 We downloaded the full set of segmentation masks.
 To match the segmentation masks to the corresponding images, we will subset them.
-As a safty check, we will make sure that the `ImageName`s of the masks are identical to those of the images.
+As a safety check, we will make sure that the `ImageName`s of the masks are identical to those of the images.
 
 ```{r subset-masks}
 masks <- masks[mcols(masks)$ImageName %in% mcols(images)$ImageName]
@@ -139,7 +139,7 @@ saveRDS(masks, "data/PancreasData/pancreas_masks.rds")
 
 # Clean up
 
-We will delete all unecessary files.
+We will delete all unnecessary files.
 
 ```{r clean-up, message = FALSE}
 file.remove("data/PancreasData/panel.csv", "data/PancreasData/ChannelMass.csv")
