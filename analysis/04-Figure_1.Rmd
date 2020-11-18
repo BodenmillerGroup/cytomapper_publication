@@ -103,7 +103,7 @@ plotPixels(image = pancreasImages[3], object = pancreasSCE,
 This script reproduces the analysis performed in Figure 1 C-D.
 Here, we will load the libraries required for data analysis:
 
-```{r load-libraries, message=FALSE}
+```{r, message=FALSE}
 library(dplyr)
 ```
 
@@ -115,7 +115,7 @@ The pre-processing scripts have generated the following files in the `data/Pancr
 
 Here, we will load all relevant libraries and read in the data.
 
-```{r read-in-data, message=FALSE}
+```{r, message=FALSE}
 sce <- readRDS("data/PancreasData/pancreas_sce.rds")
 images <- readRDS("data/PancreasData/pancreas_images.rds")
 masks <- readRDS("data/PancreasData/pancreas_masks.rds")
