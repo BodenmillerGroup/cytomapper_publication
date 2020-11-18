@@ -102,3 +102,6 @@ Specifically, the following files are used in the current analysis:
 - `Donors`: Pancreas donors metadata.
 - `Panel`: Antibody panel.
 - `ChannelMass`: File used to match channels (stack slices) and metals (antibodies).
+
+Furthermore, the presented data has been deposited on `ExperimentHub` an can be accessed using the [imcdatasets](https://www.bioconductor.org/packages/devel/bioc/html/imcdatasets.html) package.
+More details can be found in the [03-DataAccess](../master/analysis/03-DataAccess.Rmd) script.

@@ -11,20 +11,20 @@ navbar:
       href: 01-LoadPancreasData.html
     - text: Load Pancreas Images
       href: 02-LoadPancreasImages.html
+    - text: Access Pancreas data
+      href: 03-DataAccess.html
   - text: Figures
     menu:
     - text: Figure 1
-      href: 03-Figure_1.html
-    - text: Figure 2
-      href: 03-Figure_2.html
-    - text: Figure 3
-      href: 03-Figure_3.html
-    - text: Figure 4
-      href: 03-Figure_4.html
-    - text: Figure 5
-      href: 03-Figure_5.html
+      href: 04-Figure_1.html
+    - text: Figure S1
+      href: 04-Figure_S1.html
+    - text: Figure S2
+      href: 04-Figure_S2.html
+    - text: Figure S3
+      href: 04-Figure_S3.html
   - text: cytomapperShiny
-    href: 04-cytomapperShiny.html
+    href: 04-Figure_S4_cytomapperShiny.html
   right:
     - icon: fa-github fa-lg
       href: https://github.com/BodenmillerGroup/cytomapper_publication

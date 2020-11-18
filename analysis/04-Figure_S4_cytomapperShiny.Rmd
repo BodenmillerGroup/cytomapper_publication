@@ -1,5 +1,5 @@
 ---
-title: "Running cytomapper shiny"
+title: "Running cytomapper shiny and supplementary figure 4"
 author: "Nils Eling and Tobias Hoch"
 date: "`r Sys.Date()`"
 output: workflowr::wflow_html

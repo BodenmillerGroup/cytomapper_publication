@@ -1,5 +1,5 @@
 ---
-title: "Figure 4"
+title: "Supplementary Figure 2"
 author: "Nils Eling and Nicolas Damond"
 date: "`r Sys.Date()`"
 output: workflowr::wflow_html
