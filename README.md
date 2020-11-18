@@ -96,6 +96,7 @@ Specifically, the following files are used in the current analysis:
 For more information, please refer to the [data](data) folder.
 
 Furthermore, the presented data has been deposited on `ExperimentHub` an can be accessed using the [imcdatasets](https://www.bioconductor.org/packages/devel/bioc/html/imcdatasets.html) package.
+More details can be found in the [03-DataAccess](../master/analysis/03-DataAccess.Rmd) script.
 
 ## Citation
 
