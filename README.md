@@ -13,13 +13,13 @@ Please follow these steps to set-up and run the analysis presented in this repos
 2. Pull the [docker image](https://hub.docker.com/repository/docker/nilseling/bioconductor_cytomapper/tags?page=1)
 
 ```
-docker pull nilseling/bioconductor_cytomapper:0.0.2
+docker pull nilseling/bioconductor_cytomapper:0.0.3
 ```
 
 3. Run the docker image
 
 ```
-docker run -e PASSWORD=bioc -p 8787:8787 nilseling/bioconductor_cytomapper:0.0.2
+docker run -e PASSWORD=bioc -p 8787:8787 nilseling/bioconductor_cytomapper:0.0.3
 ```
 
 Here, the set `PASSWORD` is bioc. This will be used to login to RStudio later.
@@ -40,6 +40,13 @@ The following steps will guide you through running the analsysis:
 Further instructions can be found in the individual scripts.
 
 ## Installing `cytomapper`
+
+The `cytomapper` version for the Bioinformatics publication can be installed via:
+
+```r
+install.packages(c("devtools", "workflowr", "tidyverse"))
+devtools::install_github("BodenmillerGroup/cytomapper", ref = "RELEASE_3_12")
+```
 
 The `cytomapper` version used for the bioRxiv submission can be installed via:
 
@@ -64,7 +71,7 @@ The Bioconductor development version of `cytomapper` can be installed via:
 if (!requireNamespace("BiocManager", quietly = TRUE))
     install.packages("BiocManager")
 
-BiocManager::install(version = "3.12", update = TRUE, ask = FALSE)
+BiocManager::install(version = "devel", update = TRUE, ask = FALSE)
 
 BiocManager::install(c("cytomapper", "workflowr", "tidyverse"))
 ```
@@ -87,6 +94,8 @@ Specifically, the following files are used in the current analysis:
 - `ChannelMass`: File used to match channels (stack slices) and metals (antibodies).
 
 For more information, please refer to the [data](data) folder.
+
+Furthermore, the presented data has been deposited on `ExperimentHub` an can be accessed using the [imcdatasets](https://www.bioconductor.org/packages/devel/bioc/html/imcdatasets.html) package.
 
 ## Citation
 

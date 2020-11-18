@@ -1,5 +1,5 @@
 ---
-title: "Running cytomapper shiny"
+title: "Running cytomapper shiny and Supplementary Figure 4"
 author: "Nils Eling and Tobias Hoch"
 date: "`r Sys.Date()`"
 output: workflowr::wflow_html
@@ -13,6 +13,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 This script offers an example on how to run the `cytomapperShiny` function to gate and visualize cells on images.
 For more information, please refer to `?cytomapperShiny` and the `Help` section within the Shiny app. 
+We have taken screenshots from this shiny app to generate Supplementary Figure 4.
 
 Here, we will read in the previously generated data objects and directly pass them into the `cytomapperShiny` function.
 
@@ -26,7 +27,7 @@ images <- readRDS("data/PancreasData/pancreas_images.rds")
 
 ## Classic hierarchical gating
 
-When not supplying a segmentation mask or multi-channel image object, the `cytomapperShiny` function can be used to perform classic hierarchical gating similar to FlowJo on cell-specific expression values:
+When not supplying a segmentation mask or multi-channel image object, the `cytomapperShiny` function can be used to perform classic hierarchical gating similar to `FlowJo` on cell-specific expression values:
 
 ```{r cytomapperShiny-1}
 if (interactive()) {

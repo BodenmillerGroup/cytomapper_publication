@@ -1,5 +1,5 @@
 ---
-title: "Figure 2"
+title: "Figure 1"
 author: "Nils Eling and Nicolas Damond"
 date: "`r Sys.Date()`"
 output: workflowr::wflow_html
@@ -11,16 +11,103 @@ editor_options:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-This script reproduces the analysis performed in Figure 2.
+This script reproduces all images contained in Figure 1.
+Here, we will load the libraries required for data analysis:
+
+```{r load-libraries, message=FALSE}
+library(cytomapper)
+```
+
+## Figure 1 A-B
+
+In the first part, we will solely display the example data shipped with `cytomapper`.
+They can be read in using the `data` function.
+
+```{r load-example-data}
+data("pancreasSCE")
+data("pancreasImages")
+data("pancreasMasks")
+```
+
+We will save the segmentation masks and single-channel images for image 1 and 3 for display purposes.
+
+```{r Fig-1AB-1}
+plotCells(pancreasMasks[1], legend = NULL, image_title = NULL, 
+          scale_bar = NULL, interpolate = FALSE, 
+          save_plot = list(filename = "docs/final_figures/main/Fig_1A_mask1.png"))
+plotCells(pancreasMasks[3], legend = NULL, image_title = NULL, 
+          scale_bar = NULL, interpolate = FALSE, 
+          save_plot = list(filename = "docs/final_figures/main/Fig_1A_mask2.png"))
+
+for(i in 1:5){
+  cur_col <- list(c("black", "white"))
+  names(cur_col) <- channelNames(pancreasImages)[i]
+  
+  cur_bcg <- list(c(0,3,1))
+  names(cur_bcg) <- channelNames(pancreasImages)[i]
+  
+  plotPixels(pancreasImages[1], legend = NULL, image_title = NULL, 
+          scale_bar = NULL, interpolate = FALSE, colour_by = channelNames(pancreasImages)[i],
+          colour = cur_col, bcg = cur_bcg,
+          save_plot = list(filename = paste0("docs/final_figures/main/Fig_1B_img1_ch", 
+                                             i, ".png")))
+  
+  plotPixels(pancreasImages[3], legend = NULL, image_title = NULL, 
+          scale_bar = NULL, interpolate = FALSE, colour_by = channelNames(pancreasImages)[i],
+          colour = cur_col, bcg = cur_bcg,
+          save_plot = list(filename = paste0("docs/final_figures/main/Fig_1B_img2_ch", 
+                                             i, ".png")))
+}
+```
+
+We will next visualize the example cell-types on the segmentation masks and the composite images of 5 colours.
+
+```{r Fig-1AB-2}
+plotCells(mask = pancreasMasks[1], object = pancreasSCE, img_id = "ImageNb", 
+          cell_id = "CellNb", colour_by = "CellType",  
+          legend = NULL,  image_title = NULL, scale_bar = list(label = "", lwidth = 5),
+          save_plot = list(filename = "docs/final_figures/main/Fig_1A_celltype1.png",
+                           scale = 10))
+plotCells(mask = pancreasMasks[3], object = pancreasSCE, img_id = "ImageNb", 
+          cell_id = "CellNb", colour_by = "CellType", 
+          legend = NULL,  image_title = NULL, scale_bar = list(label = "", lwidth = 5),
+          save_plot = list(filename = "docs/final_figures/main/Fig_1A_celltype2.png",
+                           scale = 10))
+
+plotPixels(image = pancreasImages[1], object = pancreasSCE,
+           img_id = "ImageNb", cell_id = "CellNb", 
+           legend = NULL,  image_title = NULL, scale_bar = list(label = "", lwidth = 5),
+           colour_by = c("CD99", "PIN", "H3", "CD8a", "CDH"),
+           bcg = list(H3 = c(0, 4, 1),
+                      CD99 = c(0, 3, 1),
+                      PIN = c(0, 5, 1),
+                      CD8a = c(0, 5, 1),
+                      CDH = c(0, 2, 1)),
+           save_plot = list(filename = "docs/final_figures/main/Fig_1B_composite1.png",
+                           scale = 10))
+plotPixels(image = pancreasImages[3], object = pancreasSCE,
+           legend = NULL,  image_title = NULL, scale_bar = list(label = "", lwidth = 5),
+           img_id = "ImageNb", cell_id = "CellNb", 
+           colour_by = c("CD99", "PIN", "H3", "CD8a", "CDH"),
+           bcg = list(H3 = c(0, 1.5, 1),
+                      CD99 = c(0, 3, 1),
+                      PIN = c(0, 1, 1),
+                      CD8a = c(0, 4, 1),
+                      CDH = c(0, 2, 1)),
+           save_plot = list(filename = "docs/final_figures/main/Fig_1B_composite2.png",
+                           scale = 10))
+```
+
+## Figure 1 C-D
+
+This script reproduces the analysis performed in Figure 1 C-D.
 Here, we will load the libraries required for data analysis:
 
 ```{r load-libraries, message=FALSE}
 library(dplyr)
-library(SingleCellExperiment)
-library(cytomapper)
 ```
 
-The previous scripts have generated the following files in the `data/PancreasData` folder:
+The pre-processing scripts have generated the following files in the `data/PancreasData` folder:
 
 1. A `SingleCellExperiment` object containing the cell- and marker-specific expression and metadata.
 2. A `CytoImageList` object containing 100 example images of 3 donors, where each image contains 38 channels
@@ -67,11 +154,11 @@ cur_masks <- masks[mcols(masks)$ImageName %in% selected.images]
 
 To visualize association between islet and T cells, we will use the `plotCells` function and display beta and T cells on the three images selected above.  
 
-The different cell types will be coloured as following: Tc cells in red, Th cells in blue, beta cells in yellow, the other islet cells (alpha, delta) in cyan and the rest of the cells in black.
+The different cell types will be coloured as following: `Tc` cells in red, `Th` cells in blue, `beta` cells in yellow, the other islet cells (`alpha`, `delta`) in cyan and the rest of the cells in white
 
 To display only a selected number of cells, the `SingleCellExperiment` can be subsetted.
 
-```{r plotCells}
+```{r Fig1-C}
 cur_sce <- cur_sce[,cur_sce$CellType %in% c("beta", "alpha", "delta", "Tc", "Th")]
 
 # Define the colors for the different cell types
@@ -115,7 +202,7 @@ plotCells(mask = cur_masks,
                            colour = "black"),
           missing_colour = "white",
           background_colour = "gray", 
-          save_plot = list(filename = "docs/final_figures/main/Fig_2A.png", scale = 3))
+          save_plot = list(filename = "docs/final_figures/main/Fig_1C.png", scale = 3))
 ```
 
 We now see that T cells are located closer to the islet on the "Recent onset T1D" image. 
@@ -124,7 +211,7 @@ In addition, no beta cells are visible on the "Long duration T1D" image, as expe
 We will now confirm that this is reflected on the original images by plotting the pixel-level data with the `plotPixels` function. 
 CD4 (`CD4` expressed by Th cells) will be plotted in blue, CD8 (`CD8a`, Tc cells) in red and proinsulin (`PIN`, beta cells) in yellow.
 
-```{r plotPixels}
+```{r Fig1-D}
 plotPixels(image = cur_images,
            cell_id = "CellNumber",
            img_id = "ImageName",
@@ -161,9 +248,10 @@ plotPixels(image = cur_images,
                                        "Long duration T1D")),
            scale_bar = list(length = 100,
                             label = expression("100 " ~ mu * "m")),
-           save_plot = list(filename = "docs/final_figures/main/Fig_2C.png", scale = 3))
+           save_plot = list(filename = "docs/final_figures/main/Fig_1D.png", scale = 3))
 ```
 
 This plot confirms that beta cells are surrounded by infiltrating T cells on the "Recent onset T1D" image. 
 In addition, proinsulin abundance seems to be reduced on that image as compared to the "Non-diabetic" control image. 
-This observation can be further explored by performing additional data analysis.
+This observation can be further explored by performing additional data analysis (see next figures).
+

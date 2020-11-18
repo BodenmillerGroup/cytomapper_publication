@@ -1,0 +1,33 @@
+---
+title: "Access data from disk or online"
+author: "Nicolas Damond and Nils Eling"
+date: "`r Sys.Date()`"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+The data needed to reproduce the presented analysis, but also to fully use the `cytomapper` package can now be read in from the `data/PancreasData` folder using the `readRDS` command:
+
+```{r read-data-from-disk, eval = FALSE}
+library(cytomapper)
+
+sce <- readRDS("data/PancreasData/pancreas_sce.rds")
+masks <- readRDS("data/PancreasData/pancreas_masks.rds")
+images <- readRDS("data/PancreasData/pancreas_images.rds")
+```
+
+We also provide the data in the [imcdatasets](https://www.bioconductor.org/packages/devel/bioc/html/imcdatasets.html) package, which is currently under review.
+Using `imcdatasets`, the pancreas dataset can be accessed as follows:
+
+```{r read-data-from-eh, eval = FALSE}
+library(imcdatasets)
+
+sce <- DamondPancreas2019Data(data_type = "sce")
+masks <- DamondPancreas2019Data(data_type = "masks")
+images <- DamondPancreas2019Data(data_type = "images")
+```

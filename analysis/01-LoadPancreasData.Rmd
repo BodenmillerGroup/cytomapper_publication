@@ -209,7 +209,7 @@ cur_counts <- cur_counts[, order(channelNumber, decreasing = FALSE)]
 # Create the SingleCellExperiment object
 
 We have now obtained all metadata and feature data to create the `SingleCellExperiment` object.
-We will first create is based on the raw expression counts.
+We will first create it is based on the raw expression counts.
 
 ```{r create-SCE}
 sce <- SingleCellExperiment(assays = list(counts = t(as.matrix(cur_counts))))
