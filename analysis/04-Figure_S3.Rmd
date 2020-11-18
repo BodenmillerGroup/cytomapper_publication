@@ -11,7 +11,7 @@ editor_options:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-This script reproduces the analysis performed in Figure 5.
+This script reproduces the analysis performed in Supplementary Figure 3.
 Here, we will load the libraries and data for this figure:
 
 ```{r load-libraries-and-data, message=FALSE}
@@ -29,7 +29,7 @@ This analysis will visually confirm cell-type phenotyping and segmentation resul
 We will first select images with a high count of CD4 and CD8 T cells.
 
 ```{r select-Tcells}
-# Select the image with the higest T cell density
+# Select the image with the highest T cell density
 selected_images <- as_tibble(colData(sce)) %>% 
   # Calculate for each image the area, number of T cells and T cell density
   group_by(ImageName) %>%
@@ -86,7 +86,7 @@ plotPixels(image = cur_images,
                             margin = c(20, 20)),
            legend = list(colour_by.title.cex = 1.5,
                          margin = 50),
-           save_plot = list(filename = "docs/final_figures/main/Fig_5A.png", scale = 3))
+           save_plot = list(filename = "docs/final_figures/supplements/Fig_S3A.png", scale = 3))
 
 cur_sce <- sce[,sce$CellType == "Tc"]
 
@@ -126,14 +126,14 @@ plotPixels(image = cur_images,
                             margin = c(20, 20)),
            legend = list(colour_by.title.cex = 1.5,
                          margin = 50),
-           save_plot = list(filename = "docs/final_figures/main/Fig_5B.png", scale = 3))
+           save_plot = list(filename = "docs/final_figures/supplemets/Fig_S3B.png", scale = 3))
 ```
 
 As a second example, we will select images with high alpha and beta cell count and perform a similar analysis as above.
 Due to the loss of beta cells, we will only select images of healthy patients.
 
 ```{r select-islet-cells}
-# Select the three images with the higest alpha and beta cell density
+# Select the three images with the highest alpha and beta cell density
 selected_images <- as_tibble(colData(sce)) %>% 
   filter(stage == "Non-diabetic") %>%
   group_by(ImageName) %>%
@@ -195,7 +195,7 @@ plotPixels(image = cur_images,
                             margin = c(40, 40)),
            legend = list(colour_by.title.cex = 1.5,
                          margin = 50),
-           save_plot = list(filename = "docs/final_figures/main/Fig_5C.png", scale = 3))
+           save_plot = list(filename = "docs/final_figures/supplements/Fig_S3C.png", scale = 3))
 
 cur_sce <- sce[,sce$CellType == "beta"]
 
@@ -235,5 +235,5 @@ plotPixels(image = cur_images,
                             margin = c(40, 40)),
            legend = list(colour_by.title.cex = 1.5,
                          margin = 50),
-           save_plot = list(filename = "docs/final_figures/main/Fig_5D.png", scale = 3))
+           save_plot = list(filename = "docs/final_figures/supplements/Fig_S3D.png", scale = 3))
 ```

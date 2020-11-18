@@ -11,7 +11,7 @@ editor_options:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-This script reproduces the analysis performed in Figure 3.
+This script reproduces the analysis performed in Supplementary Figure 1.
 Here, we will load the libraries and data for this figure:
 
 ```{r load-libraries-and-data, message=FALSE}
@@ -38,7 +38,7 @@ cur_summary <- as_tibble(colData(sce)) %>%
 ```
 
 Next, we will plot the cell-types on images after reordering them by beta cell fraction.
-We will further subset the SingleCellExperiment object to only contain iselt cells.
+We will further subset the `SingleCellExperiment` object to only contain islet cells.
 
 ```{r plotCellTypes}
 cur_sce <- sce[,sce$CellCat == "islet"]
@@ -85,7 +85,7 @@ plotCells(mask = masks[cur_order],
           image_title = list(text = paste(cur_summary$ImageName, "-",
                                           cur_summary$Stage),
                              colour = "black"),
-          save_plot = list(filename = "docs/final_figures/main/Fig_3.png"))
+          save_plot = list(filename = "docs/final_figures/supplements/Fig_3.png"))
 ```
 
 Here, we see the progressive decline in beta cell fractions. 

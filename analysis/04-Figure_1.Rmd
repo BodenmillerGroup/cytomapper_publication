@@ -202,7 +202,7 @@ plotCells(mask = cur_masks,
                            colour = "black"),
           missing_colour = "white",
           background_colour = "gray", 
-          save_plot = list(filename = "docs/final_figures/main/Fig_2A.png", scale = 3))
+          save_plot = list(filename = "docs/final_figures/main/Fig_1C.png", scale = 3))
 ```
 
 We now see that T cells are located closer to the islet on the "Recent onset T1D" image. 
@@ -248,7 +248,7 @@ plotPixels(image = cur_images,
                                        "Long duration T1D")),
            scale_bar = list(length = 100,
                             label = expression("100 " ~ mu * "m")),
-           save_plot = list(filename = "docs/final_figures/main/Fig_2C.png", scale = 3))
+           save_plot = list(filename = "docs/final_figures/main/Fig_1D.png", scale = 3))
 ```
 
 This plot confirms that beta cells are surrounded by infiltrating T cells on the "Recent onset T1D" image. 

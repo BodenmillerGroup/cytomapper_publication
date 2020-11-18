@@ -11,7 +11,7 @@ editor_options:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-This script reproduces the analysis performed in Figure 4.
+This script reproduces the analysis performed in Supplementary Figure 2.
 Here, we will load the libraries and data for this figure:
 
 ```{r load-libraries-and-data, message=FALSE}
@@ -22,7 +22,7 @@ sce <- readRDS("data/PancreasData/pancreas_sce.rds")
 images <- readRDS("data/PancreasData/pancreas_images.rds")
 ```
 
-Similar to Figure 3, we will now order the images based on the mean intensity of all PIN positive pixels. 
+In line with Supplementary Figure 1, we will now order the images based on the mean intensity of all PIN positive pixels. 
 
 ```{r order-by-PIN-expr}
 PIN_mean <- unlist(lapply(images,
@@ -78,7 +78,7 @@ plotPixels(image = images[cur_order],
           image_title = list(text = cur_meta$stage,
                              colour = "white",
                              cex = 3),
-          save_plot = list(filename = "docs/final_figures/main/Fig_4.png"))
+          save_plot = list(filename = "docs/final_figures/supplements/Fig_S2.png"))
 ```
 
 Here, we see the progressive decline in beta cell fractions. 
