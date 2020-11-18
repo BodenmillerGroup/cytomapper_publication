@@ -20,5 +20,6 @@ COPY . /home/rstudio/cytomapper_publication
 
 RUN mkdir /home/rstudio/cytomapper_publication/docs/final_figures
 RUN mkdir /home/rstudio/cytomapper_publication/docs/final_figures/main
+RUN mkdir /home/rstudio/cytomapper_publication/docs/final_figures/supplements
 
 RUN chown rstudio -R /home/rstudio/cytomapper_publication
