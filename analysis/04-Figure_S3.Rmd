@@ -126,7 +126,7 @@ plotPixels(image = cur_images,
                             margin = c(20, 20)),
            legend = list(colour_by.title.cex = 1.5,
                          margin = 50),
-           save_plot = list(filename = "docs/final_figures/supplemets/Fig_S3B.png", scale = 3))
+           save_plot = list(filename = "docs/final_figures/supplements/Fig_S3B.png", scale = 3))
 ```
 
 As a second example, we will select images with high alpha and beta cell count and perform a similar analysis as above.
