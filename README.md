@@ -45,7 +45,7 @@ The `cytomapper` version for the Bioinformatics publication can be installed via
 
 ```r
 install.packages(c("devtools", "workflowr", "tidyverse"))
-devtools::install_github("BodenmillerGroup/cytomapper", ref = "RELEASE_3_12")
+devtools::install_github("BodenmillerGroup/cytomapper@v1.2.0")
 ```
 
 The `cytomapper` version used for the bioRxiv submission can be installed via:
