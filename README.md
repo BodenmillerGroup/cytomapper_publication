@@ -104,5 +104,5 @@ Please cite `cytomapper` as:
 
 ```
 Nils Eling, Nicolas Damond, Tobias Hoch, Bernd Bodenmiller (2020). cytomapper: an R/Bioconductor package for visualisation of highly
-  multiplexed imaging data. bioRxiv, doi: 10.1101/2020.09.08.287516
+  multiplexed imaging data. Bioinformatics, https://doi.org/10.1093/bioinformatics/btaa1061
 ```
