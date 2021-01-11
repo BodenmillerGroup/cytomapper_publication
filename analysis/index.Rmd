@@ -101,6 +101,7 @@ The example dataset used for this analysis has been published in:
 The dataset is available for download from Mendeley Data: [http://dx.doi.org/10.17632/cydmwsfztj.2](http://dx.doi.org/10.17632/cydmwsfztj.2)
 
 Specifically, the following files are used in the current analysis:
+
 - `CellSubset`: Single cell data for a subset of 100 images from the original publication.
 - `ImageSubset`: Image stacks for a subset of 100 images from the original publication.
 - `Masks`: Cell masks as TIFF files.
